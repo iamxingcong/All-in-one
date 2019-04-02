@@ -67,7 +67,9 @@ $(document).ready(function(){
 				   
 		})
 		.done(function( msg ) {
-			let rs = msg.toString();
+			 
+			let rs = msg.trim();
+			//why php 有个 空格呢，编码问题？
 			if(rs == "success"){
 				sele();
 
