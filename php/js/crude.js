@@ -13,7 +13,7 @@ $(document).ready(function(){
 
 				$.ajax({
 					  method: "POST",
-					  url: "add.php",
+					  url: "interface/add.php",
 					  data: { 'fname': fname, 'lname': lname, 'city':city }
 				})
 			  .done(function( msg ) {
@@ -35,7 +35,7 @@ $(document).ready(function(){
  	function sele(){
  			$.ajax({
 				  method: "GET",
-				  url: "select.php",
+				  url: "interface/select.php",
 				   
 			})
 			.done(function( msg ) {
@@ -62,7 +62,7 @@ $(document).ready(function(){
  		let iddel = $(this).attr("id");
  		$.ajax({
 			  method: "GET",
-			  url: "del.php",
+			  url: "interface/del.php",
 			  data: { 'user_id': iddel }
 				   
 		})
