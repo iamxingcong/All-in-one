@@ -16,7 +16,7 @@ if(mysqli_connect_errno() ){
 
  	
  	 
-	$sql = "select * from users ORDER by user_id DESC LIMIT 40";
+	$sql = "SELECT * FROM users ORDER by user_id DESC LIMIT 40";
 
 	$arr = array();
 
