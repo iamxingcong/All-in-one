@@ -1,4 +1,5 @@
 <?php
+header("content-Type: text/html; charset=utf-8");//字符编码设置  
 
 // 万一wordpress, drupal，等，安装在远程，不支持restapi, 配置需要时间，那就直接查询好了
 
