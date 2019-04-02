@@ -11,25 +11,29 @@ $(document).ready(function(){
 			return false;
 		}else{
 
-				$.ajax({
-					  method: "POST",
-					  url: "interface/add.php",
-					  data: { 'fname': fname, 'lname': lname, 'city':city }
-				})
-			  .done(function( msg ) {
-			    	 debugger;
-			    	 msg = msg.trim();
-			    	if( msg == "success"){
+			$.ajax({
+			
+				method: "POST",
+				url: "interface/add.php",
+			 	data: { 'fname': fname, 'lname': lname, 'city':city }
+				
+			})
+		  	.done(function( msg ) {
+		   	 
+		  		 msg = msg.trim();
+		    		if( msg == "success"){
 			    		 
-			    		sele();
-			    		$('input[name="fname"]').val(""); 
-						$('input[name="lname"]').val(""); 
-						$('input[name="city"]').val("");
-			    	}
-			  });
+		    			sele();
+				
+					$('input[name="fname"]').val(""); 
+					$('input[name="lname"]').val(""); 
+					$('input[name="city"]').val("");
+
+				}
+		  	});
 		}
 	   
-
+	
 	})
 
  	function sele(){
