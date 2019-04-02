@@ -43,7 +43,7 @@ $(document).ready(function(){
 			    let html = '';
 				rs.forEach(function(itm,index,ar){
 					
-					html += '<div class="cross"><span>'+ itm.user_id +'</span>'+
+					html += '<div class="cross">'+
 							'<span>'+ itm.first_name +'</span>'+
 							'<span>' + itm.last_name + '</span>'+
 							'<span>' + itm.user_city + '</span>'+
