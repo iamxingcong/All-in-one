@@ -1,4 +1,5 @@
 <?php
+
 define('DB_SERVER','localhost');
 define('DB_USER','root');
 define('DB_PASSWORD','');
@@ -13,29 +14,24 @@ if(mysqli_connect_errno() ){
      exit();
 }
 
- 	
-if(isset( $_POST['fname'])){
+ 	$user_id = $_GET['user_id'];
+ 	 
+	$sql = "DELETE FROM users WHERE user_id =".$user_id;
 
-
-	 $fname = $_POST['fname'];
-	 $lname = $_POST['lname'];
-	 $city = $_POST['city'];
-
-	
-	 $sql = "INSERT INTO users(first_name,last_name,user_city) VALUES('$fname','$lname','$city')";
-	
-
+	  
 	$res = mysqli_query($link,$sql);
+		 
+	if( $res){
+
+		 echo "success";
+
+	} else {
+		echo "failed";
+	}
+
 	 
-	  if($res){
-
- 	 	echo 'success';
- 	 	
- 	  }else{
-
- 	  	echo 'error';
- 	  }
-
-}
-
+	
+ 
+	 
+	mysqli_close($link);
 ?>

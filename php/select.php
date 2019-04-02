@@ -1,4 +1,5 @@
 <?php
+
 define('DB_SERVER','localhost');
 define('DB_USER','root');
 define('DB_PASSWORD','');
@@ -14,28 +15,22 @@ if(mysqli_connect_errno() ){
 }
 
  	
-if(isset( $_POST['fname'])){
+ 	 
+	$sql = "select * from users ORDER by user_id DESC LIMIT 40";
 
-
-	 $fname = $_POST['fname'];
-	 $lname = $_POST['lname'];
-	 $city = $_POST['city'];
-
-	
-	 $sql = "INSERT INTO users(first_name,last_name,user_city) VALUES('$fname','$lname','$city')";
-	
+	$arr = array();
 
 	$res = mysqli_query($link,$sql);
+		 
+	while( $row = mysqli_fetch_assoc($res)){
+
+		array_push( $arr, $row);
+
+	} 
+
+	echo json_encode($arr);
+	
+ 
 	 
-	  if($res){
-
- 	 	echo 'success';
- 	 	
- 	  }else{
-
- 	  	echo 'error';
- 	  }
-
-}
-
+	mysqli_close($link);
 ?>
