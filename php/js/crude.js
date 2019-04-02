@@ -17,8 +17,8 @@ $(document).ready(function(){
 					  data: { 'fname': fname, 'lname': lname, 'city':city }
 				})
 			  .done(function( msg ) {
-			    	 
-
+			    	 debugger;
+			    	 msg = msg.trim();
 			    	if( msg == "success"){
 			    		 
 			    		sele();
