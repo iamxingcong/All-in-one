@@ -14,13 +14,13 @@ class News extends  React.Component  {
 	}
 
 	componentDidMount(){
-		fetch("https://api.example.com/items")
+		fetch("http://localhost/all-in-one/All-in-one/php/interface/wordpress_post.php")
 		.then(res => res.json())
 		.then(
 			(result) => {
 			  this.setState({
 			    isLoaded: true,
-			    items: result.items
+			    items: result
 			  });
 			},
 			// 注意：需要在此处处理错误
@@ -35,24 +35,32 @@ class News extends  React.Component  {
 		)
 	}
 
+ 
 
+	render() {
+		const {error, isLoaded, items} = this.state;
+		if( error ){
+			return <div> Error: {error.message} </div>;
+		}else if( !isLoaded ){
+			return <div> 正在加载 ... </div>
+		} else {
 
+			return (
+				<div>
+					 
+						{items.map(item => (
 
+							<div key = {item.ID}>	
+								<h2>{item.post_title}</h2>
+								<div>{item.post_content}</div>
 
-
-
-
-
-
-
-
-  render() {
-    return (
-    	<div>
-    	<h1>ok,it is</h1>
-    	</div>
-    );
-   }
+							</div>
+						) )}
+					 
+				</div>
+			);
+		}
+	}
 }
 
 
