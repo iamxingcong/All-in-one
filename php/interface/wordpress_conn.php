@@ -6,8 +6,8 @@ header("content-Type: text/html; charset=utf-8");//字符编码设置
 
 define('DB_SERVER','localhost');
 define('DB_USER','root');
-define('DB_PASSWORD','password');
-define('DB_NAME','wp5');
+define('DB_PASSWORD','');
+define('DB_NAME','wordpress');
 
 
 
