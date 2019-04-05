@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import News from './News';
+import Detail from './Detail';
 
 function Index() {
  
@@ -22,7 +23,9 @@ function Users() {
 }
 
 
-
+function Ddetail(){
+  return( <div><Detail /></div>);
+}
 
 
 
@@ -43,12 +46,17 @@ class App extends Component {
             <li>
               <Link to="/users/">Users</Link>
             </li>
+          
           </ul>
         </nav>
 
         <Route path="/" exact component={Index} />
         <Route path="/about/" component={About} />
         <Route path="/users/" component={Users} />
+        <Route path="/detail/:id" component={Detail} />
+
+ 
+
       </div>
     </Router>
 

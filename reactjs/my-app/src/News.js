@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-  
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 
 
 class News extends  React.Component  {
@@ -9,12 +10,13 @@ class News extends  React.Component  {
 		this.state = {
 			error: null,
 			isLoaded: false,
-			items: []
+			items: [],
+		
 		};
 	}
 
 	componentDidMount(){
-		fetch("http://localhost/all-in-one/All-in-one/php/interface/wordpress_post.php")
+		fetch("http://localhost/a/show_clms.php")
 		.then(res => res.json())
 		.then(
 			(result) => {
@@ -35,7 +37,7 @@ class News extends  React.Component  {
 		)
 	}
 
- 
+
 
 	render() {
 		const {error, isLoaded, items} = this.state;
@@ -47,13 +49,24 @@ class News extends  React.Component  {
 
 			return (
 				<div>
+
+				
 					 
 						{items.map(item => (
 
 							<div key = {item.ID}>	
 								<h2>{item.post_title}</h2>
-								<div>{item.post_content}</div>
+								<div>{item.post_title}</div>
 
+						<Link  to={{
+						        pathname: `detail/${item.ID}`,
+						        state: {day: 'koo'}
+						        }}>点击跳转
+						</Link> 
+
+
+								<div>{  item.ID  }</div>
+								
 							</div>
 						) )}
 					 
