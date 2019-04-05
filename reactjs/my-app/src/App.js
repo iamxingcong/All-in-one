@@ -23,9 +23,6 @@ function Users() {
 }
 
 
-function Ddetail(){
-  return( <div><Detail /></div>);
-}
 
 
 
