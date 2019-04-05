@@ -60,7 +60,7 @@ class News extends  React.Component  {
 
 						<Link  to={{
 						        pathname: `detail/${item.ID}`,
-						        state: {day: 'koo'}
+						        state: {day: item.ID}
 						        }}>点击跳转
 						</Link> 
 

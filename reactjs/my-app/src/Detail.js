@@ -17,7 +17,7 @@ class Detail extends  React.Component  {
 
 	render() {
 
-		return (<span>IO{  this.props.match.params.id}</span>);
+		return (<span>IO{  this.props.match.params.id}{ this.props.location.state.day}</span>);
 
 	}
 }
