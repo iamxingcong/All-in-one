@@ -1,9 +1,17 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import News from './News';
 
 function Index() {
-  return <h2>Home</h2>;
+  
+	return(
+	      <div>
+		  <News />
+	      </div>
+      );	
+
+
 }
 
 function About() {
