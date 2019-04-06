@@ -1,8 +1,11 @@
 <?php 
+ini_set("display_errors", "On");
 
-header("content-Type: text/html; charset=utf-8");//字符编码设置  
+error_reporting(E_ALL | E_STRICT);
 
-// 万一wordpress, drupal，等，安装在远程，不支持restapi, 配置需要时间，那就直接查询好了
+header("Access-Control-Allow-Origin: *");
+header("content-Type: application/json; charset=UTF-8");//字符编码设置  
+
 
 define('DB_SERVER','localhost');
 define('DB_USER','root');
