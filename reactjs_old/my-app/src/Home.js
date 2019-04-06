@@ -56,18 +56,16 @@ class Home extends  React.Component  {
 					{items.map(item => (
 
 						<div key = {item.ID}>
-							<h2>{item.post_title}</h2>
-							<div>{item.post_title}</div>
-
-							<Link  to={{
+						<Link  
+							to={{
 								pathname: `detail/${item.ID}`,
 								state: {day: item.ID}
-								}}>点击跳转
-							</Link>
-
-
-							<div>{  item.ID  }</div>
-
+							}}
+						>
+							<h2>{item.post_title}</h2>
+						</Link>
+							<div>{item.post_content}</div>
+ 
 						</div>
 					) )}
 
