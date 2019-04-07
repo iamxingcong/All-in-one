@@ -13,7 +13,7 @@ class Home extends React.Component{
 
 	componentDidMount(){
 		fetch("http://localhost/all-in-one/All-in-one/php/interface/wordpress_post.php")
-		.then(res => res.join())
+		.then(res => res.json())
 		.then(
 			(result) => {
 				this.setState({
@@ -36,7 +36,7 @@ class Home extends React.Component{
 	render(){
 		const {error, isLoaded, items} = this.state;
 		if( error ){
-	 		return  '<h2>erorr:{error.message}</h2>';	
+	 		return  '<h2>errorr:{error.message}</h2>';	
 		} else if ( !isLoaded ){
 			return '<h1> loading.... </h1>';
 		
