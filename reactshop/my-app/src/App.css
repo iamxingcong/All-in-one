@@ -1,3 +1,8 @@
+*{
+	font-size: 1em;
+	margin: 0px;
+	padding: 0px;
+}
 .App {
   text-align: center;
 }
@@ -31,3 +36,30 @@
     transform: rotate(360deg);
   }
 }
+
+#root nav ul{
+	display: flex;
+	justify-content: center;
+}
+#root nav ul li a{
+	text-decoration: none;
+	color: #888;
+}
+#root nav ul li{
+	list-style: none;
+	
+	padding: 0px 15px;
+	line-height: 35px;
+}
+
+.container{
+	padding: 15px;
+}
+a:hover{
+ color: #000;
+}
+.paragraphs{
+	margin-bottom: 15px;
+	margin-top: 10px;
+}
+

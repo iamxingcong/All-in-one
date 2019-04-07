@@ -22,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-      <div>
+      <div className='container'>
         <nav>
           <ul>
             <li>

@@ -38,13 +38,18 @@ class Home extends React.Component{
 		if( error ){
 	 		return  '<h2>errorr:{error.message}</h2>';	
 		} else if ( !isLoaded ){
-			return '<h1> loading.... </h1>';
+			return '<h1> loading.... </h1>';	
 		
 		} else {
 		
 		 return (
-		 	<div>
-				 sfsf
+		 	<div className='contents'>
+				{items.map(item => (
+					<div className='singleContent' key={item.ID}>
+						<h1>{item.post_title}</h1>
+						<div className='paragraphs'>{item.post_content}</div>
+					</div>
+				))}
 	
 	
 		 	</div>
