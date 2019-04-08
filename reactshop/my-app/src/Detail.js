@@ -11,8 +11,7 @@ class Detail extends React.Component{
 		return (
 				<div>
 					{this.props.match.params.id}
-					 
-					 
+	 
 				</div>
 			);
 	}
