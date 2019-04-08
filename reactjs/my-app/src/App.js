@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import News from './News';
 import Detail from './Detail';
+import About from  './About';
 
 function Index() {
  
@@ -14,8 +15,8 @@ function Index() {
  
 }
 
-function About() {
-  return <h2>About</h2>;
+function Aabout() {
+  return (<About />);
 }
 
 function Users() {
@@ -41,7 +42,7 @@ class App extends Component {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/about/">About</Link>
+              <Link to="/about/">Aabout</Link>
             </li>
             <li>
               <Link to="/users/">Users</Link>

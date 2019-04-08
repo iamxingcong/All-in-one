@@ -1,6 +1,6 @@
 <?php 
 header('Access-Control-Allow-Origin: *');
-header("content-Type: application/json; charset=utf-8");//字符编码设置  
+header("content-Type: application/json; charset=utf8");//字符编码设置  
 
 // 万一wordpress, drupal，等，安装在远程，不支持restapi, 配置需要时间，那就直接查询好了
 

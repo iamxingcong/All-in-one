@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 
 
-class News extends  React.Component  {
+class About extends  React.Component  {
 
 	constructor(props){
 		super(props);
@@ -16,7 +16,7 @@ class News extends  React.Component  {
 	}
 
 	componentDidMount(){
-		fetch("http://localhost/all-in-one/All-in-one/php/interface/wordpress_post.php")
+		fetch("http://localhost/all-in-one/All-in-one/php/interface/drupal7_post.php")
 		.then(res => res.json())
 		.then(
 			(result) => {
@@ -52,16 +52,10 @@ class News extends  React.Component  {
  
 			          {items.map(item => (
 
-			            <div  className='single' key={item.ID}   id={item.ID}>
-			               	 <Link to={{
-			               	 	pathname: `/detail/${item.ID}`,
-			               	 	state: {productId: item.ID}
+			            <div  className='single' key={item.entity_id}   id={item.entity_id}>
+			               	  
+					            <span>{item.body_value}</span>  
 
-			               	 	}}> 
-					               <span>{item.post_title}</span>  
-					               <span>{item.post_date}</span>
-					               
-			               	 </Link>
 			            </div>
 			          ))}
  
@@ -73,4 +67,4 @@ class News extends  React.Component  {
 
  
 
-export default News;
+export default About;
