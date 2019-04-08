@@ -46,7 +46,10 @@ class Detail extends  React.Component  {
 		 
 
 		const {error, isLoaded, items} = this.state;
-		  
+		const ok = items.post_content ;
+		 
+		 
+		 
 
 		if( error ){
 			return <div> Error: {error.message} </div>;
@@ -63,7 +66,7 @@ class Detail extends  React.Component  {
 						{items.post_title}
 					</h1>
 					<div className='post'>
-						{ items.post_content }
+						{   ok.replace(/wp:paragraph/g, "")    }
 					</div>
 				</div>
 			);

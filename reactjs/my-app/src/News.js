@@ -48,29 +48,23 @@ class News extends  React.Component  {
 		} else {
 
 			return (
-				<div>
- 					 
+				<div className='content'>
+ 
+			          {items.map(item => (
 
-		         
-				          {items.map(item => (
+			            <div  className='single' key={item.ID}   id={item.ID}>
+			               	 <Link to={{
+			               	 	pathname: `/detail/${item.ID}`,
+			               	 	state: {productId: item.ID}
 
-				            <div  className='single' key={item.ID}   id={item.ID}>
-				               	 <Link to={{
-				               	 	pathname: `/detail/${item.ID}`,
-				               	 	state: {productId: item.ID}
-
-				               	 	}}> 
-						               <span>{item.post_title}</span>  
-						               <span>{item.post_date}</span>
-						               
-				               	 </Link>
-				            </div>
-				          ))}
-				         
-					 
-             		 
-					  
-					 
+			               	 	}}> 
+					               <span>{item.post_title}</span>  
+					               <span>{item.post_date}</span>
+					               
+			               	 </Link>
+			            </div>
+			          ))}
+ 
 				</div>
 			);
 		}
