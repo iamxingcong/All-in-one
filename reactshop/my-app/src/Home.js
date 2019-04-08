@@ -46,7 +46,14 @@ class Home extends React.Component{
 		 	<div className='contents'>
 				{items.map(item => (
 					<div className='singleContent' key={item.ID}>
-						<h1>{item.post_title}</h1>
+						<Link 
+							to={{
+								pathname:`/detail/${item.ID}`
+							}}
+						>	
+							<h1>{item.post_title}</h1>
+						</Link>
+
 						<div className='paragraphs'>{item.post_content}</div>
 					</div>
 				))}
