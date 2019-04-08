@@ -1,11 +1,25 @@
 
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+<<<<<<< HEAD
 import Home from './Home';
 import Detail from './Detail';
 
 function Index() {
   return <Home />;
+=======
+import News from './News';
+
+function Index() {
+  
+	return(
+	      <div>
+		  <News />
+	      </div>
+      );	
+
+
+>>>>>>> master
 }
 
 function About() {
