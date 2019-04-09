@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
  
 //查询出所有数据
 app.get('/api/wp_posts', (req, res) => {
-	const sqlStr = 'select * from wp_posts '
+	const sqlStr = 'SELECT  * FROM wp_posts  WHERE post_status ="publish"'
 	conn.query(sqlStr, (err, results) => {
 		if (err) return res.json({
 			err_code: 1,
