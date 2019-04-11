@@ -43,7 +43,8 @@ $(document).ready(function(){
 				   
 			})
 			.done(function( msg ) {
-			    let rs = JSON.parse(msg);
+				debugger;
+			    let rs = msg;
 			    let html = '';
 				rs.forEach(function(itm,index,ar){
 					

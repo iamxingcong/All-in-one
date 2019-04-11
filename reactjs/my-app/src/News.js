@@ -16,7 +16,7 @@ class News extends  React.Component  {
 	}
 
 	componentDidMount(){
-		fetch("http://localhost/a/show_clms.php")
+		fetch("http://localhost/all-in-one/All-in-one/php/interface/wordpress_post.php")
 		.then(res => res.json())
 		.then(
 			(result) => {
@@ -48,39 +48,29 @@ class News extends  React.Component  {
 		} else {
 
 			return (
-				<div>
+				<div className='content'>
+ 
+			          {items.map(item => (
 
-				
-					 
-						{items.map(item => (
+			            <div  className='single' key={item.ID}   id={item.ID}>
+			               	 <Link to={{
+			               	 	pathname: `/detail/${item.ID}`,
+			               	 	state: {productId: item.ID}
 
-							<div key = {item.ID}>	
-								<h2>{item.post_title}</h2>
-								<div>{item.post_title}</div>
-
-						<Link  to={{
-						        pathname: `detail/${item.ID}`,
-						        state: {day: item.ID}
-						        }}>点击跳转
-						</Link> 
-
-
-								<div>{  item.ID  }</div>
-								
-							</div>
-						) )}
-					 
+			               	 	}}> 
+					               <span>{item.post_title}</span>  
+					               <span>{item.post_date}</span>
+					               
+			               	 </Link>
+			            </div>
+			          ))}
+ 
 				</div>
 			);
 		}
 	}
 }
 
-
-
-
-
-
-
+ 
 
 export default News;

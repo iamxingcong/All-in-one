@@ -13,7 +13,13 @@ while( $row = mysqli_fetch_assoc($res)){
 
 } 
 
-echo json_encode($arr);
+	
+$js = json_encode($arr);
+ 
+echo    $js;
+
+
+ 
 
 
  
