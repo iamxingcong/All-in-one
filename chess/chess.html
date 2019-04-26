@@ -1,0 +1,126 @@
+﻿
+<!Doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,user-scalable=no">
+    <style>
+    	.chess{
+    		position: relative;
+		    height: 80px;
+		    width: calc(12.5% - 5px);
+		    display: block;
+		    float: left;
+		    border: 1px solid #000;
+		    margin-right: 3px;
+		    margin-top: 3px;
+		    cursor: pointer;
+    	}
+    	.chess:before{
+	    	display: block;
+		    width: 100%;
+		    height: 100%;
+		    position: absolute;
+		    line-height: 80px;
+		    text-align: center;
+
+    	}
+    	.hide:before{
+    		opacity: 0;
+    	}
+    	.ju:before{
+		    content: "車";
+    	}
+    	.ma:before{
+		    content: "馬";
+    	}
+    	.xiang:before{
+		    content: "象";
+    	}
+    	.shi:before{
+		    content: "仕";
+    	}
+    	.jiang:before{
+		    content: "將";
+    	}
+    	.zou:before{
+    		content:"卒";
+    	}
+    	.pao:before{
+    		content: "炮";
+    	}
+
+		.juu:before{
+		    content: "车";
+    	}
+    	.maa:before{
+		    content: "马";
+    	}
+    	.xiangg:before{
+		    content: "相";
+    	}
+    	.shii:before{
+		    content: "士";
+    	}
+    	.jiangg:before{
+		    content: "帅";
+    	}
+    	.zouu:before{
+    		content:"兵";
+    	}
+    	.paoo:before{
+    		content: "炮";
+    	}
+
+	</style>
+
+</head>
+<body>
+	<div id="container">
+
+	</div>
+	<script src="../a/js/jquery.js"></script>
+	<script>
+		var html = '';
+		for(var i = 1; i <= 32; i ++){
+			html += '<div class="chess hide"></div>';
+		}
+		$("#container").append(html);
+
+		var cs = ['ju','ma','xiang','shi','jiang','shi','xiang','ma','ju','zou','zou','zou','zou','zou','pao','pao',
+		'juu','maa','xiangg','shii','jiangg','shii','xiangg','maa','juu','paoo','paoo','zouu','zouu','zouu','zouu','zouu'];
+
+
+
+	function shuffle(arr) {
+	  var length = arr.length,
+	    randomIndex,
+	    temp;
+	  while (length) {
+	    randomIndex = Math.floor(Math.random() * (length--));
+	    temp = arr[randomIndex];
+	    arr[randomIndex] = arr[length];
+	    arr[length] = temp
+	  }
+	  return arr;
+	}
+	console.log(shuffle(cs));
+	cs = shuffle(cs);
+
+
+
+
+
+
+
+
+
+		for(var i = 0; i < cs.length; i ++){
+			$("#container").find(".chess").eq(i).addClass(cs[i]);
+		}
+
+		$("#container").on("click",".chess",function(){
+			$(this).removeClass("hide")
+		})
+	</script>
+</body>
+</html>
