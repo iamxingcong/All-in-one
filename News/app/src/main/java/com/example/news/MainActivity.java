@@ -3,10 +3,12 @@ package com.example.news;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +24,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout mContainer;
@@ -29,18 +34,35 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue mQueue;
     private RequestQueue queue;
     private JSONArray jsar;
-    FrameLayout frameLayout;
+    private  FrameLayout frameLayout;
     private  ListView lv;
     private  String urls ="https://shop.miido.com.cn/schoolDetaile/getExperienceByMid.action?merchanId=";
     private  String url = "https://shop.miido.com.cn/schoolDetaile/getAllSchoolInfo.action";
     private  JSONArray row;
 
+    ArrayList<HashMap<String, String>> contactList;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         lv =  findViewById(R.id.listview);
+
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                HashMap<String,String> map = (HashMap<String,String>)
+                        lv.getItemAtPosition(position);
+                String title=map.get("id");
+                Toast.makeText(MainActivity.this,title,Toast.LENGTH_LONG).show();
+            }
+        });
+
 
         mContainer = findViewById(R.id.container);
         frameLayout=(FrameLayout)findViewById(R.id.frameLayout);
@@ -61,16 +83,14 @@ public class MainActivity extends AppCompatActivity {
 
                 TextView child = new TextView(this);
                 child.setText(title);
-                child.setTextSize(20);
                 child.setId(Integer.parseInt(id));
-
-                child.setPadding(20,10,20,10);
+                child.setPadding(25,20,25,20);
                 child.setClickable(true);
 
                 child.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Toast.makeText(MainActivity.this,String.valueOf(view.getId()),Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this,String.valueOf(view.getId()),Toast.LENGTH_SHORT).show();
                         String its = String.valueOf(view.getId());
                         geTtrl(its);
                     }
@@ -114,42 +134,44 @@ public class MainActivity extends AppCompatActivity {
         mQueue.add(request);
     }
 
-
     private void geTtrl(String its){
-        Toast.makeText(MainActivity.this,its+"f",Toast.LENGTH_SHORT).show();
-
-
-        // Instantiate the RequestQueue.
         queue = Volley.newRequestQueue(this);
-
-        // Request a string response from the provided URL.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, urls+its,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try{
                             JSONObject uobj = new JSONObject(response);
-                           JSONObject item = uobj.getJSONObject("datainfo");
+                            JSONObject item = uobj.getJSONObject("datainfo");
                             row = item.getJSONArray("recordList");
-
                             JSONObject jsobj = null;
-                            String title[] = new String[row.length()];
 
+
+
+                            contactList = new ArrayList<>();
                             if(row.length() == 0){
-                                Toast.makeText(MainActivity.this,"blank!!!!!!!!",Toast.LENGTH_LONG).show();
-                                return ;
-                            };
-                            for(int i = 0; i < row.length(); i++){
+                              return ;
 
-                                jsobj = row.getJSONObject(i);
-                                title[i] = jsobj.getString("title");
+                            };
+                            for (int i = 0; i < row.length(); i++) {
+                                    HashMap<String, String> xt = new HashMap<>();
+
+                                    jsobj = row.getJSONObject(i);
+                                    String title = jsobj.getString("title");
+                                    String id = jsobj.getString("id");
+                                    xt.put("title", title);
+                                    xt.put("id", id);
+                                    contactList.add(xt);
+
                             };
 
-                            String xt [] = title;
-                            ArrayAdapter adapter = new ArrayAdapter<>(MainActivity.this,R.layout.item,xt);
+                            ListAdapter adapter = new SimpleAdapter (MainActivity.this,contactList,
+                                    R.layout.item,new String[]{  "title","id" },
+                                    new int[]{ R.id.item ,R.id.id });
+
                             lv.setAdapter(adapter);
 
-                            Toast.makeText(MainActivity.this,"okay",Toast.LENGTH_SHORT).show();
+
 
                         }catch(final JSONException e){
                             Toast.makeText(MainActivity.this,"error",Toast.LENGTH_SHORT).show();
@@ -168,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
         queue.add(stringRequest);
 
     }
+
 
 }
 
