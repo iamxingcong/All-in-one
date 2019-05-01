@@ -1,0 +1,77 @@
+﻿<!Doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1,user-scalable=no">
+ 	<link rel="stylesheet" type="text/css" href="css/index.css">
+    <title>ZherMao, client management</title>
+ 
+</head>
+<body>
+<form>
+	<div id="input_form">
+		<h4>易通行货品接口</h4>
+		<span>
+			<label for="number">编号</label>
+			<input id="number" type="text" name="number" placeholder="编号" />
+		</span>
+		<span>
+			<label for="company">公司名</label>
+			<input id="company"  type="text" name="company" placeholder="公司名" />
+		</span>
+		<span>
+			<label for="field">行业归属</label>
+			<input id="field" type="text" name="field" placeholder="行业归属" />
+		</span>
+		<span>
+			<label for="product">产品名</label>
+			<input id="product" type="text" name="product" placeholder="产品名" />
+		</span>
+		<span>
+			<label for="price">单价</label>
+			<input id="price" type="number" name="price" placeholder="单价" />
+		</span>
+		<span>
+			<label for="quantity">数量</label>
+			<input id="quantity" type="number" name="quantity" placeholder="数量" />
+		</span>
+		<span>
+			<label for="cost">成本（供应商）</label>
+			<input id="cost" type="number" name="cost" placeholder="成本（供应商）" />
+		</span>
+		<span>
+			<label for="coupon">券码</label>
+			<input id="coupon" type="text" name="coupon" placeholder="券码" />
+		</span>
+		<span>
+			<label for="dealDate">交易日期</label>
+			<input id="dealDate" type="datetime-local" name="dealDate" placeholder="交易日期" />
+		</span>
+		<span>
+			<label for="dealTime">交易时间</label>
+			<input id="dealTime" type="datetime-local" name="dealTime" placeholder="交易时间" />
+		</span>
+		<div id="submit">提交</div>
+	</div>
+		
+</form>
+
+
+		
+		
+
+
+	</div>
+
+<script  src="js/jquery-3.4.0.js"></script>
+<script>
+var str = $( "form" ).serialize();
+
+$("#submit").click(function(){
+	var str = $( "form" ).serialize();
+	var oks = $("form").serializeArray();
+	console.log(oks);
+	console.log(str);
+})
+</script>
+</body>
+</html>

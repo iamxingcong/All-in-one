@@ -1,0 +1,64 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	font-family: "Microsoft Yahei";
+	font-size: 14px;
+}
+body{
+	max-width: 720px;
+	margin: 0px auto;
+}
+#input_form input{
+    display: block;
+    position: relative;
+    float: right;
+    height: 16px;
+    width: calc(100% - 147px);
+    text-align: left;
+    padding: 11px 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    color: #666;
+
+    	
+
+}
+#input_form label{
+	display: block;
+    float: left;
+    height: 42px;
+    width: 105px;
+    margin-right: 10px;
+    line-height: 42px;
+    font-size: 14px;
+    color: #666;
+    font-weight: 700;
+    text-align: right;
+}
+#input_form span{
+	display: block;
+	clear: both;
+	margin: 10px 0px;
+	overflow: auto;
+}
+
+#submit{
+	display: block;
+    height: 50px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
+    background: #3385ff;
+    border-bottom: 1px solid #2d78f4;
+    line-height: 50px;
+    text-align: center;
+    width: 80%;
+    margin: 30px auto;
+}
+#input_form h4{
+	font-size:  1.5em;
+	text-align: center;
+	line-height: 2.5em;
+}
