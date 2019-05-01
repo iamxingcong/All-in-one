@@ -55,12 +55,9 @@
 		
 </form>
 
+<div id="show">
 
-		
-		
-
-
-	</div>
+</div>
 
 <script  src="js/jquery-3.4.0.js"></script>
 <script>
@@ -70,8 +67,77 @@ $("#submit").click(function(){
 	var str = $( "form" ).serialize();
 	var oks = $("form").serializeArray();
 	console.log(oks);
-	console.log(str);
+	 
+	var obj = [];
+	var x = [];
+	var b = "";
+	 for(var i = 0; i < oks.length; i++ ){
+	 	 
+	 	 
+	 	 obj.push(oks[i].name);
+	 	 x.push(oks[i].value);
+	 };
+
+	 for(var i = 0; i < obj.length; i++ ){
+	  
+	 	var m = obj[i];
+	 	var n = x[i];
+	 	if(!n){
+	 		var nm = i+1;
+	 		alert("第"+nm+"个框不能为空！！！");
+	 		return;
+	 		 
+	 	};
+	 	
+	 	b += '"' +m+'":"'+n+'",';
+	 };
+
+	 b = b.substring(0,b.length - 1);
+  		 
+	 b = "{"+b+"}";
+	 b =  JSON.parse(b);
+
+
+	console.log(b);
+	$.ajax({
+	  method: "GET",
+	  url: "interface/add_client.php",
+	  data:  b  
+	})
+  .done(function( msg ) {
+     if(msg === "success"){
+     	refresh();
+     	alert("添加成功");
+     	$("input").val("");
+     }
+  });
+
 })
+
+
+function refresh(){
+
+
+	$.ajax({
+		  method: "GET",
+		  url: "interface/select.php",
+		 
+		})
+	  .done(function( msg ) {
+	    	
+	    	if( typeof msg === "string"){
+	    		msg = JSON.parse(msg);
+	    	}
+	     	$.each(msg, function (i, im){
+	     		
+	     		console.log(im);
+	     		$("#show").append('<span>'+im.company+"-"+im.field+"-"+im.product+"-"+im.dealTime+"</span>")
+
+	     	})
+	     
+	  });
+
+}
 </script>
 </body>
 </html>

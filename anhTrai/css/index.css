@@ -62,3 +62,10 @@ body{
 	text-align: center;
 	line-height: 2.5em;
 }
+#show span{
+    display: block;
+    clear: both;
+    margin: 10px;
+    overflow: auto;
+    text-align: left;
+}
