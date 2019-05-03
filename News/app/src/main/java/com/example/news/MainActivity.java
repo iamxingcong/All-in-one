@@ -1,5 +1,6 @@
 package com.example.news;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -59,7 +60,11 @@ public class MainActivity extends AppCompatActivity {
                 HashMap<String,String> map = (HashMap<String,String>)
                         lv.getItemAtPosition(position);
                 String title=map.get("id");
-                Toast.makeText(MainActivity.this,title,Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this,title,Toast.LENGTH_LONG).show();
+                Intent i = new Intent(view.getContext(), SecondActivity.class);
+                i.putExtra("idok", title);
+                startActivity(i);
+
             }
         });
 
@@ -93,6 +98,8 @@ public class MainActivity extends AppCompatActivity {
                         //Toast.makeText(MainActivity.this,String.valueOf(view.getId()),Toast.LENGTH_SHORT).show();
                         String its = String.valueOf(view.getId());
                         geTtrl(its);
+
+
                     }
                 });
 
@@ -150,10 +157,17 @@ public class MainActivity extends AppCompatActivity {
 
                             contactList = new ArrayList<>();
                             if(row.length() == 0){
-                              return ;
 
-                            };
-                            for (int i = 0; i < row.length(); i++) {
+                                HashMap<String, String> xt = new HashMap<>();
+
+                                String title = "没有数据！！！";
+                                String id =  "null, undefined";
+                                xt.put("title", title);
+                                xt.put("id", id);
+                                contactList.add(xt);
+
+                            }else {
+                                for (int i = 0; i < row.length(); i++) {
                                     HashMap<String, String> xt = new HashMap<>();
 
                                     jsobj = row.getJSONObject(i);
@@ -163,6 +177,8 @@ public class MainActivity extends AppCompatActivity {
                                     xt.put("id", id);
                                     contactList.add(xt);
 
+                                }
+                                ;
                             };
 
                             ListAdapter adapter = new SimpleAdapter (MainActivity.this,contactList,
