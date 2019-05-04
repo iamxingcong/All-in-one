@@ -1,6 +1,7 @@
 package com.example.news;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -97,21 +98,36 @@ public class MainActivity extends AppCompatActivity {
                 child.setId(Integer.parseInt(id));
                 child.setPadding(25,20,25,20);
                 child.setClickable(true);
+                if(i == 0){
+                    child.setTextColor(Color.parseColor("#FFFFFF"));
+                    child.setBackgroundColor(Color.parseColor("#008577"));
 
+
+                        geTtrl(id);
+
+
+                };
                 child.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //Toast.makeText(MainActivity.this,String.valueOf(view.getId()),Toast.LENGTH_SHORT).show();
                         String its = String.valueOf(view.getId());
-
                         geTtrl(its);
 
+                        for (int i = 0; i < mContainer.getChildCount(); i++) {
+                            TextView tv = (TextView) mContainer.getChildAt(i);
+                              if (view == tv) {
+                                tv.setTextColor(Color.parseColor("#FFFFFF"));
+                                tv.setBackgroundColor(Color.parseColor("#008577"));
 
 
-
+                              } else {
+                                tv.setTextColor(Color.GRAY);
+                                tv.setBackgroundColor(Color.parseColor("#FFFFFF"));
+                             }
+                         };
                     }
                 });
-
 
                 mContainer.addView(child);
             }
@@ -126,15 +142,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void jsonParse() {
 
-
-
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
                             jsar = response.getJSONArray("datainfo");
-
                             addView();
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -185,9 +198,7 @@ public class MainActivity extends AppCompatActivity {
                                     xt.put("title", title);
                                     xt.put("id", id);
                                     contactList.add(xt);
-
-                                }
-                                ;
+                                };
                             };
 
                             ListAdapter adapter = new SimpleAdapter (MainActivity.this,contactList,
