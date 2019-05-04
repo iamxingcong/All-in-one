@@ -61,10 +61,16 @@ public class MainActivity extends AppCompatActivity {
                         lv.getItemAtPosition(position);
                 String title=map.get("id");
                 //Toast.makeText(MainActivity.this,title,Toast.LENGTH_LONG).show();
-                Intent i = new Intent(view.getContext(), SecondActivity.class);
-                i.putExtra("idok", title);
-                startActivity(i);
 
+                if(title == "null"){
+                    Toast.makeText(MainActivity.this,"数据为空",Toast.LENGTH_SHORT).show();
+                    return;
+
+                }else {
+                    Intent i = new Intent(view.getContext(), SecondActivity.class);
+                    i.putExtra("idok", title);
+                    startActivity(i);
+                }
             }
         });
 
@@ -97,7 +103,10 @@ public class MainActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         //Toast.makeText(MainActivity.this,String.valueOf(view.getId()),Toast.LENGTH_SHORT).show();
                         String its = String.valueOf(view.getId());
+
                         geTtrl(its);
+
+
 
 
                     }
@@ -161,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
                                 HashMap<String, String> xt = new HashMap<>();
 
                                 String title = "没有数据！！！";
-                                String id =  "null, undefined";
+                                String id =  "null";
                                 xt.put("title", title);
                                 xt.put("id", id);
                                 contactList.add(xt);

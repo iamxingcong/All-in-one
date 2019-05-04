@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,7 +27,7 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent s = getIntent();
         ido = s.getStringExtra("idok");
-        Toast.makeText(SecondActivity.this, ido, Toast.LENGTH_SHORT).show();
+       // Toast.makeText(SecondActivity.this, ido, Toast.LENGTH_SHORT).show();
     }
 
     protected void onStart() {
