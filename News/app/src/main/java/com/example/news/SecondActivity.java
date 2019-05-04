@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.webkit.WebView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,12 +20,13 @@ public class SecondActivity extends AppCompatActivity {
     private  String url ="https://shop.miido.com.cn/index/getItemDetail.action?itemId=";
     String ido = null;
     WebView ctv;
+    TextView tak;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         ctv = (WebView) findViewById(R.id.content);
-
+        tak = (TextView) findViewById(R.id.tak);
         Intent s = getIntent();
         ido = s.getStringExtra("idok");
        // Toast.makeText(SecondActivity.this, ido, Toast.LENGTH_SHORT).show();
@@ -43,9 +45,9 @@ public class SecondActivity extends AppCompatActivity {
                             JSONObject detail = new JSONObject(response);
                             JSONObject  item = detail.getJSONObject("item");
                             String content = item.getString("content");
-
+                            String tks = item.getString("title");
+                            tak.setText(tks);
                             content = "<style>img{max-width: 100% !important;}</style>"+content ;
-
                             ctv.loadData(content, "text/html; charset=UTF-8", null);
 
 
