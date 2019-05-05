@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="overview &amp; stats"/>
+    <title>外复核出库单打印</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/b.tabs.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/module/dataStatistics/dataStatistics.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/z_public.css">
+    <link rel="stylesheet" type="text/css" media="screen,print" href="../../static/css/ui.jqgrid.css"/>
+
+</head>
+
+<body>
+
+<div class="content">
+    <div class="panel panel-default con-top">
+        <div class="panel-heading">
+            <h3 class="panel-title">打印</h3>
+        </div>
+        <div class="panel-body">
+            <button type="button" class="btn btn-info" id="print1">
+                盘点单（初盘、复盘、终盘）
+            </button>
+            <button type="button" class="btn btn-info" id="print2">
+                损溢单
+            </button>
+            <button type="button" class="btn btn-info" id="print3">
+                不合格品报损单
+            </button>
+            <button type="button" class="btn btn-info" id="print4">
+                移库单
+            </button>
+            <button type="button" class="btn btn-info" id="print5">
+                验收入库上架单
+            </button>
+        </div>
+    </div>
+</div>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/js/jQuery.print.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+
+<script>
+
+    // 盘点单（初盘、复盘、终盘）
+    $('#print1').click(function () {
+        printIframe('print_templete/demo1.html');
+
+    })
+
+    // 损溢单
+    $('#print2').click(function () {
+        printIframe('print_templete/Profitloss_list.html');
+
+    })
+
+    // 不合格品报损单
+    $('#print3').click(function () {
+        printIframe('print_templete/Unqualifiedreport_list.html');
+
+    })
+
+
+    // 移库单
+    $('#print4').click(function () {
+        printIframe('print_templete/Warehouse_receipt.html');
+
+    })
+
+    // 验收入库上架单
+    $('#print5').click(function () {
+        printIframe('print_templete/entry_shelf.html');
+
+    })
+
+    //打印iframe加载的页面
+    function printIframe(url) {
+        var iframe = document.createElement('iframe');
+        iframe.setAttribute("src", url);
+        iframe.setAttribute("height", "0px");
+        iframe.style.border = 'none';
+        document.body.appendChild(iframe);
+        iframe.contentWindow.print();
+
+        setTimeout(function () {
+            iframe.remove();
+        }, 2000)
+    }
+
+</script>
+
+</body>
+
+</html>

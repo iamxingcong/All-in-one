@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="overview &amp; stats"/>
+    <link rel="icon" href="static/images/wmslogo.png" type="image/x-icon">
+    <title>WMS</title>
+    <link href="static/images/favicon.png"/>
+    <link type="text/css" rel="stylesheet" href="static/module/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="static/iconfont/iconfont.css">
+    <link type="text/css" rel="stylesheet" href="static/font-awesome/4.5.0/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="static/module/artDialog/css/ui-dialog.css">
+    <link type="text/css" rel="stylesheet" href="static/css/b.tabs.css"/>
+    <link type="text/css" rel="stylesheet" href="static/css/public.css"/>
+</head>
+
+<body style="background: #2e363f;">
+<div class="body_div">
+    <!--top nav -->
+    <div class="topNav_div" id="navbar">
+        <div class="nav_float"></div>
+        <div class="navbar-header" id="
+        logo">
+            <div class="logo_div">
+                <img src="static/images/wms-logo.png" style="width:24px; height:24px;">
+                <span>WMS管理系统</span>
+            </div>
+        </div>
+        <div class="topLogged">
+            <a href="#">湖北分公司
+                <em>-</em>采购部
+                <em>-</em>周娟</a>
+        </div>
+        <div class="topOut" role="navigation">
+            <a href="#">
+                <img class="font_family" src="static/images/out.png" alt="">
+                <span class="menu-text">退出</span>
+            </a>
+        </div>
+        <div class="topSet" role="navigation">
+            <a href="#">
+                <img class="font_family" src="static/images/Select.png" alt="">
+                <span class="menu-text">选择系统</span>
+            </a>
+        </div>
+    </div>
+    <!--content  start-->
+    <div class="erp_content_div" id="main-container">
+        <!-- main-container ace-save-state-->
+        <!--left menu  div  start  -->
+        <div class="leftMenu_div" id="sidebar-con">
+            <div id="sidebar" class="sidebar">
+                <ul id="menuSideBar" class="nav nav-list">
+                    <!--<li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/homepage.png" alt="">
+                            <span class="menu-text">首页</span>
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="jigoushezhi" data-href="template/purchaseDemo/mechanism-tree.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">
+                                    <span class="menu-text">机构设置</span>
+                                    &lt;!&ndash; <span class="operate">
+                                        <button class="batch-apply">批量</button>
+                                        <div class="clickApplyItem" style="display: none;">
+                                            <div class="import" mid="gridDemo" data-href="template/gridDemo.html"
+                                                data-title="财务管理">导入</div>
+                                            <div class="download" mid="gridDemo" data-href="template/gridDemo.html"
+                                                data-title="财务管理">下载</div>
+                                        </div>
+                                    </span> &ndash;&gt;
+                                    <button class="apply" mid="sq" data-href="template/purchaseDemo/gridDemo.html"
+                                        data-title="基础管理">申请</button>
+                                    &lt;!&ndash; 超过7个字展示的内容 &ndash;&gt;
+                                    &lt;!&ndash; <div class="second-title">基础管理基础管理基础管理</div> &ndash;&gt;
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="gridDemo" data-href="template/purchaseDemo/gridDemo.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">
+                                            <span class="menu-text">采购管理</span></a>
+                                    </li>
+                                    <li mid="masterData" data-href="template/masterData.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">
+                                            <span class="menu-text">权限管理</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="gongzuotai" data-href="template/originalDemo/test.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">
+                                    <span class="menu-text">工作台</span></a>
+                            </li>
+                            <li mid="gridDemo" data-href="template/gridDemo.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);"><span class="menu-text">财务管理</span></a>
+                            </li>
+                            <li mid="masterData" data-href="template/masterData.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);"><span class="menu-text">基础资料</span></a>
+                            </li>
+                        </ul>
+                    </li>-->
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/masterdata.png" alt="">
+                            <span class="menu-text">基础资料</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">
+                                    <span class="menu-text sub_menu">主数据档案</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="goodsInfoList"
+                                        data-href="template/basicData/masterDataRecord/goodsInfoList.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">商品资料</a>
+                                    </li>
+                                    <li mid="goodsBatchNum"
+                                        data-href="template/basicData/masterDataRecord/goodsBatchNum.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">商品批号</a>
+                                    </li>
+                                    <li mid="goodsMedicineReport"
+                                        data-href="template/basicData/masterDataRecord/goodsMedicineReport.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">商品药检报告</a>
+                                    </li>
+                                    <li mid="supplierInfoList"
+                                        data-href="template/basicData/masterDataRecord/supplierInfoList.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">供应商资料</a>
+                                    </li>
+                                    <li mid="customerInfoList"
+                                        data-href="template/basicData/masterDataRecord/customerInfoList.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">客户资料</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">
+                                    <span class="menu-text sub_menu">货位档案</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="inventoryDict"
+                                        data-href="template/basicData/cargoSiteRecord/inventoryDict.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">库别字典</a>
+                                    </li>
+                                    <li mid="depotAreaDict"
+                                        data-href="template/basicData/cargoSiteRecord/depotAreaDict.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">库区字典</a>
+                                    </li>
+                                    <li mid="cargoSiteDict"
+                                        data-href="template/basicData/cargoSiteRecord/cargoSiteDict.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">货位字典</a>
+                                    </li>
+                                    <li mid="stagePropertyDict"
+                                        data-href="template/basicData/cargoSiteRecord/stagePropertyDict.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">暂存区属性字典</a>
+                                    </li>
+                                    <li mid="cargoGoodsMaintenance"
+                                        data-href="template/basicData/cargoSiteRecord/cargoGoodsMaintenance.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">货位与商品关系维护</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">
+                                    <span class="menu-text sub_menu">容器档案</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="containerDict"
+                                        data-href="template/basicData/containerRecord/containerDict.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">容器字典</a>
+                                    </li>
+                                    <li mid="containerParam"
+                                        data-href="template/basicData/containerRecord/containerParam.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">容器参数</a>
+                                    </li>
+                                    <li mid="containerStatus"
+                                        data-href="template/basicData/containerRecord/containerStatus.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">容器状态</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">
+                                    <span class="menu-text sub_menu">字典档案</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="compoundPlatform"
+                                        data-href="template/basicData/dictRecord/compoundPlatform.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">复合台</a>
+                                    </li>
+                                    <li mid="dictManagement"
+                                        data-href="template/basicData/dictRecord/dictManagement.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">字典管理</a>
+                                    </li>
+                                    <li mid="paramSetting"
+                                        data-href="template/basicData/dictRecord/paramSetting.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">参数设置</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/mywork.png" alt="">
+                            <span class="menu-text">入库作业</span>
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="Effective_manage" data-href="template/Effective_commodity/Effective_manage.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">效期商品收货管理</a>
+                            </li>
+                            <li mid="Job_query" data-href="template/Effective_commodity/Job_query.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">入库作业查询</a>
+                            </li>
+                            <li mid="new_receiptList">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">到货预约单
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="Arrival_reservation"
+                                        data-href="template/Effective_commodity/Arrival_reservation.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">到货预约单管理</a>
+                                    </li>
+                                    <li mid="new_Arrival_reservation"
+                                        data-href="template/Effective_commodity/new_Arrival_reservation.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">新建到货预约单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="Pending_order" data-href="template/Effective_commodity/Pending_order.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">待处理单</a>
+                            </li>
+                            <li mid="new_pendingOrder" data-href="template/Effective_commodity/new_pendingOrder.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">新建待处理单</a>
+                            </li>
+                            <li mid="Rejection_list" data-href="template/Effective_commodity/Rejection_list.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">拒收单管理</a>
+                            </li>
+                            <li mid="Receipt_list" data-href="template/Effective_commodity/Receipt_list.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">收货单管理</a>
+                            </li>
+                            <li mid="new_receiptList"
+                                data-href="template/Effective_commodity/newBuild_receiptList/new_receiptList.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">新建收货单
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="commodityExtract"
+                                        data-href="template/Effective_commodity/newBuild_receiptList/commodityExtract.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">按商品提取</a>
+                                    </li>
+                                    <li mid="orderExtract"
+                                        data-href="template/Effective_commodity/newBuild_receiptList/orderExtract.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">按订单提取</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="Acceptance" data-href="template/Effective_commodity/Acceptance.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">验收单管理</a>
+                            </li>
+                            <li mid="Acceptance_execution"
+                                data-href="template/Effective_commodity/Acceptance_execution/Acceptance_execution.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">验收单执行
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="extractAcceptance"
+                                        data-href="template/Effective_commodity/Acceptance_execution/extractAcceptance.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">提取验收单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="Revise_bill" data-href="template/Effective_commodity/Revise_bill/Revise_bill.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">待修改单据
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="extractRevise"
+                                        data-href="template/Effective_commodity/Revise_bill/extractRevise.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">提取待修改单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="Review" data-href="template/Effective_commodity/Review_list.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">复查单管理</a>
+                            </li>
+                            <li mid="Review_execution"
+                                data-href="template/Effective_commodity/Review_execution/Review_execution.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">复查单执行
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="extractReview"
+                                        data-href="template/Effective_commodity/Review_execution/extractReview.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">提取复查单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">任务单
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="Volume_table"
+                                        data-href="template/Effective_commodity/Task_list/Volume_table.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">商品体积任务列表</a>
+                                    </li>
+                                    <li mid="Material_table"
+                                        data-href="template/Effective_commodity/Task_list/Material_table.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">商品资料任务列表</a>
+                                    </li>
+                                    <li mid="scanning" data-href="template/Effective_commodity/Task_list/scanning.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">电子监管码扫描任务</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="Warehousing" data-href="template/Effective_commodity/Warehousing_list.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">入库单管理</a>
+                            </li>
+                            <li mid="Warehousing_execution"
+                                data-href="template/Effective_commodity/Warehousing_execution.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">入库单执行</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/masterdata.png" alt="">
+                            <span class="menu-text">出库作业</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">
+                                    <span class="menu-text sub_menu">任务调度和分配</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="normal_output_storage"
+                                        data-href="template/outputStorageWork/task_matching_and_scheduling/normal_output_storage.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">正常出库</a>
+                                    </li>
+                                    <li mid="time_issue"
+                                        data-href="template/outputStorageWork/task_matching_and_scheduling/time_issue.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">波次下发</a>
+                                    </li>
+                                    <li mid="promote_priority"
+                                        data-href="template/outputStorageWork/task_matching_and_scheduling/promote_priority.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">提升优先级</a>
+                                    </li>
+                                    <li mid="appoint_batch"
+                                        data-href="template/outputStorageWork/task_matching_and_scheduling/appoint_batch.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">指定批号订单</a>
+                                    </li>
+                                    <li mid="storage_lack_order"
+                                        data-href="template/outputStorageWork/task_matching_and_scheduling/storage_lack_order.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">库存不足订单</a>
+                                    </li>
+                                    <li mid="erp_cancel_order"
+                                        data-href="template/outputStorageWork/task_matching_and_scheduling/erp_cancel_order.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">ERP取消订单</a>
+                                    </li>
+                                    <li mid="time_issue_abnormal_order"
+                                        data-href="template/outputStorageWork/task_matching_and_scheduling/time_issue_abnormal_order.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">波次下发异常订单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">
+                                    <span class="menu-text sub_menu">外复核任务</span>
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="external_review_acquire"
+                                        data-href="template/outputStorageWork/external_review/external_review_acquire.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">外复核任务索取</a>
+                                    </li>
+                                    <li mid="external_review_print"
+                                        data-href="template/outputStorageWork/external_review/external_review_print.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">外复核出库单打印</a>
+                                    </li>
+                                    <li mid="external_review_list"
+                                        data-href="template/outputStorageWork/external_review/external_review_list.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">外复核草单查询</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="internal_review_list"
+                                data-href="template/outputStorageWork/internal_review/internal_review_list.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">零货内复核</a>
+                            </li>
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">整件任务
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="block_task_acquire"
+                                        data-href="template/outputStorageWork/block_task/block_task_acquire.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">整件任务索取</a>
+                                    </li>
+                                    <li mid="block_task_list"
+                                        data-href="template/outputStorageWork/block_task/block_task_list.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">整件任务查询</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">零货任务
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="sporadic_task_acquire"
+                                        data-href="template/outputStorageWork/sporadic_task/sporadic_task_acquire.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">零货任务索取</a>
+                                    </li>
+                                    <li mid="sporadic_task_list"
+                                        data-href="template/outputStorageWork/sporadic_task/sporadic_task_list.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">零货任务查询</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="" data-href="">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">异常任务
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="abnomal_task_acquire"
+                                        data-href="template/outputStorageWork/abnormal_task/abnomal_task_acquire.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">异常问题索取</a>
+                                    </li>
+                                    <li mid="abnomal_task_list"
+                                        data-href="template/outputStorageWork/abnormal_task/abnomal_task_list.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">异常问题查询</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="print_demo"
+                                data-href="template/outputStorageWork/print_demo/printDemo.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">打印单模板</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/order.png" alt="">
+                            <span class="menu-text">库内管理</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="node">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">盘点管理
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <b class="arrow"></b>
+                                <ul class="submenu">
+                                    <li mid="stocktaking_plan_list"
+                                        data-href="template/stocktaking/stocktaking_plan_list.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">盘点计划</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="stocktaking_plan_add"
+                                        data-href="template/stocktaking/stocktaking_plan_add.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">新增盘点计划</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="stocktaking_detail"
+                                        data-href="template/stocktaking/stocktaking_detail.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">盘点计划详情</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="stocktaking_result_input"
+                                        data-href="template/stocktaking/stocktaking_result_input.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">录入盘点结果</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="node">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">损益管理
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <b class="arrow"></b>
+                                <ul class="submenu">
+                                    <li mid="profitloss_list" data-href="template/profitloss/profitloss_list.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">损益单列表</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="profitloss_add" data-href="template/profitloss/profitloss_add.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">新增损益单</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="profitloss_detail" data-href="template/profitloss/profitloss_detail.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">损溢单详情</a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li mid="node">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">移库管理
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <b class="arrow"></b>
+                                <ul class="submenu">
+                                    <li mid="movestorage_list" data-href="template/movestorage/movestorage_list.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">移库单列表</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="movestorage_add" data-href="template/movestorage/movestorage_add.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">新建移库单</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="movestorage_operate"
+                                        data-href="template/movestorage/movestorage_operate.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">移库操作</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="movestorage_detail"
+                                        data-href="template/movestorage/movestorage_detail.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">移库单详情</a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li mid="node">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">货位调整
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <b class="arrow"></b>
+                                <ul class="submenu">
+                                    <li mid="goodsallocation_list"
+                                        data-href="template/goodsallocation/goodsallocation_list.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">货位调整列表</a>
+                                        <b class="arrow"></b>
+                                    </li>
+                                    <li mid="goodsallocation_add"
+                                        data-href="template/goodsallocation/goodsallocation_add.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">新建货位调整</a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                    <li mid="goodsallocation_detail"
+                                        data-href="template/goodsallocation/goodsallocation_detail.html">
+                                        <a class="btabs four" tabindex="-1" href="javascript:void(0);">货位调整详情</a>
+                                        <b class="arrow"></b>
+                                    </li>
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/stock.png" alt="">
+                            <span class="menu-text">配送管理</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="selfDistributionArea" data-href="template/distribution/selfDistributionArea.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">自营配送区域</a>
+                            </li>
+                            <li mid="parcelList" data-href="template/distribution/parcelList.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">包裹单列表</a>
+                            </li>
+                            <li mid="shunfengInterface" data-href="template/distribution/shunfengInterface.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">顺丰接口</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/stock.png" alt="">
+                            <span class="menu-text">配送V2.1版原型</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="distributionArea" data-href="template/distribution/distributionArea.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">区域字典</a>
+                            </li>
+                            
+                            <li mid="carrierDictionary" data-href="template/distribution/carrierDictionary.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">承运商字典</a>
+                            </li>
+                            <li mid="carrierManage" data-href="template/distribution/carrierManage.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">承运商管理</a>
+                            </li>
+                            <li mid="distributionRoute" data-href="template/distribution/distributionRoute.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">区域配置</a>
+                            </li>
+                            <li mid="deliveryStatus" data-href="template/distribution/deliveryStatus.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">物流状态</a>
+                            </li>
+                            <li mid="transportOrder" data-href="template/distribution/transportOrder.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">运输订单弹窗</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/stock.png" alt="">
+                            <span class="menu-text">GSP管理</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="curingPlan" data-href="template/gsp/curingPlan.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">养护计划</a>
+                            </li>
+                            <li mid="keyExamination" data-href="template/gsp/keyExamination.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">重点养护审批</a>
+                            </li>
+                            <li mid="libraryCuringList" data-href="template/gsp/libraryCuringList.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">在库养护</a>
+                            </li>
+                            <li mid="noticeUnusualReview" data-href="template/gsp/noticeUnusualReview.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">养护异常复查通知单</a>
+                            </li>
+                            <li mid="shortEarlyWarning" data-href="template/gsp/shortEarlyWarning.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">商品近效期预警</a>
+                            </li>
+                            <li mid="historicalQuery" data-href="template/gsp/historicalQuery.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">在库商品养护历史查询</a>
+                            </li>
+                            <li mid="detailedQuery" data-href="template/gsp/detailedQuery.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">在库商品养护明细历史查询</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/sale-class.png" alt="">
+                            <span class="menu-text">销售退回</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <!--<li mid="editSaleBackOrder" data-href="template/saleBack/editSaleBackOrder.html">-->
+                            <!--<a class="btabs second" tabindex="-1" href="javascript:void(0);">编辑销售退回单</a>-->
+                            <!--</li>-->
+                            <li mid="printDemo" data-href="template/saleBack/printDemo.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">打印单模板</a>
+                            </li>
+                            <li mid="saleBackReceiptOrder" data-href="template/saleBack/saleBackReceiptOrder.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">销售退回收货单
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="saleBackReceiptOrderDetail"
+                                        data-href="template/saleBack/saleBackReceiptOrderDetail.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">销售退回收货单详情</a>
+                                    </li>
+                                    <li mid="entryReceiptResult" data-href="template/saleBack/entryReceiptResult.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">录入收货结果</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="saleBackCheckOrder" data-href="template/saleBack/saleBackCheckOrder.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">销售退回验收单
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="saleBackCheckOrderDetail"
+                                        data-href="template/saleBack/saleBackCheckOrderDetail.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">销售退回验收单详情</a>
+                                    </li>
+                                    <li mid="entryCheckResult" data-href="template/saleBack/entryCheckResult.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">录入验收结果</a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li mid="saleBackEntryOrder" data-href="template/saleBack/saleBackEntryOrder.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">销售退回入库单
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="saleBackEntryOrderDetail"
+                                        data-href="template/saleBack/saleBackEntryOrderDetail.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">销售退回入库单详情</a>
+                                    </li>
+                                    <li mid="entryShelfResult" data-href="template/saleBack/entryShelfResult.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">录入上架结果</a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li mid="Review" data-href="template/saleBack/Review_list.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">复查单管理</a>
+                            </li>
+                            <li mid="Review_execution" data-href="template/saleBack/Review_execution.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">复查单执行
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="extractReview" data-href="template/saleBack/extractReview.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">提取复查单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="elecSacnTask" data-href="template/saleBack/elecSacnTask.html">
+                                <a class="btabs second" tabindex="-1" href="javascript:void(0);">电子监管码扫码任务</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/finance.png" alt="">
+                            <span class="menu-text">购进退出</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="buyBack_query" data-href="template/Purchase_exit/buyBack_query.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">购进退出查询</a>
+                            </li>
+                            <li mid="buyBack_implement"
+                                data-href="template/Purchase_exit/buyBack_implement/buyBack_implement.html">
+                                <a class="btabs dropdown-toggle second" tabindex="-1" href="javascript:void(0);">购进退出执行
+                                    <b class="arrow fa fa-angle-down"></b>
+                                </a>
+                                <ul class="submenu">
+                                    <li mid="buyBack_task"
+                                        data-href="template/Purchase_exit/buyBack_implement/buyBack_task.html">
+                                        <a class="btabs third" tabindex="-1" href="javascript:void(0);">提取购进退出单</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li mid="buyBack_review" data-href="template/Purchase_exit/buyBack_review.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">购进退出复核</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/finance.png" alt="">
+                            <span class="menu-text">购进入库</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="buyBack_query" data-href="template/buyIntoWarehousing/Warehousing_collect_query.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">入库收货查询</a>
+                            </li>
+                            <li mid="buyBack_review" data-href="template/buyIntoWarehousing/receivingClerk_workloadStatistics.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">收货员工作量统计</a>
+                            </li>
+                            <li mid="buyBack_query" data-href="template/buyIntoWarehousing/inspector_workloadStatistics.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">验收员工作量统计</a>
+                            </li>
+                            <li mid="buyBack_review" data-href="template/buyIntoWarehousing/purchaser_workloadStatistics.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">购退员工作量统计</a>
+                            </li>
+                            <li mid="buyBack_query" data-href="template/buyIntoWarehousing/warehousingNum_Statistics.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">入库件数统计</a>
+                            </li>
+                            <li mid="buyBack_review" data-href="template/buyIntoWarehousing/timeoutDocument_Inquiry.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">上架超时单据查询</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--                        <li class="">
+                                                <a href="#" class="dropdown-toggle">
+                                                    <img class="font_family" src="static/images/gsp.png" alt="">
+                                                    <span class="menu-text">GSP管理</span><b class="arrow fa fa-angle-down"></b>
+                                                </a>
+                                            </li>
+                                            <li class="">
+                                                <a href="#" class="dropdown-toggle">
+                                                    <img class="font_family" src="static/images/inventory.png" alt="">
+                                                    <span class="menu-text">业务查询</span><b class="arrow fa fa-angle-down"></b>
+                                                </a>
+                                            </li>-->
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/purchse-class.png" alt="">
+                            <span class="menu-text">不合格品管理</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/finance.png" alt="">
+                            <span class="menu-text">补货作业</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="replenishmentGoodsSearch"
+                                data-href="template/replenishmentOperation/replenishmentGoodsSearch.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">补货商品查询</a>
+                            </li>
+                            <li mid="replenishmentOrderBatch"
+                                data-href="template/replenishmentOperation/replenishmentOrderBatch.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">订单池补货&批次补货</a>
+                            </li>
+                            <li mid="replenishmentEmergent"
+                                data-href="template/replenishmentOperation/replenishmentEmergent.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">紧急补货</a>
+                            </li>
+                            <li mid="getTaskWhole" data-href="template/replenishmentOperation/getTaskWhole.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">整件任务索取</a>
+                            </li>
+                            <li mid="replenishmentConfirmWhole"
+                                data-href="template/replenishmentOperation/replenishmentConfirmWhole.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">整件补货确认</a>
+                            </li>
+                            <li mid="replenishmentConfirm"
+                                data-href="template/replenishmentOperation/replenishmentConfirm.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0)">补货上架确认</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--                        <li class="">
+                                                <a href="#" class="dropdown-toggle">
+                                                    <img class="font_family" src="static/images/purchse-class.png" alt="">
+                                                    <span class="menu-text">系统设置</span><b class="arrow fa fa-angle-down"></b>
+                                                </a>
+                                            </li>-->
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <img class="font_family" src="static/images/finance.png" alt="">
+                            <span class="menu-text">公用Demo</span><b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <ul class="submenu">
+                            <li mid="griddemo1" data-href="template/gridDemo.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">gridDemo</a>
+                            </li>
+                            <li mid="formSerializeDemo" data-href="template/originalDemo/formSerializeDemo.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">表单序列化和值回显</a>
+                            </li>
+                            <li mid="autocomplete" data-href="template/saleBack/autocomplete.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">input模糊搜索</a>
+                            </li>
+                            <li mid="multiselect" data-href="template/saleBack/multiselect.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">多选插件demo</a>
+                            </li>
+                            <li mid="validateDemo" data-href="template/originalDemo/validateDemo.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">表单校验validate</a>
+                            </li>
+                            <li mid="dialogDemo" data-href="template/originalDemo/dialogDemo.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">对话框组件</a>
+                            </li>
+                            <li mid="dataStatisticsDemo" data-href="template/originalDemo/dataStatisticsDemo.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">数据统计</a>
+                            </li>
+                            <li mid="tabsDemo" data-href="template/originalDemo/tabsDemo.html">
+                                <a class="hover-tab" tabindex="-1" href="javascript:void(0);">页面传值</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--left menu  div  end  -->
+        <!--main  content  start  -->
+        <div class="main_content" id="main-content">
+            <div class="main-content-inner">
+                <div id="mainFrameTabs">
+                    <div id="tab" class="tab_area_div">
+                        <ul class="nav nav-tabs" role="tablist" id="nav-tab">
+                            <li role="presentation" class="active noclose" style="z-index: 1;">
+                                <a href="#bTabs_navTabsMainPage" data-toggle="tab">首页</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-content">
+                        <!-- 默认标签页（首页）的内容区域 -->
+                        <div class="tab-pane active" id="bTabs_navTabsMainPage" style="background: url('static/images/index_bg.png') no-repeat;background-size: cover;background-position: bottom;">
+                            <!--<iframe frameborder="0" scrolling="yes" style="width:100%;height:100%;border:0px;" src=""></iframe>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--main  content  end  -->
+    </div>
+    <!--content  end-->
+</div>
+<!-- 右键菜单  -->
+<div id="jqContextMenu" class="contextMenu">
+    <ul>
+        <li id="item_1">重新加载</li>
+        <li id="item_2" title='' url=''>关闭标签</li>
+        <li id="item_3">关闭全部标签</li>
+        <li id="item_4">关闭其它标签</li>
+    </ul>
+</div>
+<!-- 页面加载  loading  start  -->
+<div class="loadingBlock" style="display: none;">
+    <div class="la-ball-spin-clockwise la-2x">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- 页面加载  loading  end  -->
+<script src="static/js/jquery-2.1.4.min.js"></script>
+<script src="static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/js/b.tabs.js"></script>
+<script src="static/js/ace.min.js"></script>
+<script src="static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="static/js/jquery.contextmenu.r2.js"></script>
+<script src="static/js/public.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="overview &amp; stats" />
+  <title>内复核</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../static/css/b.tabs.css">
+  <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+  <link rel="stylesheet" href="../../../static/module/dataStatistics/dataStatistics.css">
+  <link rel="stylesheet" href="../../../static/css/public.css">
+  <link rel="stylesheet" href="../../../static/css/z_public.css">
+  <style type="text/css">
+    .box-info {
+      /*margin: 0 10px;*/
+      /*padding: 0 10px !important;*/
+      /*box-sizing: border-box;*/
+      /*width: calc(50% - 20px);*/
+      /*border: 1px solid #000;*/
+    }
+
+    .box-info-a label {
+      font-size: 16px;
+    }
+    .box-info-b label {
+      font-size: 14px;
+    }
+    .code-collection-module .row{
+      margin-bottom: 14px;
+    }
+    .code-collection-module .row:last-child{
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="panel panel-default ">
+      <div class="panel-heading">
+        <h3 class="panel-title">内复核</h3>
+      </div>
+      <div class="panel-body">
+        <form id="form_a">
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">请输入复核台号</span>
+              <input class="form-control">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default ">
+      <div class="panel-heading">
+        <h3 class="panel-title">查询条件</h3>
+        <div class="pull-right data-statistics" >
+          <div class="data-content"></div>
+          <button type="button" class="btn btn-info" id="data_statistics">
+            统计
+          </button>
+        </div>
+        <div class="pull-right" role="group">
+          <button type="button" class="btn btn-info" id="searchBtn">刷新(F5)</button>
+          <button type="button" class="btn btn-info">保存</button>
+          <button type="button" class="btn btn-info">复核</button>
+          <button type="button" class="btn btn-info">新增拼箱</button>
+          <button type="button" class="btn btn-info">删除拼箱</button>
+          <button type="button" class="btn btn-info" id="printTag">打印标签</button>
+          <button type="button" class="btn btn-info" id="submitAbnormal">异常提交</button>
+          <button type="button" class="btn btn-info">查看任务</button>
+          <button type="button" class="btn btn-info">查看单据明细</button>
+          <button type="button" class="btn btn-info">扫描监管</button>
+          <button type="button" class="btn btn-info" id="codeCollection">商品条码采集(F8)</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <form id="form_b">
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">周转箱编号</span>
+              <input class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">商品条码</span>
+              <input class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">商品助记码</span>
+              <input class="form-control">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default " style="padding: 15px">
+        <div class="col-md-12 box-info-a">
+          <div class="col-md-3">
+            <label>验收注意点：</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>推荐箱型：</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>商品编号：</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>商品名称：</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>包装单位：</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>规格：</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>批号：</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>中包装数量：</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>生产厂家：</label><span></span></div>
+          <div class="col-md-3">
+            <label>折合件数：</label><span></span>
+          </div>
+        </div>
+    </div>
+    <div class="panel panel-default " style="padding: 15px">
+        <div class="col-md-12 box-info-b">
+          <div class="col-md-3">
+            <label>销售单号</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>当前客户复核台</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>拣货员</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>业主编号</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>当前客户任务单数</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>提货方式</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>业主名称</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>已复核单数</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>暂存区</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>客户编号</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>未复核单数</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>客户名称</label><span></span>
+          </div>
+          <div class="col-md-3">
+            <label>客服备注</label><span></span>
+          </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">商品列表</h3>
+        <div class="pull-right">
+          <button class="btn btn-info"  onclick="$('#table_a').filterTableHead()">设置显示列</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="table-box">
+          <table id="table_a"></table>
+        </div>
+        <div id="grid_pager_goods_a"></div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">已复核商品列表</h3>
+        <div class="pull-right">
+          <button class="btn btn-info"  onclick="$('#table_a').filterTableHead()">设置显示列</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="table-box">
+          <table id="table_b"></table>
+        </div>
+        <div id="grid_pager_goods_b"></div>
+      </div>
+    </div>
+
+    <!-- 商品条码采集 -->
+    <div class="panel panel-default code-collection-module" id="codeCollectionModule">
+      <div class="panel-body">
+        <form id="codeCollectionForm">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">业主编号：</span>
+                <input class="form-control" name="test">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">业主名称</span>
+                <input class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">商品编号：</span>
+                <input class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">单位：</span>
+                <input class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">商品规格：</span>
+                <input class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="input-group">
+                <span class="input-group-addon">商品名称：</span>
+                <input class="form-control">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">包装数：</span>
+                <input class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group">
+                <span class="input-group-addon">生产厂家：</span>
+                <input class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="input-group">
+                <span class="input-group-addon">中包装：</span>
+                <input class="form-control">
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="input-group">
+                <span class="input-group-addon">小包装条码：</span>
+                <input class="form-control">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- 打印标签 -->
+    <div class="panel panel-default" id="printTagModule"></div>
+
+  </div>
+  <script src="../../../static/js/jquery-2.1.4.min.js"></script>
+  <script src="../../../static/module/bootstrap/js/bootstrap.js"></script>
+  <script src="../../../static/js/configUtils.js"></script>
+  <script src="../../../static/module/XGrid/XGrid.js"></script>
+  <script src="../../../static/js/jQuery.print.js"></script>
+  <script src="../../../static/js/JsBarcode.all.min.js"></script>
+  <script src="../../../static/module/validate/jquery.validate.js"></script>
+  <script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+  <script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+  <script src="../../../static/module/jquery-autocomplete/jquery.autocomplete.js"></script>
+  <script src="../../../static/module/dataStatistics/dataStatistics.js"></script>
+  <script src="../../../static/js/z_utils.js"></script>
+  <script src="../../../static/business/outputStorageWork/internal_review/internal_review_list.js"></script>
+</body>
+
+</html>

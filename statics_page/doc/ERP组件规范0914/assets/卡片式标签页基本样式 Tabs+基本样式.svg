@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="342px" height="38px" viewBox="0 0 342 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>卡片式标签页基本样式 Tabs+基本样式</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M83,6.00017566 C83,2.68637015 85.6879063,0 89.0073625,0 L160.992638,0 C164.310412,0 167,2.68697795 167,6.00017566 L167,32 L83,32 L83,6.00017566 Z" id="path-1"></path>
+        <text id="text-3" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" line-spacing="21">
+            <tspan x="97" y="22">选中页签  </tspan>
+        </text>
+    </defs>
+    <g id="ERP规范和组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="界面规范" transform="translate(-1134.000000, -1086.000000)">
+            <g id="按钮控件" transform="translate(52.000000, 1004.000000)">
+                <g id="二级标签" transform="translate(1082.000000, 54.000000)">
+                    <g id="卡片式标签页基本样式-Tabs-基本样式" transform="translate(0.000000, 28.000000)">
+                        <g id="卡片式标签页基本样式-Tabs+基本样式">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <path stroke="#E9E9E9" d="M83.5,31.5 L166.5,31.5 L166.5,6.00017566 C166.5,2.96303664 164.034186,0.5 160.992638,0.5 L89.0073625,0.5 C85.9645171,0.5 83.5,2.96204478 83.5,6.00017566 L83.5,31.5 Z"></path>
+                            <g id="选中页签">
+                                <use fill="#2DB7F5" fill-rule="evenodd" xlink:href="#text-3"></use>
+                                <use fill-opacity="0.05" fill="#000000" fill-rule="evenodd" xlink:href="#text-3"></use>
+                                <use fill="#2DB7F5" fill-opacity="1" xlink:href="#text-3"></use>
+                            </g>
+                            <text id="可选页签--" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" line-spacing="21" fill="#666666">
+                                <tspan x="14" y="22">可选页签  </tspan>
+                            </text>
+                            <text id="可选页签--" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" line-spacing="21" fill="#666666">
+                                <tspan x="181" y="22">可选页签  </tspan>
+                            </text>
+                            <path d="M250.5,31.5 L341.5,31.5 L341.5,6.00017566 C341.5,2.96291587 339.036964,0.5 335.999112,0.5 L256.000888,0.5 C252.957762,0.5 250.5,2.95970083 250.5,6.00017566 L250.5,31.5 Z" id="Mask" stroke="#E9E9E9" fill="#F7F7F7"></path>
+                            <text id="hover效果" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" line-spacing="21" fill="#666666">
+                                <tspan x="264" y="22">hover效果</tspan>
+                            </text>
+                            <path d="M167,31.5 L340.511527,31.5" id="Path-638" stroke="#E9E9E9"></path>
+                            <path d="M0,31.5 L83.5,31.5" id="Path-638" stroke="#E9E9E9"></path>
+                            <rect id="Rectangle-1676" fill="#FFFFFF" x="84" y="29" width="82" height="9"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

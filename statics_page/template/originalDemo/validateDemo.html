@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>validateDemo</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">表单校验</h3>
+            <div class="pull-right " role="group">
+                <button type="button" id="submitBtn" class="btn btn-info">提交校验</button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="myform">
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">用户名</div>
+                            <input type="text" id="a" name="username"
+                                   class=" Filter_SpaceAndStrLen_Class form-control {validate:{ required :true, isUserName :true}}">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">邮箱</div>
+                            <input type="email" name="eamil"
+                                   class="form-control {validate:{ required :true, email :true}}" id="eamil">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">出生日期</div>
+                            <input type="text" id="b" name="date"
+                                   class="form-control {validate:{ required :true, date :true}}">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">身份证号</div>
+                            <input type="text" name="idCard" id="c"
+                                   class="form-control {validate:{ required :true, isIdCardNo :true}}">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">QQ号</div>
+                            <input type="text" name="qq" class="form-control {validate:{ required :true, isQq :true}}"
+                                   id="a2">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">手机号</div>
+                            <input type="text" name="tel"
+                                   class="form-control {validate:{ required :true, isMobile :true}}" id="b2">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">邮政编码</div>
+                            <input type="text" name="youbian"
+                                   class="form-control {validate:{ required :true, isZipCode :true}}" id="c2">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">IP地址</div>
+                            <input type="text" name="ip" class="form-control {validate:{ required :true, ip :true}}"
+                                   id="d2">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">中文、英文、数字、下划线</div>
+                            <input type="text" name="inputCode01"
+                                   class="form-control {validate:{ required :true, stringCheck :true}}" id="a3">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">数值类型，包括浮点数</div>
+                            <input type="text" name="inputCode02"
+                                   class="form-control {validate:{ required :true, isNumber :true}}" id="b3">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">整数小于或等于0</div>
+                            <input type="text" name="inputCode03"
+                                   class="form-control {validate:{ required :true, isIntLteZero :true}}" id="c3">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">整数大于或等于0</div>
+                            <input type="text" name="inputCode04"
+                                   class="form-control {validate:{ required :true, isIntGteZero :true}}" id="d3">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">时间</div>
+
+                            <input id="times" type="text" name="inputCode01" class="form-control Wdate grid_date"
+                                   onclick="WdatePicker()">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+
+                            <input id="beginDate" type="text" name="inputCode01" class="form-control Wdate grid_date"
+                                   onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}'})">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input id="endDate" type="text" name="inputCode01" class="form-control Wdate grid_date"
+                                   onclick="WdatePicker({minDate:'#F{$dp.$D(\'beginDate\')}'})">
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">单独校验</h3>
+            <div class="pull-right " role="group">
+                <button type="button" id="submitBtn1" class="btn btn-info">提交校验</button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form action="" id="single">
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">用户名</div>
+                            <input type="text" id="username" name="username"
+                                   class=" Filter_SpaceAndStrLen_Class form-control {validate:{ required :true, isUserName :true}}">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">邮箱</div>
+                            <input type="email" name="eamil"
+                                   class="form-control {validate:{ required :true, email :true}}" id="d">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">出生日期</div>
+                            <input type="text" id="date" name="date"
+                                   class="form-control {validate:{ required :true, date :true}}">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">身份证号</div>
+                            <input type="text" name="idCard" id="card"
+                                   class="form-control {validate:{ required :true, isIdCardNo :true}}">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">弹窗校验</h3>
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-info" id="showDialogBtn">呼出Dialog</button>
+            <p class="text-danger">
+                表单校验规则是写在类中的：‘《input type="text" name="idCard" id="card" class="form-control {validate:{ required :true, isIdCardNo :true}}"》’
+            </p>
+        </div>
+    </div>
+
+
+
+</div>
+
+<!--弹出的dialog,begin-->
+<div id="dialog" style="display: none;">
+    <div class="content">
+        <div class="table">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form id="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">名称</span>
+                                    <input type="text" class="form-control {validate: { required :true}}" name="name">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">年龄</span>
+                                    <input type="text" class="form-control {validate: { required :true}}" name="age">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">用户名</span>
+                                    <input type="text" class="form-control {validate: { required :true}}" name="uname">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">邮箱</span>
+                                    <input type="text" class="form-control {validate: { required :true}}" name="emile">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">身份证</span>
+                                    <input type="text" class="form-control {validate: { required :true}}" name="card">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">地址</span>
+                                    <input type="text" class="form-control {validate: { required :true}}" name="address">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出的dialog,end-->
+
+<script src="../../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script type="text/javascript" src="../../static/module/validate/jquery.validate.js"></script>
+<script type="text/javascript" src="../../static/module/validate/validate-methods.js"></script>
+<script type="text/javascript" src="../../static/module/validate/jquery.metadata.js"></script>
+<script type="text/javascript" src="../../static/module/validate/validToop.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script>
+    $(function () {
+
+        // 依次引入
+        // jquery.validate.js
+        // validate-methods.js
+        // jquery.metadata.js
+        // validToop.js
+
+        //整个表单验证
+        $("#submitBtn").click(function () {
+
+            if (validform("myform").form()) { //验证通过 "myform"为需要验证的form的ID
+                utils.dialog({
+                    content: '校验通过！',
+                    quickClose: true,
+                    timeout: 2000
+                }).showModal();
+            } else { //验证不通过
+                utils.dialog({
+                    content: '校验不通过！',
+                    quickClose: true,
+                    timeout: 2000
+                }).showModal();
+                return false;
+            }
+        })
+
+        // 对某一个input单独校验
+        $("#submitBtn1").click(function () {
+
+            $('#card').validDom('single');
+
+        })
+
+        //弹窗内校验
+        var gotSerializeObj;
+        $("#showDialogBtn").on('click', function () {
+            utils.dialog({
+                title: ' 弹窗校验',
+                width: 600,
+                content: $("#dialog"),
+                okValue: '保存',
+                cancelValue: '取消',
+                resetForm: true,
+                onshow: function () {
+
+                    var serializeJSON = $.extend({}, gotSerializeObj);
+
+                    //json对象回显数据到form表单
+                    $("#form").serializeJSONToForm(serializeJSON);
+                },
+                ok: function () {
+                    //保存按钮回调
+
+                    //校验必填项
+                    if(!validform('form').form()) return false;
+                    /**
+                     *  form表单序列化成json
+                     * {
+                     *   name:value,
+                     *   name:[value,value]
+                     * }
+                     */
+
+                    //保存填写数据
+                    gotSerializeObj = $("#form").serializeFormToJSON();
+                },
+                cancel: function () {
+                },
+                onclose: function () {
+                }
+            }).showModal();
+        });
+
+    })
+</script>
+</body>
+
+</html>

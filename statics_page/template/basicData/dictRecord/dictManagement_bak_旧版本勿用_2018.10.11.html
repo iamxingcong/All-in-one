@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字典管理</title>
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/t_public.css">
+    <style>
+        .batch_operate {
+            position: relative;
+        }
+
+        .clickApplyItem {
+            display: flex;
+            width: 120px;
+            height: 55px;
+            position: absolute;
+            top: -70px;
+            right: -35px;
+            background-color: #FFF;
+            border: 1px solid #999;
+            border-radius: 4px;
+            outline: 0;
+            z-index: 10;
+            background-clip: padding-box;
+            font-family: Helvetica, arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #333;
+            transition: transform .15s ease-in-out, opacity .15s ease-in-out;
+
+            padding: 0 5px;
+            box-sizing: content-box;
+        }
+
+        .clickApplyItem:before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            border: 6px dashed transparent;
+            bottom: -12px;
+            border-top: 6px solid #7C7C7C;
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin-left: 0;
+        }
+
+        .clickApplyItem:after {
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin-left: 0;
+            bottom: -11px;
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            position: absolute;
+            border: 6px dashed transparent;
+            border-top: 6px solid #fff;
+        }
+
+        .clickApplyItem > div {
+            justify-content: space-around;
+            flex-grow: 1;
+            padding-top: 30px;
+            position: relative;
+            font-size: 12px;
+            color: #2DB7F5;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .import {
+            margin-right: 12px;
+            z-index: 1;
+        }
+
+        .import > .uploadFileInput {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        .clickApplyItem .import:before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: url('../../../static/images/dr_btn.png') no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 7px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+
+        .clickApplyItem .download:before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: url('../../../static/images/mb_btn.png') no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 7px;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    </style>
+    <style>
+        .margin-right-15 {
+            margin-right: 15px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info">查询</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">字典类型</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">编号</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">名称</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">状态</span>
+                            <select class="form-control">
+                                <option value="0">正常</option>
+                                <option value="1">锁定</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">字典列表</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info" id="btn_edit">修改</button>
+                    <span class="batch_operate">
+                        <button class="btn btn-info" id="btn_batch">批量</button>
+                        <div class="clickApplyItem" style="display: none;">
+                            <div class="import" data-title="导入数据" id="btn_import_data">导入数据
+                                <input type="file" class="uploadFileInput">
+                            </div>
+                            <div class="download" data-title="下载模板" id="btn_download_template">下载模板</div>
+                        </div>
+                    </span>
+                    <button class="btn btn-info" id="btn_export">导出</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-box">
+                    <table id="info_table"></table>
+                </div>
+                <div id="grid_pager"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--修改,新版本,begin-->
+<div id="edit_dialog" style="display: none;">
+    <div class="content">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">字典类型</span>
+                                <input type="text" class="form-control" name="dictType" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">编号</span>
+                                <input type="text" class="form-control" name="numberCode" disabled>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <span class="input-group-addon">名称</span>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                        </div>
+                        <div class="col-md-12 form-inline">
+                            <div class="input-group">
+                                <span class="input-group-addon">状态</span>
+                                <div class="text-center form-control">
+                                    <div class="checkbox">
+                                        <label class="margin-right-15">
+                                            <input type="radio" value="0" name="status"> 正常
+                                        </label>
+                                        <label class="margin-right-15">
+                                            <input type="radio" value="1" name="status"> 锁定
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改,新版本,end-->
+
+
+<!--修改,旧版本,begin-->
+<div id="edit_dialog_old" style="display: none;">
+    <div class="content">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="table-box">
+                    <table id="info_table_edit" class="table-bordered"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改,旧版本,end-->
+
+<!--修改,名称,rowtype,begin-->
+<div id="edit_name_input" style="display: none">
+    <input type="text" class="form-control">
+</div>
+<!--修改,rowtype,end-->
+
+<!--修改,rowtype,begin-->
+<div id="edit_status_input" style="display: none">
+    <select class="form-control">
+        <option value="0">正常</option>
+        <option value="1">锁定</option>
+    </select>
+</div>
+<!--修改,rowtype,end-->
+
+
+</body>
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/js/t_utils.js"></script>
+<script src="../../../static/business/basicData/dictRecord/dictManagement_bak_旧版本勿用_2018.10.11.js"></script>
+</html>

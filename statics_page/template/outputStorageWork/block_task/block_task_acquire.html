@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="overview &amp; stats" />
+  <link rel="icon" href="" type="image/x-icon"/>
+  <title>整件任务索取</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../static/css/b.tabs.css">
+  <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+  <link rel="stylesheet" href="../../../static/module/dataStatistics/dataStatistics.css">
+  <link rel="stylesheet" href="../../../static/css/public.css">
+  <link rel="stylesheet" href="../../../static/css/z_public.css">
+  <link rel="stylesheet" type="text/css" media="screen,print" href="../../../static/css/ui.jqgrid.css">
+  <link rel="stylesheet" type="text/css" media="screen,print" href="../../../static/css/outorder_print.css" />
+
+  <style type="text/css">
+    .input_checkbox .checkbox{
+      position: absolute;
+      left: 100%;
+      margin-left: 20px;
+      width: 170px;
+    }
+
+
+    li {
+      list-style: none;
+    }
+    .iahref{
+      cursor: pointer;
+      font-style: normal;
+    }
+    .table_wrap {
+      max-height: 400px;
+    }
+    .nav-content  .panel-body{
+      padding-top: 0px !important;
+    }
+    #box .content .top .inden_type {
+
+      bottom: -15px !important;
+    }
+    #box .content .top {
+
+      height: 40px !important;
+    }
+    .sparse span{
+      display: block;
+      width: 33%;
+      display: flex;
+    }
+    .ui-jqgrid tr.jqgrow td, .ui-jqgrid tr.jqgroup td{
+      height: auto !important;
+      white-space: normal !important;
+      height: auto !important;
+      padding: 2px;
+      word-wrap:break-word !important;
+      word-break:break-all !important;
+      line-height: 23px !important;
+      text-align: center;
+    }
+    th.ui-th-column div{
+      white-space:normal !important;
+      height:auto !important;
+      padding:2px;
+    }
+    #box .content .info_list li .col_3 {
+
+      float: right;
+      text-align: right;
+    }
+
+    /*打印商品*/
+    .pro span:nth-child(even){
+      padding-left: 15px;
+    }
+    .pro-top , .pro-foot{
+      margin-bottom: 10px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .pro-content{
+      font-size: 14px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <!--打印模板-->
+  <div id="box_a" style="width: 0; height: 0;overflow: hidden;">
+    <div id="box" class="box"  >
+      <!--<div class="content indent1">
+      <div class="header">
+      <div class="title">整件拣货单</div>
+      </div>
+      <div class="top">
+      <ul class="info_list">
+      <li>
+      <div class="col-md-4">批检任务号：<i class="val">${item.num}</i></div>
+      <div class="col-md-4"> 拣货员：<i class="val">${item.name}</i></div>
+      <div class="col-md-4"> 打印时间：<i class="val">${item.date}</i></div>
+      </li>
+      </ul>
+      </div>
+      <table id="table_a_${index}"></table>
+      <div style="page-break-after:always"></div>
+      </div>-->
+    </div>
+  </div>
+
+  <!--打印模板 -->
+  <div id="box_b" style="width: 0; height: 0; overflow: hidden;">
+    <div class="panel panel-default pro-print">
+
+      <!--<div class="panel-body">
+        <div class="clearfix pro pro-top">
+          <div class="col-md-3"><span>商品货位</span><span>D01-19</span></div>
+          <div class="col-md-3"><span>整件数量</span><span>D01-19</span></div>
+          <div class="col-md-3"><span>是否重打</span><span>D01-19</span></div>
+        </div>
+        <div class="clearfix pro pro-content">
+          <ul class="col-md-6 pull-left ">
+            <li><span>客户名称</span><span>D01-19</span></li>
+            <li><span>商品名称</span><span>D01-19</span></li>
+            <li><span>数量</span><span>D01-19</span></li>
+            <li><span>规格</span><span>D01-19</span></li>
+            <li><span>批号</span><span>D01-19</span></li>
+            <li><span>客户编码</span><span>D01-19</span></li>
+            <li><span>配送方向</span><span>D01-19</span></li>
+            <li><span>支付状态</span><span>D01-19</span></li>
+            <li><span>标签条码</span><span>D01-19</span></li>
+            <li><span>生产厂家</span><span>D01-19</span></li>
+            <li><span>拣货人</span><span>D01-19</span></li>
+            <li><span>时间</span><span>D01-19</span></li>
+          </ul>
+          <div class="col-md-6 pull-right ">
+            &lt;!&ndash; 条形码 &ndash;&gt;
+            &lt;!&ndash;<img id="barcode"/>&ndash;&gt;
+            条形码
+          </div>
+        </div>
+        <div class="clearfix pro pro-foot">
+          <div class="col-md-6"><span>开始暂存区-截止暂存区</span><span>Y36-27&#45;&#45;Y36-30</span></div>
+        </div>
+      </div>-->
+
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="panel panel-default con-top">
+      <div class="panel-heading">
+        <h3 class="panel-title">整件任务索取</h3>
+        <div class="pull-right data-statistics" >
+          <div class="data-content"></div>
+          <button type="button" class="btn btn-info" id="data_statistics">
+            统计
+          </button>
+        </div>
+        <div class="pull-right" role="group">
+          <button type="button" class="btn btn-info" id="searchBtn">
+            刷新
+          </button>
+          <button type="button" class="btn btn-info" id="acquire_ok">
+            索取确认
+          </button>
+          <button type="button" class="btn btn-info" id="pick_ok">
+            拣货确认
+          </button>
+          <button type="button" class="btn btn-info" id="print">
+            重打标签
+          </button>
+        </div>
+
+      </div>
+      <div class="panel-body">
+        <form id="form_a">
+          <div class="col-md-3">
+            <div class="input-group input_checkbox">
+              <span class="input-group-addon">拣货员工号</span>
+              <input class="form-control" onkeydown="if(event.keyCode==13) return false;">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                  索取后自动打印拣货单
+                </label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">整件任务列表</h3>
+        <div class="pull-right">
+          <button class="btn btn-info"  onclick="$('#table_a').filterTableHead()">设置显示列</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="table-box">
+          <table id="table_a"></table>
+        </div>
+        <div id="grid_pager_a"></div>
+
+      </div>
+
+    </div>
+  </div>
+  <script src="../../../static/js/jquery-2.1.4.min.js"></script>
+  <script src="../../../static/module/bootstrap/js/bootstrap.js"></script>
+  <script src="../../../static/js/configUtils.js"></script>
+  <script src="../../../static/module/XGrid/XGrid.js"></script>
+  <script src="../../../static/js/jquery.jqGrid.min.js"></script>
+  <script src="../../../static/js/jQuery.print.js"></script>
+  <script src="../../../static/js/JsBarcode.all.min.js"></script>
+  <script src="../../../static/module/validate/jquery.validate.js"></script>
+  <script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+  <script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+  <script src="../../../static/module/jquery-autocomplete/jquery.autocomplete.js"></script>
+  <script src="../../../static/module/dataStatistics/dataStatistics.js"></script>
+  <script src="../../../static/js/z_utils.js"></script>
+  <script src="../../../static/business/outputStorageWork/block_task/block_task_acquire.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字段资料维护</title>
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/t_public.css">
+    <style>
+        .margin-left-right-0 {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info">查询</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">字段名</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">字段列表</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info" id="btnAddDictList">新增</button>
+                    <button class="btn btn-info">导出</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row margin-left-right-0">
+                    <div class="col-md-4">
+                        <div class="table-box">
+                            <table id="dictListTable"></table>
+                        </div>
+                        <div id="pager_dictListTable"></div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="table-box">
+                            <table id="dictDetailTable_shower"></table>
+                        </div>
+                        <!--<div id="pager_dictDetailTable_shower"></div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--修改弹框,begin-->
+<div id="edit_dialog" style="display: none;">
+    <div class="content">
+        <style>
+            .panel {
+                -webkit-box-shadow: none;
+                -moz-box-shadow: none;
+                box-shadow: none;
+                margin-bottom: 0;
+            }
+        </style>
+        <div class="panel panel-default">
+            <!--
+            <div class="panel-heading">
+                <h3 class="panel-title">修改</h3>
+            </div>
+            -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">字段名</span>
+                            <input type="text" class="form-control" id="dictNameInput">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">名称</span>
+                            <input type="text" class="form-control" id="dictdictMeaningInput">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;margin-bottom: 20px;">
+                    <div class="col-md-12">
+                        <div class="table-box">
+                            <table class="table-bordered" id="dictDetailTable_editer"></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 form-inline">
+                        <div class="input-group" style="margin-bottom: 0;">
+                            <span class="input-group-addon">状态</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <style>
+                                        .margin-right-15 {
+                                            margin-right: 15px;
+                                        }
+                                    </style>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="dictStatusRadio"> 正常
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="dictStatusRadio"> 锁定
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--修改弹框,end-->
+
+<!--显示值,begin-->
+<div id="show_val_input" style="display: none;">
+    <input type="text" class="form-control">
+</div>
+<!--显示值,end-->
+
+<!--存储值,begin-->
+<div id="save_val_input" style="display: none;">
+    <input type="text" class="form-control">
+</div>
+<!--存储值,end-->
+
+<!--状态,begin-->
+<div id="status_input" style="display: none;">
+    <input type="text" class="form-control" disabled>
+</div>
+<!--状态,end-->
+
+
+</body>
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/js/t_utils.js"></script>
+<script src="../../../static/business/basicData/dictRecord/dictManagement.js"></script>
+</html>

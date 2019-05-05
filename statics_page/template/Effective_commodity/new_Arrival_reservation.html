@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>到货预约单管理</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <style>
+        #print .row .col-md-12{
+                margin-bottom: 15px;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="content">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">供应商到货预约登记</h3>
+                <div class="pull-right " role="group">
+                    <button type="button" class="btn btn-info" id="addOrder">新建供应商预约表单</button>
+                    <button type="button" class="btn btn-info">取消</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form id="myForm">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">到货日期</div>
+                                <input type="text" name="beginTime" class="Wdate form-control grid_date" onfocus="WdatePicker()"
+                                    value="2018-09-24" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">预约单编号</div>
+                                <input type="text" class="form-control" value="1231312" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon require">供应商名称</div>
+                                <input type="text" class="form-control">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon require">供应商编号</div>
+                                <input type="text" class="form-control" placeholder="根据供应商名称带入">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon require">预估到货量</div>
+                                <input type="text" class="form-control" placeholder="件">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">备注</div>
+                                <textarea name="text" class="form-control" maxlength="200" autocomplete="off" rows="1"
+                                    style="resize: none"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!--供应商预约单-->
+        <div id="print" style="display: none;">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">供应商名称</div>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">预估到货量</div>
+                        <input type="text" class="form-control" value="XXXX件">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">预约单时间</div>
+                        <input type="text" class="form-control" value="YYYY-MM-DD XX：XX">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">当前预约号</div>
+                        <input type="text" class="form-control" value="XXXXXXXXXXX">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <div class="input-group-addon">还需等待</div>
+                        <input type="text" class="form-control" value="XXXXXXXXXXX">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/business/Effective_commodity/new_Arrival_reservation.js"></script>
+
+</html>

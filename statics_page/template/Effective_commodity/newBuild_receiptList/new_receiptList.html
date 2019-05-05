@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>新建收货单</title>
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <style>
+        #dialog_Block {
+            display: none;
+        }
+
+        .form-group {
+            margin-bottom: 10px !important;
+        }
+    </style>
+</head>
+
+<body>
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">收货单管理</h3>
+            <div class="pull-right " role="group">
+                <button type="button" class="btn btn-info" id="productExtract">按商品提取</button>
+                <button type="button" class="btn btn-info" id="orderExtract">按订单提取</button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="myform">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">创建日期</div>
+                            <input lit="search" type="text" name="beginTime" class="Wdate form-control grid_date"
+                                   onfocus="WdatePicker()" autocomplete="off" readonly value="2018-05-24">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">单据编号</div>
+                            <input type="text" name="qq" class="form-control" readonly value="GNV465132">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">操作人</div>
+                            <input type="text" name="qq" class="form-control" readonly value="马云">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">仓库</div>
+                            <input type="text" name="qq" class="form-control" readonly value="湖南">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon require">供应商编号</div>
+                            <input type="text" name="qq" class="form-control" readonly>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon require">供应商名称</div>
+                            <input type="text" name="qq" class="form-control">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon require">到货预约号</div>
+                            <input type="text" name="qq" class="form-control">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">到货方式</div>
+                            <select class="form-control" autocomplete="off">
+                                <option>&nbsp;送货上门</option>
+                                <option>&nbsp;公司配送</option>
+                                <option>&nbsp;客户自提</option>
+                                <option>&nbsp;委托配送</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">运输工具</div>
+                            <select class="form-control" autocomplete="off">
+                                <option>&nbsp;厢式货车</option>
+                                <option>&nbsp;冷藏车2-8℃</option>
+                                <option>&nbsp;保温车</option>
+                                <option>&nbsp;冷藏车2-8℃</option>
+                                <option>&nbsp;其他封闭式车辆</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">货主名称</div>
+                            <input type="text" name="qq" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">部门名称</div>
+                            <input type="text" name="qq" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">采购员</div>
+                            <input type="text" name="qq" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">到货日期</div>
+                            <input lit="search" type="text" name="beginTime" class="Wdate form-control grid_date"
+                                   onfocus="WdatePicker()" autocomplete="off">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">商品表单</h3>
+            <div class="pull-right" role="group">
+                <button type="button" class="btn btn-info" id="addRowData">新增行</button>
+                <button type="button" class="btn btn-info" id="delRowData">删除行</button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="hidden-x-scroll">
+                <table id="X_Table1" class="XGridUI stripedTable"></table>
+            </div>
+            <div id="grid-pager1"></div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">订单表单</h3>
+            <div class="pull-right" role="group">
+                <button type="button" class="btn btn-info" id="addRow">新增行</button>
+                <button type="button" class="btn btn-info" id="delRow">删除行</button>
+                <button type="button" class="btn btn-info">提交</button>
+                <button type="button" class="btn btn-info">取消</button>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="table-box">
+                <table id="X_Table" class="XGridUI stripedTable"></table>
+            </div>
+            <div id="grid-pager"></div>
+        </div>
+    </div>
+</div>
+<!-- 新增弹窗 -->
+<div id="dialog_Block">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">商品编号</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="txt1" id="id" placeholder="请输入商品编号">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">商品名称</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="txt2">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">商品规格</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="txt3">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">生产厂家</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="txt4">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">包装单位</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="txt5">
+            </div>
+        </div>
+    </form>
+</div>
+<!--input挂载-->
+<div id="count_black" style="display: none">
+    <input type="text" class="form-control" style="width: 60px;text-align: center;">
+</div>
+<!--批号-->
+<div id="productBatchCode" style="display: none;">
+    <input class="form-control">
+</div>
+<!--生产日期-->
+<div id="productionDate" style="display:none">
+    <input type="text" name="starttime" id="starttime" class="form-control Wdate grid_date"
+           onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'endtime\')}',errDealMode:1,onpicking:getProduction})"
+           autocomplete="off">
+</div>
+<!--有效期至-->
+<div id="effectiveDate" style="display:none">
+    <input type="text" name="endtime" id="endtime" class="form-control Wdate grid_date"
+           onfocus="WdatePicker({minDate:'#F{$dp.$D(\'starttime\')}',errDealMode:1,onpicking:getEffective})"
+           autocomplete="off">
+</div>
+<div id="search_black" style="display: none">
+    <div class="input-group" style="margin: 0">
+        <input type="text" class="form-control" style="width: 100% !important;" id="container">
+        <i class="glyphicon glyphicon-search" id="containerName"></i>
+    </div>
+</div>
+<!--件包装下拉-->
+<div id="Part_specification" style="display: none">
+    <select type="text" class="form-control" style="width: 100px;">
+        <option value="0">请选择</option>
+    </select>
+</div>
+
+<!--收货结论下拉-->
+<div id="receipt_black" style="display: none">
+    <select type="text" class="form-control" style="width: 100px;">
+        <option value="0">请选择</option>
+        <option value="1">收货</option>
+        <option value="2">拒收</option>
+        <option value="3">挂起</option>
+    </select>
+</div>
+
+<!--拒收单-->
+<div id="reject_order" style="display: none">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="input-group" style="margin-bottom: 15px">
+                <div class="input-group-addon">是否当场拒收</div>
+                <select type="text" name="qq" class="form-control">
+                    <option value="">是</option>
+                    <option value="">否</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input-group" style="margin-bottom: 15px">
+                <div class="input-group-addon required">退货暂存区货位</div>
+                <input type="text" name="qq" class="form-control">
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="input-group" style="margin-bottom: 15px">
+                <div class="input-group-addon">拒收备注</div>
+                <textarea name="qq" class="form-control" rows="2" maxlength="100" style="resize: none"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--拆分表单行-->
+<div id="splitModal" style="display: none">
+    <div class="table-box">
+        <table id="split_table"></table>
+    </div>
+    <div id="split_pager"></div>
+    <div class="pull-right" role="group" style="margin-top: 15px">
+        <button type="button" class="btn btn-info" id="addData">
+            新增
+        </button>
+        <button type="button" class="btn btn-info" id="deleteRow">
+            删除
+        </button>
+        <button type="button" class="btn btn-info" id="confirm">
+            确认
+        </button>
+        <button type="button" class="btn btn-warning" id="close">
+            关闭
+        </button>
+    </div>
+</div>
+</body>
+<script src="../../../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../../static/module/jquery-autocomplete/jquery.autocomplete.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/business/Effective_commodity/receiptList/new_receiptList.js"></script>
+
+</html>

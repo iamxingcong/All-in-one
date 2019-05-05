@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传demo</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <!--<h3 class="panel-title">title</h3>-->
+                <div class="pull-left">
+                    <button class="btn btn-info" id="btn_show_dialog">上传附件</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <embed src="https://files.test.ybm100.com/G1/M00/00/07/Cgoz1FuBCJ2AU4EKAADeWImURgM456.pdf" type="application/pdf">
+                <img id="preview">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--上传附件,dialog,begin-->
+<div id="upload_dialog" style="display: none;">
+    <style>
+        .panel-reset {
+            margin-bottom: 0;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .form-upload {
+            display: inline-block;
+            width: 520px;
+        }
+
+        .row-reset-margin {
+            margin: 0;
+        }
+
+        .btn-upload-mask {
+            z-index: 1;
+        }
+
+        #btn_input_file {
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            z-index: 2;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+    <div class="content">
+        <div class="panel panel-default panel-reset">
+            <div class="panel-body text-center">
+                <form class="form-upload">
+                    <div class="row row-reset-margin">
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="filename_shower" readonly>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" class="btn btn-info btn-upload-mask" value="选择文件">
+                            <input type="file" id="btn_input_file" accept="*.pdf,image/*">
+                        </div>
+                        <div class="col-md-2">
+                            <input type="button" id="btn_upload" class="btn btn-info" value="上&nbsp;&nbsp;传">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--上传附件,dialog,end-->
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script>
+    $(function () {
+        var d;
+        $("#btn_show_dialog").on("click", function () {
+            d = utils.dialog({
+                title: ' 上传',
+                width: 600,
+                height: 69,
+                content: $("#upload_dialog"),
+                /*
+                okValue: '保存',
+                cancelValue: '取消',
+                */
+                resetForm: true,
+                onshow: function () {
+                    //$(this.node).find('.ui-dialog-content').css({"overflow-y": 'scroll'});
+                },
+                /*
+                ok: function () {
+                },
+                cancel: function () {
+                },
+                */
+                onclose: function () {
+                },
+            }).showModal();
+        });
+
+        //选择文件
+        $("#btn_input_file").on('change', function () {
+            $("#filename_shower").val(this.files[0].name);
+            preview(this.files[0]);
+        });
+
+        var prevUploadFileName = "";//上一次上传的文件名
+
+        //上传按钮
+        $("#btn_upload").on("click", function () {
+            var fileName = $("#filename_shower").val();
+
+            //是否选择了文件
+            if (!fileName) {
+                utils.dialog({
+                    title: "提示",
+                    width: 200,
+                    content: "请选择文件",
+                    okValue: "确定",
+                    ok: function () {
+                    }
+                }).showModal();
+                return false;
+            }
+
+            //重复文件
+            if (prevUploadFileName != "" && prevUploadFileName == fileName) {
+                utils.dialog({
+                    title: "提示",
+                    width: 300,
+                    content: "此文件已经上传过，请确认是否再次上传？",
+                    okValue: "再次上传",
+                    cancelValue: "取消上传",
+                    ok: function () {
+                        UploadFileFn();
+                    },
+                    cancel: function () {
+
+                    }
+                }).showModal();
+            } else {
+                UploadFileFn();
+            }
+
+        });
+
+
+        function UploadFileFn() {
+            var file = $("#btn_input_file")[0].files[0];
+            var formData = new FormData();
+            formData.append("file", file);
+            formData.append("name", file.name);
+
+            var loading = dialog({
+                title: '上传中',
+                fixed: true,
+                width: 200,
+                quickClose: false,
+                cancel: false
+            }).showModal();
+
+            $.ajax({
+                url: 'http://wms.dev.ybm100.com/upload/upload',
+                type: 'POST',
+                async: false,
+                data: formData,
+                processData: false,
+                contentType: false,
+                beforeSend: function () {
+                    console.log("正在上传");
+                },
+                success: function (data) {
+                    loading.close();
+                    if (data.code == 0) {
+                        prevUploadFileName = file.name;
+                        utils.dialog({content: data.result, quickClose: false, timeout: 2000}).showModal();
+                    } else if (data.code == 1) {
+                        utils.dialog({content: data.msg, quickClose: false, timeout: 2000}).showModal();
+                    } else {
+                        utils.dialog({content: "上传失败", quickClose: true, timeout: 2000}).showModal();
+                    }
+                }, error: function () {
+                    loading.close();
+                    utils.dialog({content: "上传失败", quickClose: true, timeout: 2000}).showModal();
+                }, complete: function () {
+                    $("#btn_input_file").val("");
+                }
+            });
+        }
+
+        function preview(file) {
+            if (file) {
+                var src = window.URL.createObjectURL(file);
+                document.getElementById('preview').src = src;
+            }
+        }
+
+    });
+</script>
+</html>

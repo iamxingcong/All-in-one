@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自营配送区域</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+    <style type="text/css">
+        
+        ol li{
+            line-height: 34px;
+            margin-bottom: 5px;
+            margin-right: 15px;
+        }
+        #saved_items{
+            overflow: auto;
+            max-height: 350px;
+         }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">查询条件</h3>
+            <div class="pull-right" role="group">
+                <button type="button" class="btn btn-info">查询</button>
+                <button type="button" class="btn btn-info">重置</button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">承运商类型</span>
+                        <select class="form-control">
+							<option value="null">请选择</option>
+							<option value="0">委外</option>
+							<option value="1">自有</option>
+                         </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">承运商名称</span>
+                        <select class="form-control">
+							<option value="null">请选择</option>
+							 
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">生效状态</span>
+                        <select class="form-control">
+							<option value="null">请选择</option>
+							<option value="0">停用</option>
+                            <option value="1">生效</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+        	<h3 class="panel-title">承运商管理</h3>
+            <div class="pull-right" role="group">
+               
+                <button type="button" class="btn btn-info" id="import">导入</button>
+                <button type="button" class="btn btn-info" id="export">导出</button>
+                <button type="button" class="btn btn-info" id="delete">删除</button>
+                <button type="button" class="btn btn-info" id="start">启用</button>
+                <button type="button" class="btn btn-info" id="stop">停用</button>
+            </div>
+        </div>
+        <div class="panel-body">
+			<div class="table-box">
+                <table id="X_Table" class="XGridUI stripedTable"></table>
+            </div>
+            
+    	</div>
+	</div>
+
+</div>
+
+
+<!-- 
+
+<div id="add_dialog" style="display: none;">
+    <div class="contetn">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">承运商ID</label>
+                        <div class="col-sm-10">
+                            <span class="form-control">CYS0001</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">承运商类型</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="distributionType">
+                              <option value="请选择">请选择</option>
+                              <option value="委外">委外</option>
+                              <option value="自有">自有</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">承运商名称</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" id="distributionCarrier">
+                              <option value="请选择">请选择</option>
+                              <option value="顺丰">顺丰</option>
+                              <option value="圆通">圆通</option>
+                              <option value="小药药长沙物流">小药药长沙物流</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">配送方向</label>
+                        <div class="col-sm-4">
+                            <select   class="form-control" name="distributionOrientation" id="distributionOrientation">
+                                <option value="null">请选择</option>
+                                <option value="0">武汉市内</option>
+                                <option value="1">武汉市外</option>
+                                <option value="2">省际</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">配送区域</label>
+                        <div class="col-sm-10">
+                            <div class="col-sm-3">
+                               <select  class="form-control"  id="firstcity_select">
+                                      <option selected="" value="全国">全国</option>
+                                      <option value="北京">北京</option>
+                                      <option value="河北省">河北省</option>
+                                      <option value="天津">天津</option>
+                                      <option value="……">……</option>
+                                      <option value="海南">海南</option>
+                              </select> 
+                            </div>
+                            <div class="col-sm-3">
+                               <select  class="form-control"  id="secondcity_select">
+                                    <option selected="" value="全省">全省</option>
+                                    <option value="北京市">北京市</option>
+                                </select>
+                            </div>    
+                            <div class="col-sm-3">
+                               <select  class="form-control"  id="third_select">
+                                      <option selected="" value="全市">全市</option>
+                                      <option value="韩阳区">韩阳区</option>
+                                      <option value="海淀区">海淀区</option>
+                                      <option value="……">……</option>
+                                </select>
+                            </div>    
+                            <div class="col-sm-3">
+                               <select  class="form-control"  id="fourth_select">
+                                      <option selected="" value="全区">全区</option>
+                                      <option value="三元桥">三元桥</option>
+                                      <option value="望 京">望 京</option>
+                                      <option value="……">……</option>
+                                </select>
+                            </div>    
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">配送线路</label>
+                        <div class="col-sm-10">
+                            <ul>
+                                <li>
+                                    <div class="checkbox margin-left-15 padding-top-0">
+                                        <label>
+                                            <input type="checkbox" name="datatrans" value="1" autocomplete="off"> 三元桥——望京线
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox margin-left-15 padding-top-0">
+                                        <label>
+                                            <input type="checkbox" name="datatrans" value="1" autocomplete="off"> 三元桥——望京线
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox margin-left-15 padding-top-0">
+                                        <label>
+                                            <input type="checkbox" name="datatrans" value="1" autocomplete="off"> 三元桥——望京线
+                                        </label>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="checkbox margin-left-15 padding-top-0">
+                                        <label>
+                                            <input type="checkbox" name="datatrans" value="1" autocomplete="off"> 三元桥——望京线
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">生效日期</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="Wdate form-control grid_date"  id="beginTime" name="beginTime"  onfocus="WdatePicker()">
+                        </div>
+                    
+                        <label class="col-sm-2 control-label">失效日期</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="Wdate form-control grid_date"  id="endTime" name="endTime"   onfocus="WdatePicker()">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">生效状态</label>
+                        <div class="col-sm-10">
+                            <div class="col-sm-3">
+                                <div class="checkbox margin-left-15 padding-top-0">
+                                    <label>生效
+                                        <input type="radio" name="datatrans" value="1" autocomplete="off"> 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="checkbox margin-left-15 padding-top-0">
+                                    <label>停用
+                                        <input type="radio" name="datatrans" value="2" autocomplete="off">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+ -->
+
+
+
+
+
+
+
+
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/distribution/carrierManage.js"></script>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="overview &amp; stats" />
+    <link rel="icon" href="../../static/images/wmslogo.png" type="image/x-icon">
+    <title>ERP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/login.css">
+</head>
+
+<body>
+    <div class="content">
+        <!-- 登录 -->
+        <form id="login" class="form-horizontal">
+            <div class="form-group-content">
+                <div class="form-group-left">
+                    <h2>小药药ERP管理系统</h2>
+                    <div class="from-content">
+                        <h3>欢迎回来！</h3>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="account" placeholder="账户">
+                        </div>
+                        <div class="form-group">
+                            <input type="Password" class="form-control" id="Password" placeholder="密码">
+                        </div>
+                        <div class="form-group">
+                            <a href="#" class="login">登录</a>
+                        </div>
+                        <div class="form-group">
+                            <div class="move-reset">忘记密码</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group-right"></div>
+            </div>
+        </form>
+        <!-- 手机验证 -->
+        <form id="forget-psw" class="form-horizontal" style="display: none">
+            <!-- 手机验证 -->
+            <div class="form-phone">
+                <h3>通过手机验证</h3>
+                <div class="form-group" id="phone">
+                    <input type="text" class="form-control" id="reg_phone" placeholder="请输入手机号">
+                    <!-- 验证码按钮 -->
+                    <input class="btn btn-info" type="button" id="reg_mescode_btn" value="获取验证码"></input>
+                </div>
+                <div class="form-group">
+                    <input type="Password" class="form-control" id="reg_mescode" placeholder="输入获取的验证码">
+                </div>
+                <div class="form-group operation">
+                    <a class="btn btn-default" style="margin-right: 15px;">取消</a>
+                    <a class="btn btn-info" id="reg_submit">下一步</a>
+                </div>
+            </div>
+        </form>
+        <!-- 修改密码 -->
+        <form id="change-psw" class="form-horizontal" style="display: none">
+            <div class="from-password">
+                <h3>更改密码</h3>
+                <div class="form-group">
+                    <input type="Password" class="form-control" id="newPassword" placeholder="新密码(至少含字母数字6-16位支持特殊符号)">
+                </div>
+                <div class="form-group">
+                    <input type="Password" class="form-control" id="confirmPassword" placeholder="确认密码">
+                </div>
+                <div class="form-group operation">
+                    <a class="btn btn-default" style="margin-right: 15px;">取消</a>
+                    <a class="btn btn-info" id="reg_reset">确定</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="../../static/module/jquery/3.3.1/jquery.js"></script>
+    <script src="../../static/module/bootstrap/js/bootstrap.js"></script>
+    <script>
+        $(function () {
+            //登录页
+            function fnLogin() {
+                var oUname = document.getElementById("account")
+                var oUpass = document.getElementById("Password")
+                var oError = document.getElementById("error_box")
+                var isError = true;
+                if (oUname.value.length > 20 || oUname.value.length < 6) {
+                    oError.innerHTML = "用户名请输入6-20位字符";
+                    isError = false;
+                    return;
+                } else if ((oUname.value.charCodeAt(0) >= 48) && (oUname.value.charCodeAt(0) <= 57)) {
+                    oError.innerHTML = "首字符必须为字母";
+                    return;
+                } else
+                    for (var i = 0; i < oUname.value.charCodeAt(i); i++) {
+                        if ((oUname.value.charCodeAt(i) < 48) || (oUname.value.charCodeAt(i) > 57) && (
+                                oUname.value.charCodeAt(i) < 97) || (oUname.value.charCodeAt(i) > 122)) {
+                            oError.innerHTML = "必须为字母跟数字组成";
+                            return;
+                        }
+                    }
+                if (oUpass.value.length > 16 || oUpass.value.length < 6) {
+                    oError.innerHTML = "密码请输入6-16位字符"
+                    isError = false;
+                    return;
+                }
+                window.alert("登录成功")
+            }
+
+            //忘记密码
+            $(".move-reset").on("click", function () {
+                $('#login').hide();
+                $('#forget-psw').show();
+            })
+            //下一步
+            $('#reg_submit').on('click', function () {
+                $('#forget-psw').hide();
+                $('#change-psw').show();
+            })
+            $('#reg_reset').on('click', function () {
+                $('#change-psw').hide();
+                $('#login').show();
+            })
+            /**
+             * 手机验证码
+             */
+            var mobile = '';
+            var count = 60; //验证码 有效期 60s
+            var curCount = 0; //当前剩余秒数  开始为0
+            var InterValObj = "";
+            // console.log('获取手机验证码。。。');
+            //获取验证码
+            $('#reg_mescode_btn').click(function () {
+
+                var phone = $('#reg_phone');
+                var send = $('input#reg_mescode_btn');
+                var val = phone.val();
+                if (val) {
+                    // if (IsMobile(val)) {
+                    send.attr('disabled', "disabled");
+                    //60秒后重新启动发送按钮
+                    send_msg(send);
+                    $.ajax({
+                        url: '',
+                        data: {
+                            'mobile': val
+                        },
+                        dataType: 'json',
+                        type: 'post',
+                        success: function (data) {
+                            if (data.status != undefined && (data.status ==
+                                    'ok' || data.status == 'error')) {
+                                alert(data.msg);
+                            }
+                        }
+                    });
+                    // } else {
+                    //     alert("手机号的格式错误");
+                    // }
+                } else {
+                    alert('手机号不能为空');
+                }
+            });
+            function send_msg(obj) {
+                var count = 1;
+                var sum = 60;
+                var i = setInterval(function () {
+                    if (count > 10) {
+                        obj.attr('disabled', false);
+                        obj.val('再次发送');
+                        clearInterval(i);
+                    } else {
+                        obj.val(parseInt(sum - count) + 's' + '再次发送');
+                    }
+                    count++;
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>

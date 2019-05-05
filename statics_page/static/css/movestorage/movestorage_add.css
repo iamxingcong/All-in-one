@@ -1,0 +1,6 @@
+input[name="productName"] {
+    background-image: url(../../../static/images/mirror.png);
+    background-position: right center;
+    background-size: 25px;
+    background-repeat: no-repeat;
+}

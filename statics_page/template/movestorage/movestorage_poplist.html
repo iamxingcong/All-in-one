@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>商品列表</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+	<link rel="stylesheet" href="../../static/css/movestorage/movestorage_poplist.css">
+</head>
+
+<body>
+
+
+<div class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            
+            <div class="panel-body">
+                <form>
+					<div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">关键字</span>
+                            <input  class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">产地</span>
+                            <input class="form-control " placeholder="  =PDJH+年月日（6位）+流水号（6位）">
+                        </div>
+                    </div>
+
+                   
+					<div class="col-md-3">
+                        <button type="button" class="btn btn-info" id="search">
+                            查询
+                        </button>
+                        <button type="button" class="btn btn-info" id="confirm">
+                            确定
+                        </button>
+                    </div>
+            
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               <h3 class="panel-title">商品明细</h3> 
+               
+            </div>
+           
+            <div class="panel-body">
+            	<div class="table_wrap">
+                	<table id="X_Tablex"></table>
+            	</div>
+                <div id="grid-pagera"></div>
+            </div>
+                 
+            </div>
+        </div>
+    </div>
+</div>
+ 
+ 
+
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/movestorage/movestorage_poplist.js"></script>
+</html>

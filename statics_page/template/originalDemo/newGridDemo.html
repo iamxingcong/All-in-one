@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>newGridDemo</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/XGrid/XGrid.css">
+</head>
+<body>
+
+<div class="content">
+
+    <div class="panel panel-default">
+        <div class="panel-body" id="tbblock" style="display: block;">
+            <table id="X_Table">
+            </table>
+            <div id="grid-pager">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="../../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+
+
+<script>
+    $(function () {
+
+        var gridData = [
+            {
+                name0: '字段0数据',
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '668',
+                name7: '安达市大所大多撒所大所大所大所大所大所大所多安达市大所大多撒所大所大所大所大所大所大所多安达市大所大多撒所大所大所大所大所大所大所多',
+            },
+            {
+                id: '112',
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6106',
+                name7: '阿斯顿法国和健康',
+            },
+            {
+                id: '113',
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '60006',
+                name7: '安达市大所大多撒所大所大所大所大所大所大所多',
+            },
+            {
+                id: '114',
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '66',
+            },
+            {
+                id: '115',
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6639',
+            },
+            {
+                id: '115',
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6682',
+                name7: '安达市大所大多撒所大所大所大所大所大所大所多',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6236',
+                name7: '',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6688',
+                name7: '安达市大所大多撒所大所大所大所大所大所大所多安达市大所大多撒所大所大所大所大所大所大所多安达市大所大多撒所大所大所大所大所大所大所多',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6866',
+                name7: '安达市大所大多撒所大所大所大所大所大所大所多',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '16',
+                name7: '安达市大所大多撒所大所大所大所大所大所大所多',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6416',
+                name7: '请问而退',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '616',
+                name7: '安达市大所大多撒所大所大所大所大所大所大所多',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '636',
+                name7: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '665',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '668',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6683',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '636',
+                name7: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '665',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '668',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6683',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6416',
+                name7: '请问而退',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '616',
+                name7: '安达市大所大多撒所大所大所大所大所大所大所多',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '636',
+                name7: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '665',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '668',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6683',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '636',
+                name7: 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '665',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '668',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+            {
+                name1: '字段1的数据',
+                name2: '2数据',
+                name3: '3数据',
+                name4: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+                name5: '字段5的数据',
+                name6: '6683',
+                name7: '字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据字段4的数据',
+            },
+        ];
+
+        var cmodel = [
+            {
+                name: 'id',
+                hidden: true,
+            },
+            {
+                name: 'name0',
+                hidden: false,
+                width: 220
+            },
+            {
+                name: 'name1',
+            },
+            {
+                name: 'name2',
+            },
+            {
+                name: 'name3',
+            },
+            {
+                name: 'name4',
+                width: 300
+            },
+            {
+                name: 'name5',
+            },
+            {
+                name: 'name6',
+            },
+            {
+                name: 'name7',
+                width: 600
+            },
+            {
+                name: 'name8',
+            },
+            {
+                name: 'name9',
+            }
+        ];
+
+        var $XYY_Grid = $('#X_Table');
+
+        //筛选列
+        $('#filterCol').on('click', function () {
+            $XYY_Grid.XGrid('filterTableHead');
+        });
+
+        $('#sea').on('click', function () {
+            $XYY_Grid.XGrid('setGridParam', {
+                data: []
+            }).trigger('reloadGrid');
+        });
+
+        //筛选列
+        $('#showTable').on('click', function () {
+            utils.dialog({
+                content: $('#tbblock'),
+                title: '弹出table',
+                width: 1060,
+                height: 600,
+                onshow: function () {
+                    initTable();
+                }
+            }).show();
+        });
+
+        initTable();
+
+        function initTable() {
+            $XYY_Grid.XGrid({
+                //data: gridData,
+                data: gridData,
+                //url:'http://192.168.4.207:8080/purchase/purchaseOrder/loadPurchaseOrderData',
+                //tbHeadAryMult: ['出库单号1', '出库类型1', '总金额1', '申请人（单位）1', '备注1', '<span>*</span>操作1', '性别1'],
+                colNames: ['id', '字段0000字段0000', '字段1', '字段2', '字段3', '字段4', '字段5', '字段6', '字段7字段7', '字段字段8', '字段字段9'],
+                colModel: cmodel,
+                key: 'autoKey', //设置唯一列（默认为id字段）
+                height: 400,
+                rowNum: 20, //分页，请求时每页条数
+                rowList: [5, 10, 20, 30], //分页条数下拉选择
+                altRows: true, //设置为隔行变色
+                rownumbers: true, //是否展示序号
+                multiselect: true, //是否多选
+                selectandorder: true, //展示序号和复选框
+                colModelOnline: false,//隐藏显示列，是否在线(不区分 ID)
+                ondblClickRow: function (id, dom, obj, index, event) {
+                    console.log('双击获取数据：' + id);
+                    console.log(obj);
+                    //双击事件回调函数
+                    //$XYY_Grid.XGrid('editRow', id);
+                },
+                onSelectRow: function (id, dom, obj, index, event) {
+                    console.log('单机获取数据：' + id);
+                    console.log(obj);
+                    //选中事件
+                    //回调参数：id：本行id,dom:本行DOM元素,index:下标,event:原事件
+                },
+                allEvent: function (rData) {
+                    console.log('整个XGrid触发的控件改变事件')
+                },
+                onPaging: function (e) {
+                    //console.log('翻页前事件！', e);
+
+                    utils.dialog({
+                        content: '确定要翻页吗？',
+                        ok: function () {
+                            console.log('确定的回调！');
+                            $XYY_Grid.XGrid('setGridParam', {
+                                page: e
+                            }).trigger('reloadGrid');
+                        },
+                        okValue: '确定',
+                        cancelValue: '取消',
+                        cancel: function () {
+                            console.log('取消的回调！')
+                        }
+                    }).show();
+                    return false;
+                },
+                gridComplete: function () {
+                    //$('#tbblock').show();
+                },
+                pager: '#grid-pager',
+            });
+
+        }
+
+    });
+</script>
+
+</body>
+</html>

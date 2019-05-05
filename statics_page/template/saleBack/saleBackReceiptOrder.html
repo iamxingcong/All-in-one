@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>销售退回收货单</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+</head>
+
+<body>
+
+
+<div class="content">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+                <div class="pull-right" role="group">
+                    <button type="button" class="btn btn-info" id="searchBtn">
+                        查询
+                    </button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form id="myForm">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">关键字</span>
+                                <input id="keyWord" name="keyWord" class=" form-control"
+                                       placeholder="销售退回收货单号、销售退回开票单号">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">单据日期</span>
+                                <input id="beginTime" name="beginTime" class="Wdate form-control grid_date "
+                                       onfocus="startTime(this)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">截止日期</span>
+                                <input id="endTime" name="endTime" class="Wdate form-control grid_date"
+                                       onfocus="getEndTime(this)">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">单据状态</span>
+                                <select class="form-control ">
+                                    <option>全部</option>
+                                    <option>待收货</option>
+                                    <option>已完成</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">退货单位</span>
+                                <input id="" name="" class=" form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">申请人</span>
+                                <input id="" name="" class=" form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">收货人</span>
+                                <input id="" name="" class=" form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">商品名称</span>
+                                <input id="product" name="product" class=" form-control" placeholder="请输入商品名称助记码、69码" title="请输入商品名称助记码、69码">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">销售退回收货单</h3>
+                <div class="pull-right" role="group">
+                    <button type="button" class="btn btn-info" id="setCol">
+                        设置显示列
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel-body">
+                    <table id="X_Table"></table>
+                <div id="grid-pager"></div>
+            </div>
+
+        </div>
+</div>
+
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/saleBack/saleBackReceiptOrder.js"></script>
+</html>

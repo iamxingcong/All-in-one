@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>griddemo-head</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+</head>
+<body>
+
+<style>
+    /***************   XGrid暂用CSS  开始 ********************/
+    .table-box {
+        width: 100%;
+        overflow: auto;
+    }
+
+    .XGridUI tr:nth-child(odd) {
+        background: #F8F8F8;
+    }
+
+    .XGridUI tr:nth-child(even) {
+        background: #ffffff;
+    }
+
+    .XGridHead tr {
+
+    }
+
+    /*  .XGridUI tr:first-child,*/
+    .gridHeadMult tr, .XGridHead tr {
+        background: #E3E3E3;
+    }
+
+    .XGridUI tr.hoverRow {
+        background: #E3E3E3;
+    }
+
+    .XGridUI tr.selRow {
+        /*background: #99CCCC;*/
+        background: #E5F6FD;
+    }
+
+    .XGridUI {
+        border-collapse: collapse;
+        font-size: 14px;
+    }
+
+    .gridHeadMult th .XGridUI th,
+    .XGridUI td,
+    .XGridUI {
+        padding: 0;
+        margin: 0;
+        border: 0px solid black;
+    }
+
+    .XGridUI th,
+    .gridHeadMult th {
+        line-height: 22px;
+        background: #383D41;
+        /*color: #ffffff;*/
+        padding: 8px 12px;
+        text-align: center;
+        white-space: nowrap;
+        background: rgba(243, 247, 249, .5);
+        color: #526069;
+        border: 1px solid #e4eaec;
+    }
+
+    .XGridUI td, .XGridHead th {
+        padding: 8px 12px;
+        white-space: nowrap;
+        border: 0px solid #e4eaec;
+        height: 37px;
+        overflow-x: hidden;
+        text-align: center;
+        min-width: 100px;
+    }
+
+    /*.XGridUI td > input[type=text] {
+        width: 100%;
+    }*/
+    .XGridUI {
+        min-width: 100%;
+        table-layout: fixed;
+        word-break: break-all;
+    }
+
+    .ui-pager-control #grid-pager_center td {
+        padding: 5px;
+    }
+
+    .ui-pager-control table {
+        width: 100%;
+    }
+
+    .ui-pager-control table tr {
+        text-align: right;
+    }
+
+    .ui-pager-control table tr td:last-child {
+        margin-right: 3px;
+    }
+
+    .ui-pager-control table #grid-pager_left {
+        width: 17.0%;
+    }
+
+    .ui-pager-control table #grid-pager_center {
+        width: 20.0%;
+    }
+
+    .ui-pager-control table #grid-pager_right {
+        width: 50.0%;
+    }
+
+    .ui-pager-control .ui-paging-pager span:hover,
+    .ui-paging-pager td:hover {
+        color: #2DB7F5;
+    }
+
+    .ui-pager-control .ui-paging-pager span,
+    .ui-pager-control .ui-paging-pager input,
+    .ui-pager-control .ui-paging-pager select {
+        display: block;
+        border: 1px solid #D9D9D9;
+        height: 28px;
+        box-sizing: border-box;
+        line-height: 27px;
+        border-radius: 5px;
+        padding: 0 10px;
+        color: #000000a6;
+        margin: 10px 0;
+    }
+
+    .ui-pager-control .ui-paging-pager input {
+        display: initial;
+        width: 50px;
+        text-align: center;
+    }
+
+    .ui-pager-control .ui-paging-pager input:hover {
+        border: 1px solid #D9D9D9;
+    }
+
+    .ui-paging-pager td,
+    .ui-pager-control .ui-paging-pager select {
+        display: inline-block;
+        cursor: pointer;
+        margin-right: 10px;
+        line-height: 45px;
+    }
+
+    .ui-pager-disable {
+        background: #F8F8F8;
+        color: #A8A8A8 !important;
+        border: 0 !important;
+        line-height: 28px !important;
+        padding: 0 11px !important;
+    }
+
+    /***************   XGrid暂用CSS  结束 ********************/
+
+
+</style>
+<style>
+    #dialog_Block {
+        min-width: 600px;
+        display: none;
+    }
+
+    td, th {
+        white-space: nowrap !important;
+    }
+
+
+
+</style>
+<table id="X_Table1">
+</table>
+<div id="grid-pager1">
+</div>
+<script src="../../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script type="text/javascript" src="../../static/module/validate/jquery.validate.js"></script>
+<script type="text/javascript" src="../../static/module/validate/validate-methods.js"></script>
+<script type="text/javascript" src="../../static/module/validate/jquery.metadata.js"></script>
+<script type="text/javascript" src="../../static/module/validate/validToop.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+
+<script>
+    $(function () {
+
+
+        var grid_data = [{
+            ida: "<a>ssss</a><scriptscript>",
+            type: '01',
+            pay: "水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水",
+            name: {
+                sel1: '1',
+                sel2: '1'
+            },
+            text: {
+                gb1: true,
+                gb2: true,
+                gb4: true,
+                dx: "danxuan2",
+                gb5: 'asasasasasasasas'
+            },
+            sex: ''
+        },
+            {
+                ida: "00002",
+                type: "02",
+                pay: "1000",
+                name: {
+                    sel1: '2',
+                    sel2: '1'
+                },
+                text: {
+                    gb1: true,
+                    gb2: true,
+                    gb3: true,
+                    gb4: true,
+                    gb6: true,
+                    dx: "danxuan1",
+                    gb5: '反反复复付付付付'
+                },
+                sex: 1
+            },
+            {
+                ida: "00003",
+                type: "退货出库",
+                pay: "1040.06",
+                name: {
+                    sel1: '1',
+                    sel2: '1'
+                },
+                text: {
+                    gb6: true,
+                    dx: "danxuan2",
+                    gb5: '呃'
+                },
+                sex: 1
+            },
+            {
+                ida: "00004",
+                type: "02",
+                pay: "1040.06",
+                name: {
+                    sel1: '2',
+                    sel2: '1'
+                },
+                text: {
+                    gb6: true,
+                    dx: "danxuan2",
+                    gb5: '呃'
+                },
+                sex: 2
+            },
+            {
+                ida: "00005",
+                type: "01",
+                pay: "1040.06",
+                name: "abc",
+                text: {
+                    gb6: true,
+                    dx: "danxuan2",
+                    gb5: '呃'
+                },
+                sex: ''
+            },
+            {
+                ida: "00006",
+                type: "01",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd",
+                sex: 1
+            },
+            {
+                ida: "00007",
+                type: "01",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd",
+                sex: 2
+            },
+
+            {
+                ida: "000010",
+                type: "01",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd",
+                sex: 2
+            },
+            {
+                ida: "000011",
+                type: "02",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd"
+            },
+            {
+                ida: "000012",
+                type: "02",
+                pay: "1040.06",
+                name: "abc",
+                text: {
+                    gb6: true,
+                    dx: "danxuan2",
+                    gb5: '呃'
+                }
+            },
+            {
+                ida: "000013",
+                type: "02",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd"
+            },
+            {
+                ida: "000014",
+                type: "02",
+                pay: "1040.06",
+                name: "abc",
+                text: {
+                    gb6: true,
+                    dx: "danxuan2",
+                    gb5: '呃'
+                }
+            }
+        ];
+        $('#X_Table1').XGrid({
+            data: grid_data,
+            colNames: ['出库单号', '出库类型', '总金额', '申请人', '备注'],
+            colModel: [{
+                name: 'ida',
+            }, {
+                name: 'type',
+            }, {
+                name: 'pay',
+            }, {
+                name: 'name',
+            }, {
+                name: 'text',
+            }],
+            key: 'ida', //设置唯一列（默认为id字段）
+            rowNum: 10, //分页，请求时每页条数
+            rowList: [5, 10, 20, 30], //分页条数下拉选择
+            altRows: true, //设置为隔行变色
+            rownumbers: true, //是否展示序号
+            multiselect: true, //是否多选
+            selectandorder: true, //展示序号和复选框
+            colModelOnline: false,//隐藏显示列，是否在线(不区分 ID)
+            /*       seleRow: ['00002', '00003'],
+                   disableRow: ['00002', '00003'],*/
+            height: 200,
+            ondblClickRow: function (id) {
+                $XYY_Grid1.XGrid('editRow', id);
+            },
+            onSelectRow: function (id) {
+                console.log(id);
+                return 'aaa'
+            },
+            pager: '#grid-pager1',
+        })
+
+    })
+</script>
+</body>
+</html>

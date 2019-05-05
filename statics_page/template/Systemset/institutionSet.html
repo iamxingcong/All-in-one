@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>机构设置</title>
+    <link rel="stylesheet" href="../../static/module/ztree/css/zTreeStyle.css" type="text/css">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/ui.jqgrid-bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <style>
+        .ztree li a {
+            margin: 0 5px;
+        }
+
+        .form-actions {
+            margin-top: 65px;
+        }
+
+        .col-md-1.col-sm-1.control-label {
+            width: 9.333%;
+        }
+
+        .form-horizontal .control-label {
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">机构设置</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <!-- 树形菜单 -->
+                    <div class="col-xs-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">机构树</h3>
+                                <button id="newSet" class="btn btn-info pull-right" type="button">新建</button>
+                            </div>
+                            <div class="panel-body" style="height:606px;">
+                                <div id="tree" class="ztree"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 右部表单 -->
+                    <div class="col-xs-8">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">机构信息</h3>
+                            </div>
+                            <div class="panel-body" style="height:606px;">
+                                <form class="form-horizontal" role="form">
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">企业编码：</div>
+                                            <input type="text" class="form-control" name="id" placeholder="自动生成">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-addon require">企业名称：</div>
+                                            <input type="text" class="form-control" name="type" required value="武汉分公司">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-addon require">企业类型：</div>
+                                            <select class="form-control" name="" id="">
+                                                <option value="">有限公司</option>
+                                                <option value="">股份</option>
+                                                <option value="">其他</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-addon">企业地址：</div>
+                                            <input type="text" class="form-control" name="name" value="湖北省武汉市小药药有限公司">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-addon require">企业状态：</div>
+                                            <select class="form-control" name="" id="">
+                                                <option value="">正常</option>
+                                                <option value="">状态</option>
+                                                <option value="">停用</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group">
+                                            <div class="input-group-addon require">IT管理员：</div>
+                                            <select class="form-control" name="" id="">
+                                                <option value="">选择账号</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+                                            <div class="input-group-addon require">企业经营范围：</div>
+                                            <div class="checkbox col-offset-2 col-sm-2">
+                                                <label>
+                                                    <input type="checkbox"> 中西药
+                                                </label>
+                                            </div>
+                                            <div class="checkbox col-md-3">
+                                                <label>
+                                                    <input type="checkbox"> 选项二
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-5 col-md-4">
+                                            <button class="btn" type="reset">
+                                                <i class="ace-icon fa fa-undo bigger-110"></i>
+                                                取消
+                                            </button>
+                                            &nbsp; &nbsp; &nbsp;
+                                            <button class="btn btn-info" type="button">
+                                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                                保存
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-8 institution" style="display: none">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">机构信息</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form class="form-horizontal" role="form">
+                                    <div class="form-group">
+                                        <label class="col-md- col-sm-3 control-label">企业编码：</label>
+                                        <div class="col-md- col-sm-7">
+                                            <input type="text" class="form-control" name="id" placeholder="自动生成">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md- col-sm-3 control-label">
+                                            <span class="danger">*</span>企业名称：</label>
+                                        <div class="col-md- col-sm-7">
+                                            <input type="text" class="form-control" name="type" required placeholder="请输入企业名称">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md- col-sm-3 control-label">
+                                            <span class="danger">*</span>企业类型：</label>
+                                        <div class="col-md- col-sm-7">
+                                            <select class="form-control" name="" id="">
+                                                <option value="">有限公司</option>
+                                                <option value="">股份</option>
+                                                <option value="">其他</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md- col-sm-3 control-label">企业地址：</label>
+                                        <div class="col-md- col-sm-7">
+                                            <input type="text" class="form-control" name="name" placeholder="请输入企业地址">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md- col-sm-3 control-label">
+                                            <span class="danger">*</span>企业状态：</label>
+                                        <div class="col-md- col-sm-7">
+                                            <select class="form-control" name="" id="">
+                                                <option value="">正常</option>
+                                                <option value="">状态</option>
+                                                <option value="">停用</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md- col-sm-3 control-label">
+                                            <span class="danger">*</span>IT管理员：</label>
+                                        <div class="col-md- col-sm-7">
+                                            <select class="form-control" name="" id="">
+                                                <option value="">选择账号</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md- col-sm-3 control-label">
+                                            <span class="danger">*</span>经营范围：</label>
+                                        <div class="col-md- col-sm-7">
+                                            <textarea rows="5" name="text" required class="form-control">网商药店平台</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-5 col-md-4">
+                                            <button class="btn " type="reset ">
+                                                <i class="ace-icon fa fa-undo bigger-110 "></i>
+                                                取消
+                                            </button>
+                                            &nbsp; &nbsp; &nbsp;
+                                            <button class="btn btn-info " type="button ">
+                                                <i class="ace-icon fa fa-check bigger-110 "></i>
+                                                保存
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../static/module/jquery/3.3.1/jquery.min.js "></script>
+<script type="text/javascript " src="../../static/module/ztree/js/jquery.ztree.core.js "></script>
+<script type="text/javascript " src="../../static/module/ztree/js/jquery.ztree.excheck.js "></script>
+<script type="text/javascript " src="../../static/module/ztree/js/jquery.ztree.exedit.js "></script>
+<script src="../../static/js/configUtils.js "></script>
+<script src="../../static/module/XGrid/XGrid.js "></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js "></script>
+<script type="text/javascript ">
+    $('#tree').children('tree_1_switch').remove();
+    var zTreeObj;
+    var tree_id = 1;
+    var zTreeNodes = [{
+        id: 0,
+        name: "小药药集团 ",
+        open: true, //展开
+        children: [{
+                id: tree_id,
+                name: "武汉分公司 ",
+                //checked: true
+            },
+            {
+                id: ++tree_id,
+                name: "湖南分公司 ",
+                // checked:true  //默认选中
+            },
+            {
+                id: ++tree_id,
+                name: "河南分公司 "
+            }
+        ]
+    }];
+
+    var setting = {
+        check: {
+            enable: false //显示勾选框  默认不显示
+        },
+        callback: {
+            onClick: zTreeOnClick, //选中事件
+            // beforeRemove: beforeRemove,//删除事件
+            // beforeRename: beforeRename,//修改事件
+        },
+        view: {
+            // addDiyDom: addDiyDom  //设置按钮
+            expandSpeed: " ",
+            addHoverDom: addHoverDom, //新增
+            removeHoverDom: removeHoverDom,
+            selectedMulti: false,
+            showIcon: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        edit: {
+            enable: false, //是否可编辑
+            drag: {
+                isCopy: false, //拖拽复制
+                isMove: false, //拖拽移动
+            },
+            showRenameBtn: false, //编辑按钮
+            showRemoveBtn: false, //删除按钮
+            removeTitle: "删除改节点 ", //删除按钮上的提示信息
+        }
+    };
+    $(document).ready(function () {
+        zTreeObj = $.fn.zTree.init($("#tree "), setting, zTreeNodes);
+    });
+
+    //选中事件
+    function zTreeOnClick(event, treeId, treeNode) {
+        console.log(event, treeId, treeNode);
+        grid_data = [];
+        grid_data = [{
+            id: "1 ",
+            type: "2 ",
+            pay: "3 ",
+            name: treeNode.name,
+            text: "5 "
+        }]
+    };
+
+    function addHoverDom(treeId, treeNode) {
+        var aObj = $("# " + treeNode.tId + "_a ");
+        if ($("#diyBtn_edit " + treeNode.id).length > 0) return;
+        if ($("#diyBtn_dele_ " + treeNode.id).length > 0) return;
+        if ($("#diyBtn_manager_ " + treeNode.id).length > 0) return;
+        if ($("#diyBtn_Postmanager_ " + treeNode.id).length > 0) return;
+
+        var editStr = "<a id='diyBtn_edit_" + treeNode.id + "'> 编辑</a>" + " <a id = 'diyBtn_dele_" + treeNode.id +
+            "' > 删除 < /a>" + " <a id = 'diyBtn_manager_" + treeNode.id +
+            "'href = 'departmentControl.html'> 部门管理 </a>" + " <a id = 'diyBtn_Postmanager_" + treeNode.id +
+            "' > 职位管理 </a> ";
+        aObj.append(editStr);
+        var btn1 = $("#diyBtn_edit_ " + treeNode.id),
+            btn2 = $("#diyBtn_dele_" + treeNode.id);
+        if (btn1) {
+            btn1.bind("click", function () {
+                editEvent(treeNode);
+            });
+        }
+        if (btn2) {
+            btn2.bind("click", function () {
+                delEvent(treeNode);
+            });
+        }
+    }
+    //编辑的回调函数 
+    function editEvent(treeNode) {
+        var name = treeNode.name;
+        var id = treeNode.id;
+        utils.dialog({
+            content: '校验通过！',
+            quickClose: true,
+            timeout: 2000
+        }).showModal();
+        //编辑机构信息 
+        $('.institution').show().prev().hide();
+    }
+    //(删除的提示框)回调函数 
+    function delEvent(treeNode) {
+        utils.dialog({
+            content: '确定删除此机构？',
+            quickClose: false,
+            okValue: '确定',
+            cancelValue: '取消',
+            ok: function () {
+                zTreeNodes[0].children.splice(treeNode.id -
+                    1, 1);
+                zTreeObj = $.fn.zTree.init($("#tree"), setting, zTreeNodes);
+            },
+            cancel: true
+        }).showModal();
+    }
+
+    function removeHoverDom(treeId, treeNode) {
+        $("#diyBtn_edit_" +
+            treeNode.id).unbind().remove();
+        $("#diyBtn_dele_" + treeNode.id).unbind().remove();
+        $("#diyBtn_manager_" + treeNode.id).unbind().remove();
+        $("#diyBtn_Postmanager_" +
+            treeNode.id).unbind().remove();
+    };
+
+    //新建机构树分支 
+    $('#newSet').click(function () {
+        $('.institution').show().prev().hide();
+        $('.institution').off().on('click', '.btn-info', function () {
+            var name = $('.institution').find('[name=type]').val()
+            zTreeNodes[0].children.push({
+                id: ++tree_id,
+                name: name
+            });
+            zTreeObj = $.fn.zTree.init($("#tree"),
+                setting, zTreeNodes);
+            $('.institution').hide();
+            //保存成功提示框 
+            utils.dialog({
+                width: 150,
+                height: 50,
+                title: '保存',
+                content: '保存成功',
+                quickClose: false,
+                okValue: '确定',
+                ok: function () {},
+            }).showModal();
+        })
+    })
+</script>
+
+</html>

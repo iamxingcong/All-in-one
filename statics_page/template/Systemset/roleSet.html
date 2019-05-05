@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="overview &amp; stats" />
+    <link rel="icon" href="" type="image/x-icon" />
+    <title>编辑角色</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/module/ztree/css/zTreeStyle.css">
+</head>
+
+<body>
+    <div class="content">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+            </div>
+            <div class="panel-body">
+                <form id="myform">
+                    <div class="row">
+                        <div class=" col-md-4 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">角色</div>
+                                <input type="text" name="username" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">模块</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="tree" class="ztree"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">权限分配</h3>
+                            </div>
+                            <div class="panel-body" style="height:500px;">
+                                <div class="row">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="" checked>操作权限</label>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body" style="height: 70px;text-align: center;">
+                                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">新建</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">编辑</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4 col-md-4">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">删除</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" value="" checked>查看字段</label>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body" style="height: 120px;text-align: center;">
+                                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">字段1</label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">字段2</label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">字段3</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">字段4</label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">字段5</label>
+                                                </div>
+                                                <div class="checkbox">
+                                                    <label>
+                                                        <input type="checkbox" value="">字段6</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-5 col-md-4">
+                                            <button class="btn" type="reset">
+                                                <i class="ace-icon fa fa-undo bigger-110"></i>
+                                                取消
+                                            </button>
+                                            &nbsp; &nbsp; &nbsp;
+                                            <button class="btn btn-info" type="button">
+                                                <i class="ace-icon fa fa-check bigger-110"></i>
+                                                保存
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../static/module/jquery/3.3.1/jquery.js"></script>
+    <script src="../../static/module/bootstrap/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.exedit.js"></script>
+    <script type="text/javascript">
+        var zTreeObj;
+        var zTreeNodes = [{
+            id: 0,
+            name: "小药药权限树",
+            open: true, //展开
+            children: [{
+                    id: 1,
+                    name: "集团数据中心",
+                    open: true, //展开
+                    children: [{
+                            id: 11,
+                            name: "字段管理",
+                            open: true, //展开
+                            children: [{
+                                    id: 21,
+                                    name: "剂型"
+                                },
+                                {
+                                    id: 21,
+                                    name: "包装单位",
+                                },
+                                {
+                                    id: 21,
+                                    name: "生产厂家",
+                                },
+                                {
+                                    id: 21,
+                                    name: "品牌厂家",
+                                },
+                                {
+                                    id: 21,
+                                    name: "通用名",
+                                },
+                                {
+                                    id: 21,
+                                    name: "说明书属性",
+                                },
+                                {
+                                    id: 21,
+                                    name: "说明书模板",
+                                }
+                            ]
+                        },
+                        {
+                            id: 12,
+                            name: "商品管理"
+                        },
+                        {
+                            id: 13,
+                            name: "供应商管理"
+                        },
+                        {
+                            id: 14,
+                            name: "客户管理"
+                        }
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "系统权限设置",
+                    // checked:true  //默认选中
+                },
+                {
+                    id: 3,
+                    name: "武汉ERP",
+                    isParent:true
+                },
+                {
+                    id: 4,
+                    name: "重庆ERP",
+                    isParent:true
+                },
+                {
+                    id: 5,
+                    name: "重庆ERP"
+                }
+            ]
+        }];
+        var setting = {
+            check: {
+                enable: false, //显示勾选框  默认不显示
+            },
+            view: {
+                // addDiyDom: addDiyDom  //设置按钮
+                expandSpeed: " ",
+                selectedMulti: false,
+                showIcon: false
+            }
+        };
+        $(document).ready(function () {
+            zTreeObj = $.fn.zTree.init($("#tree"), setting, zTreeNodes);
+        });
+    </script>
+</body>
+
+</html>

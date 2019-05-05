@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>masterData</title>
+
+    <link rel="stylesheet" href="../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/public.css">
+    <link rel="stylesheet" href="../static/module/artDialog/css/ui-dialog.css">
+
+</head>
+<style>
+</style>
+
+<body>
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="btn-group" role="group">
+                <button type="button" id="submitBtn" class="btn btn-info">
+
+                    提交
+                </button>
+                <button type="button" id="getRowData" class="btn btn-info">
+
+                    保存
+                </button>
+                <button type="button" id="closeTabs" class="btn btn-info">
+
+                    关闭本页面
+                </button>
+
+
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        辅助功能
+                        <span class="caret"></span>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <li>
+                            <a href="#">单据挂账</a>
+                        </li>
+                        <li>
+                            <a href="#">提取挂账</a>
+                        </li>
+                        <li>
+                            <a href="#">导出Excel</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table">
+            <div class="panel panel-default">
+                <div fold="head" class="panel-heading">
+                    <h3 class="panel-title">申请属性</h3>
+                    <div fold="sub" class="fold-block panel-title pull-right">
+                        <div class="glyphicon glyphicon-triangle-bottom"></div>
+                    </div>
+                </div>
+                <div fold="body" class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">申请日期</div>
+                                <input type="text" name="username" disabled="disabled"
+                                       class="form-control {validate:{ required :true, isUserName :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">单据编号</div>
+                                <input type="text" name="date"
+                                       class=" Filter_SpaceAndEmpty_Class form-control {validate:{ required :true, date :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">申请人</div>
+                                <input type="text" name="idCard"
+                                       class=" Filter_SpaceAndEmpty_Class form-control {validate:{ required :true, isIdCardNo :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">机构</div>
+                                <input type="email" name="eamil"
+                                       class="form-control {validate:{ required :true, email :true,}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">QQ号</div>
+                                <input type="text" name="qq"
+                                       class="form-control {validate:{ required :true, isQq :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">手机号</div>
+                                <input type="text" name="tel"
+                                       class="form-control {validate:{ required :true, isMobile :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">邮政编码</div>
+                                <input type="text" name="youbian"
+                                       class="form-control {validate:{ required :true, isZipCode :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">IP地址</div>
+                                <input type="text" name="ip"
+                                       class="form-control {validate:{ required :true, ip :true,}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">中文、英文、数字、下划线</div>
+                                <input type="text" name="inputCode01"
+                                       class="form-control {validate:{ required :true, stringCheck :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">数值类型，包括浮点数</div>
+                                <input type="text" name="inputCode02"
+                                       class="form-control {validate:{ required :true, isNumber :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">整数小于或等于0</div>
+                                <input type="text" name="inputCode03"
+                                       class="form-control {validate:{ required :true, isIntLteZero :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">整数大于或等于0</div>
+                                <input type="text" name="inputCode04"
+                                       class="form-control {validate:{ required :true, isIntGteZero :true,}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table">
+            <div class="panel panel-default">
+                <div fold="head" class="panel-heading">
+                    <h3 class="panel-title">基础属性</h3>
+                    <div fold="sub" class="fold-block panel-title pull-right">
+                        <div class="glyphicon glyphicon-triangle-bottom"></div>
+                    </div>
+                </div>
+                <div fold="body" class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">商品编码</div>
+                                <input type="text" name="username" id="pid" autocomplete="off"
+                                       class="form-control {validate:{ required :true, isUserName :true,}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">商品名</div>
+                                <input type="text" name="qq" id="goodsname"
+                                       class="form-control {validate:{ required :true, isQq :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">商品名助记码</div>
+                                <input type="text" name="tel" autocomplete="off" id="zjm"
+                                       class="form-control {validate:{ required :true, isMobile :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">规格</div>
+                                <input type="text" name="youbian"
+                                       class="form-control {validate:{ required :true, isZipCode :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">包装单位</div>
+                                <input type="text" name="ip"
+                                       class="form-control {validate:{ required :true, ip :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">剂型</div>
+                                <input type="text" name="ip"
+                                       class="form-control {validate:{ required :true, ip :true,}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">通用名</div>
+                                <input type="text" name="inputCode01"
+                                       class="form-control {validate:{ required :true, stringCheck :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">通用名助记码</div>
+                                <input type="text" name="inputCode02"
+                                       class="form-control {validate:{ required :true, isNumber :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">批准文号</div>
+                                <input type="text" name="inputCode03"
+                                       class="form-control {validate:{ required :true, isIntLteZero :true,}}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">生产厂家</div>
+                                <input type="text" name="inputCode01"
+                                       class="form-control {validate:{ required :true, stringCheck :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">是否委托生产</div>
+                                <input type="text" name="inputCode02"
+                                       class="form-control {validate:{ required :true, isNumber :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">受托厂家</div>
+                                <input type="text" name="inputCode03"
+                                       class="form-control {validate:{ required :true, isIntLteZero :true,}}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">品牌厂家</div>
+                                <input type="text" name="inputCode01"
+                                       class="form-control {validate:{ required :true, stringCheck :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">有效期</div>
+                                <input type="text" name="inputCode02"
+                                       class="form-control {validate:{ required :true, isNumber :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">存储条件</div>
+                                <input type="text" name="inputCode03"
+                                       class="form-control {validate:{ required :true, isIntLteZero :true,}}">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">件包装条码</div>
+                                <input type="text" name="inputCode01"
+                                       class="form-control {validate:{ required :true, stringCheck :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">中包装条码</div>
+                                <input type="text" name="inputCode02"
+                                       class="form-control {validate:{ required :true, isNumber :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">小包装条码</div>
+                                <input type="text" name="inputCode03"
+                                       class="form-control {validate:{ required :true, isIntLteZero :true,}}">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table">
+            <div class="panel panel-default">
+                <div fold="head" class="panel-heading">
+                    <h3 class="panel-title">运营属性</h3>
+                    <div fold="sub" class="fold-block panel-title pull-right">
+                        <div class="glyphicon glyphicon-triangle-bottom"></div>
+                    </div>
+                </div>
+                <div fold="body" class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">商品编码</div>
+                                <input type="text" name="username"
+                                       class="form-control {validate:{ required :true, isUserName :true,}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">商品名</div>
+                                <input type="text" name="qq"
+                                       class="form-control {validate:{ required :true, isQq :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">商品名助记码</div>
+                                <input type="text" name="tel"
+                                       class="form-control {validate:{ required :true, isMobile :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">规格</div>
+                                <input type="text" name="youbian"
+                                       class="form-control {validate:{ required :true, isZipCode :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">包装单位</div>
+                                <input type="text" name="ip"
+                                       class="form-control {validate:{ required :true, ip :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">剂型</div>
+                                <input type="text" name="ip"
+                                       class="form-control {validate:{ required :true, ip :true,}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">通用名</div>
+                                <input type="text" name="inputCode01"
+                                       class="form-control {validate:{ required :true, stringCheck :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">通用名助记码</div>
+                                <input type="text" name="inputCode02"
+                                       class="form-control {validate:{ required :true, isNumber :true,}}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">批准文号</div>
+                                <input type="text" name="inputCode03"
+                                       class="form-control {validate:{ required :true, isIntLteZero :true,}}">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table">
+            <div class="panel panel-default">
+                <div fold="head" class="panel-heading">
+                    <h3 class="panel-title">商品图片</h3>
+                    <div fold="sub" class="fold-block panel-title pull-right">
+                        <div class="glyphicon glyphicon-triangle-bottom"></div>
+                    </div>
+                </div>
+                <div fold="body" class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <button type="button" id="loadimg" class="btn btn-primary">上传商品图片</button>
+                        </div>
+                        <div class="col-xs-4">
+                            <button type="button" id="loads" class="btn btn-primary">上传说明书图片</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 img-Upload-Flex" id="loadimgView">
+
+                        </div>
+                        <div class="col-xs-4 img-Upload-Flex" id="loadsView">
+                            <div class="imgBlock"></div>
+                            <div class="imgBlock"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table">
+            <div class="panel panel-default">
+                <div fold="head" class="panel-heading">
+                    <h3 class="panel-title">批准文件</h3>
+                    <div fold="sub" class="fold-block panel-title pull-right">
+                        <div class="glyphicon glyphicon-triangle-bottom"></div>
+                    </div>
+                </div>
+                <div fold="body" class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">过滤</div>
+                                <input type="text" name="username"
+                                       class="form-control {validate:{ required :true, isUserName :true,}}">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <button type="button" class="btn btn-info" id="sea_grid">
+
+                                    检索
+                                </button>
+                                &nbsp;
+
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                    <table id="X_Table" style="margin-top: 10px">
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="table">
+            <div class="panel panel-default">
+                <div fold="head" class="panel-heading">
+                    <h3 class="panel-title">资料存档</h3>
+                    <div fold="sub" class="fold-block panel-title pull-right">
+                        <div class="glyphicon glyphicon-triangle-bottom"></div>
+                    </div>
+                </div>
+                <div fold="body" class="panel-body">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active">
+                            <a href="javascript:">质量保证协议</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:">客户委托书</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:">年度报告</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="javascript:">其他附件</a>
+                        </li>
+                    </ul>
+
+                    <div class="nav-content">
+                        <div class="row active">
+                            <div class="col-md-12">11111111111</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">2222222222222</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">333333333333333</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">444444444444</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    @media (min-width: 992px) {
+        .col-md-3 {
+            width: 20%;
+        }
+
+        .col-md-6 {
+            width: 40%;
+        }
+    }
+</style>
+
+<script src="../static/module/jquery/3.3.1/jquery.js"></script>
+<!--<script src="http://code.jquery.com/jquery-1.7.2.js"></script>-->
+<script src="../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/js/configUtils.js"></script>
+<script src="../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../static/module/XGrid/XGrid.js"></script>
+<script>
+    $(function () {
+
+        $('#closeTabs').bind('click', function () {
+            //关闭当前标签,回到前一个标签
+            utils.closeTab('gongzuotai');
+
+        });
+        $('div[fold=head]').fold({
+            sub: 'sub'
+        });
+
+        $('#pid').Xseach({
+            url: 'http://suggestion.baidu.com/',
+            // url:'http://172.16.99.8:8081/ChangJiaMapper/findList?changjiamingcheng='
+        });
+
+
+        $("#goodsname").Xseach({
+            url: 'http://suggestion.baidu.com/',
+        });
+
+
+        //上传图片
+
+        $(function () {
+            $("#loadimg").upLoad({
+                url: '',
+                urlBack: function (urlList) {
+
+                    var urlList = [
+                        {
+                            type: 'a',
+                            url: 'sc1'
+                        }, {
+                            type: 'a',
+                            url: 'sc2'
+                        }, {
+                            type: 'b',
+                            url: 'scb'
+                        }, {
+                            type: 'c',
+                            url: 'scc'
+                        }
+                    ];
+
+                    var picture = {};
+                    alert('得到了' + urlList.length + '个url，请在console.log里查看');
+                    console.log(urlList);
+                    if ($("input[name='appDocForm']").length > 0) {
+                        picture = JSON.parse($("input[name='appDocForm']").val());
+                    }
+                    var type = '';//图片type值
+                    var html = '';
+                    for (var i = 0; i < urlList.length; i++) {
+                        type = urlList[i].type;
+                        if (picture[type]) {
+                            //对已存在type类型图片进行去重合并
+                            picture[type] = Array.from(new Set(picture[type].concat(urlList[i].url)));
+                        } else {
+                            picture[type] = [urlList[i].url];
+                        }
+                    }
+
+                    html = '<input type="hidden" name="appDocForm" data-type="appDocForm" value=\'' + JSON.stringify(picture) + '\' />';
+                    if ($("input[name='appDocForm']").length > 0) {
+                        $("input[name='appDocForm']").remove();
+                    }
+                    $("#loadimgView").append(html);
+                    //在页面中显示图片
+                    html = '';
+                    for (let i = 0; i < urlList.length; i++) {
+                        //展示
+                        html += '<div class="imgBlock"><img src="' + urlList[i].url +
+                            '" data-type="' + urlList[i].type + '"/></div>';
+                    }
+                    $("#loadimgView").append(html);
+                }
+            });
+        })
+        //图片预览
+        $(".img-Upload-Flex").on("click", "img", function () {
+            var type = $(this).attr('data-type');
+            var index = $(this).index("img[data-type='" + type + "']");
+            //图片预览
+            $.viewImg({
+                dataType: 'appDocForm',
+                type: type, //需要展示的类型
+                index: index //设置第几张展示 从0开始
+            });
+        });
+        $(function () {
+            $("#loads").upLoad({
+                urlBack: function (urlList) {
+                    alert('得到了' + urlList.length + '个url，请在console.log里查看');
+                    console.log(urlList);
+                }
+            });
+        })
+
+        $('#sea_grid').on('click', function () {
+            var grid_data = [{
+                id: "1",
+                type: "退货出库",
+                pay: "123.06",
+                name: "fffffffffffff",
+                text: "sssssssssssssss"
+            }];
+            $('#X_Table').setGridParam({
+                data: grid_data,
+            }).trigger('reloadGrid');
+        })
+
+        var grid_data = [{
+            id: "00001",
+            type: "退货出库",
+            pay: "1000",
+            name: "abc",
+            text: "ccc"
+        },
+            {
+                id: "00002",
+                type: "退货出库",
+                pay: "1000",
+                name: "abc",
+                text: "aaa"
+            },
+            {
+                id: "00003",
+                type: "退货出库",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd"
+            },
+            {
+                id: "00004",
+                type: "退货出库",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd"
+            },
+            {
+                id: "00005",
+                type: "退货出库",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd"
+            },
+        ];
+
+        $('#X_Table').XGrid({
+            data: grid_data,
+            colNames: ['出库单号', '出库类型', '总金额', '申请人（单位）', '备注'],
+            colModel: [{
+                name: 'id',
+                index: 'id', //索引。其和后台交互的参数为sidx
+                key: true, //当从服务器端返回的数据中没有id时，将此作为唯一rowid使用只有一个列可以做这项设置。如果设置多于一个，那么只选取第一个，其他被忽略
+                width: 100,
+                editable: true,
+                edittype: "input",
+                editoptions: {
+                    size: "20",
+                    maxlength: "30"
+                }
+            }, {
+                name: 'type',
+                index: 'type',
+                width: 200, //宽度
+                editable: true, //是否可编辑
+                edittype: "select", //可以编辑的类型。可选值：text, textarea, select, checkbox, password, button, image and file.s
+
+            }, {
+                name: 'pay',
+                index: 'pay',
+                width: 60,
+                sorttype: "double",
+                editable: true
+            }, {
+                name: 'name',
+                index: 'name',
+                width: 150,
+                editable: true,
+                editoptions: {
+                    size: "20",
+                    maxlength: "30"
+                }
+            }, {
+                name: 'text',
+                index: 'text',
+                width: 250,
+                sortable: false,
+                editable: true,
+                edittype: "textarea",
+                editoptions: {
+                    rows: "2",
+                    cols: "10"
+                }
+            },],
+            rowNum: 10,
+            altRows: true, //设置为交替行表格,默认为false
+            ondblClickRow: function (e, c, a, b) {
+                console.log('双击行事件', e, c, a, b);
+            },
+            onSelectRow: function (e, c, a, b) {
+                console.log('单机行事件', e, c, a, b);
+            },
+            pager: '#grid-pager',
+        });
+
+
+        //tab页切换
+        $('.nav-tabs>li').on('click', function () {
+            var $this = $(this),
+                $nav_content = $('.nav-content');
+            $this.addClass('active').siblings().removeClass('active');
+            $nav_content.children('div').eq($this.index()).show().siblings().hide();
+        })
+
+
+    })
+</script>
+</body>
+
+</html>

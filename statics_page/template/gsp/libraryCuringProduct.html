@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在线养护商品</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+    <style>
+        .input-group-addon {
+            margin-left: 10px;
+            width: 130px !important;
+        }
+        .static-form {
+            width: calc(100% - 140px) !important;
+        }
+
+        .input-group>.form-control{
+         width: calc(100% - 140px) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">在库养护</h3>
+            <div class="pull-right" role="group">
+                <!--<button type="button" class="btn btn-info" id="returnBtn">-->
+                    <!--返回-->
+                <!--</button>-->
+                <button type="button" class="btn btn-info" id="saveBtn">
+                    保存
+                </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="myForm">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">养护日期：</span>
+                            <div class="static-form">ZDYHJH20180701</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">机构名称：</span>
+                            <div class="static-form">湖北分公司</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">部门名称：</span>
+                            <div class="static-form">质管部</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">商品明细</h3>
+        </div>
+        <div class="panel-body">
+            <table id="X_Table"></table>
+            <div id="grid-pager"></div>
+        </div>
+    </div>
+</div>
+
+<!--是否异常-->
+<div id="abnormal" style="display: none">
+    <select class="form-control">
+        <option value="1">是</option>
+        <option value="0">否</option>
+    </select>
+</div>
+
+<!--实际养护数量-->
+<div id="actualCount" style="display: none">
+    <input type="number" class="form-control">
+</div>
+
+<!--checkbox-->
+<div id="checkbox1" style="display: none">
+    <input type="checkbox">
+</div>
+<div id="checkbox2" style="display: none">
+    <input type="checkbox">
+</div>
+
+<div id="checkbox3" style="display: none">
+    <input type="checkbox">
+</div>
+
+<div id="checkbox4" style="display: none">
+    <input type="checkbox">
+</div>
+
+<div id="checkbox5" style="display: none">
+    <input type="checkbox">
+</div>
+<div id="checkbox6" style="display: none">
+    <input type="checkbox">
+</div>
+<div id="checkbox7" style="display: none">
+    <input type="checkbox">
+</div>
+
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/gsp/curingPlanDetail.js"></script>
+</html>

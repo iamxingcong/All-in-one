@@ -1,0 +1,79 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  /*overflow: scroll;*/
+}
+
+.content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.con-body {
+  margin-bottom: 0 !important;
+  flex: 1;
+  /* 随便写的，实现自适应 */
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-title {
+  padding-bottom: 0;
+}
+
+.nav-content {
+  flex: 1;
+  /* 随便写的，实现自适应 */
+  height: 100px;
+}
+
+.nav-content>.panel-body {
+  height: 100%;
+  display: none;
+  flex-direction: column;
+  padding: 0 15px;
+}
+
+.nav-content>div.active {
+  display: flex;
+}
+
+.nav-content .panel-body .panel-footer {
+  margin: 0 -15px;
+}
+
+.table-box {
+  flex: 1;
+  width: 100%;
+  overflow: auto;
+}
+
+#order_info {
+  border-top: 1px solid #ddd;
+}
+
+#order_info .input-group {
+  margin-bottom: 0;
+}
+
+#order_info .input-group .input-group-addon {
+  width: 135px !important;
+}
+
+#order_info .input-group .form-control {
+  width: calc(100% - 140px) !important;
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.vs-h{
+visibility: hidden;
+}
+
+.va-m{
+  vertical-align: middle;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>验收员工作量统计</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+</head>
+
+<body>
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="pull-right" role="group">
+                    <button type="button" class="btn btn-info">查询</button>
+                    <button type="button" class="btn btn-info">重置</button>
+                    <button type="button" class="btn btn-info " id="export">导出</button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="myform">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">验收日期</div>
+                            <input id="beginTime" name="beginTime" class="Wdate form-control grid_date " onfocus="startTime(this)">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">截止日期</div>
+                            <input id="endTime" name="endTime" class="Wdate form-control grid_date" onfocus="getEndTime(this)">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <div class="input-group-addon">验收员</div>
+                            <input type="text" class="form-control" id="inspector">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="table">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">列表信息</h3>
+                <div class="btn-group pull-right" role="group">
+                    <button type="button" class="btn btn-info " id="setCol">
+                        设置显示列
+                    </button>
+                </div>
+            </div>
+            <!-- 表格 -->
+            <div class="panel-body">
+                <div class="hidden-x-scroll">
+                    <table id="X_Table" class="XGridUI stripedTable"></table>
+                </div>
+                <p id="grid-pager"></p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="../../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/business/buyIntoWarehousing/inspector_workloadStatistics.js"></script>
+
+</html>

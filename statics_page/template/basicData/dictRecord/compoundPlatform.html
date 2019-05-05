@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>复合台</title>
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/t_public.css">
+    <style>
+        .margin-left-20 {
+            margin-left: 20px;
+        }
+
+        .padding-top-0 {
+            padding-top: 0 !important;
+        }
+    </style>
+    <style>
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info">查询</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">是否可用</span>
+                            <select class="form-control">
+                                <option value="0">请选择</option>
+                                <option value="1">是</option>
+                                <option value="2">否</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">复合台状态</span>
+                            <select class="form-control">
+                                <option value="0">请选择</option>
+                                <option value="1">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">复合台列表</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info" id="add_btn">新增</button>
+                    <button class="btn btn-info" id="edit_btn">修改</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-box">
+                    <table id="info_table"></table>
+                </div>
+                <div id="grid_pager"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--新增/编辑,begin-->
+<div id="add_edit_dialog" style="display: none;">
+    <div class="content">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form>
+                    <div class="row form-horizontal">
+                        <div class="input-group">
+                            <label class="col-md-3 control-label">复合台id</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="col-md-3 control-label">复合台号</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="col-md-3 control-label">复合台编号</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="col-md-3 control-label">滑道号</label>
+                            <div class="col-md-9">
+                                <input type="number" class="form-control">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="col-md-3 control-label">是否可用</label>
+                            <div class="col-md-9">
+                                <div class="text-center form-control">
+                                    <div class="checkbox padding-top-0">
+                                        <label>
+                                            <input type="radio" value="1" name="isCanBeUsed"> 是
+                                        </label>
+                                        <label>
+                                            <input type="radio" value="2" name="isCanBeUsed"> 否
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="col-md-3 control-label">复合台类别</label>
+                            <div class="col-md-9">
+                                <div class="text-center form-control">
+                                    <div class="checkbox padding-top-0">
+                                        <label>
+                                            <input type="radio" value="1" name="compoundPlatformType"> 中药
+                                        </label>
+                                        <label>
+                                            <input type="radio" value="2" name="compoundPlatformType"> 西药
+                                        </label>
+                                        <label>
+                                            <input type="radio" value="3" name="compoundPlatformType"> 器械
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="col-md-3 control-label">复合台类型</label>
+                            <div class="col-md-9">
+                                <div class="text-center form-control">
+                                    <div class="checkbox padding-top-0">
+                                        <label>
+                                            <input type="radio" value="1" name="compoundPlatformStyle"> 普通复合台
+                                        </label>
+                                        <label>
+                                            <input type="radio" value="2" name="compoundPlatformStyle"> 剔除口
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="col-md-3 control-label">复合台组别</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!--新增/编辑,end-->
+
+</body>
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/js/t_utils.js"></script>
+<script src="../../../static/business/basicData/dictRecord/compoundPlatform.js"></script>
+</html>

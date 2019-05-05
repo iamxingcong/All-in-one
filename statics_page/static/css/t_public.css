@@ -1,0 +1,12 @@
+.static-form {
+    width: calc(100% - 125px) !important;
+    float: right;
+    display: block;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 0;
+    height: 34px;
+    padding: 6px 0px;
+    background-color: #fff;
+
+}

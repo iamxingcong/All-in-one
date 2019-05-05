@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>内复核标签单</title>
+    <style>
+        @page {
+            /*size: 96mm 48mm; !*设置纸张大小:A4(210mm 297mm)、A3(297mm 420mm) 横向则反过来*!*/
+            margin: 0cm;
+            padding: 0em;
+            @bottom-center {
+                content: "";
+                font-size: 10px;
+                color: red;
+            };
+            @top-center {
+                content: element(header)
+            };
+            @bottom-right {
+                font-size: 10px;
+                color: #000;
+            };
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            -webkit-text-size-adjust: none;
+            background-color: #FFFFFF;
+            font-family: SumSim;
+            height: 100%;
+        }
+
+        .fs {
+            font-size: 10px;
+            /*-webkit-transform: scale(0.84, 0.84);*/
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #box {
+            color: #000 !important;
+            box-sizing: border-box;
+            height: 100%;
+
+        }
+
+        .pro-print {
+            margin-bottom: 0px; height: 100%;
+
+        }
+
+        .pro-top {
+            margin-bottom: 10px;
+        }
+
+        .pro-content {
+
+        }
+
+        .panel-body {
+            padding: 5px;
+            height: 100%;
+        }
+
+        table th, table td {
+            font-size: 8px;
+            -webkit-transform: scale(0.6, 0.6);
+            text-align: center;
+            font-weight: normal;
+        }
+
+    </style>
+</head>
+<body style="font-family: SumSim">
+
+<div id="box" class="box">
+    <div class="pro-print">
+        <div class="panel-body">
+            <div class="clearfix pro pro-top" style="text-align: center;position: relative">
+                <div style="display: inline-block; float:left;margin-left: 5px">
+                    <img style="width: 75px; height: 75px;" src=""/>
+                    <div class="fs">【批拣单号】ZS545645645644</div>
+                </div>
+                <div class="fs"
+                     style="display: inline-block; float: right;font-size: 10px;border: 1px solid #000;margin: 2px 2px 0 0;padding: 4px;">
+                    整件出库任务
+                </div>
+                <div class="fs">【是否重打】 重</div>
+                <div style="position: absolute;right: 0;top: 45px" class="fs">【拣货员】马超 【工号】201</div>
+            </div>
+            <div class="clearfix pro pro-content" style="margin-top:17px">
+                <table style="width: 100%;" frame="void" rules="none">
+                    <thead>
+
+                    <th>序号</th>
+                    <th>货位</th>
+                    <th>商品名称</th>
+                    <th>规格</th>
+                    <th>批号</th>
+                    <th>件数</th>
+                    <th>实拣件数</th>
+                    <th>起止暂存区</th>
+                    </thead>
+                    <tbody>
+                    <td>1</td>
+                    <td>D01-19</td>
+                    <td>野生银花露（含糖型）</td>
+                    <td>340ml*12瓶</td>
+                    <td>180703</td>
+                    <td>10</td>
+                    <td></td>
+                    <td>Y36-27--Y36-30</td>
+                    </tbody>
+                    <tbody>
+                    <td>1</td>
+                    <td>D01-19</td>
+                    <td>野生银花露（含糖型）</td>
+                    <td>340ml*12瓶</td>
+                    <td>180703</td>
+                    <td>10</td>
+                    <td></td>
+                    <td>Y36-27--Y36-30</td>
+                    </tbody>
+                    <tbody>
+                    <td>1</td>
+                    <td>D01-19</td>
+                    <td>野生银花露（含糖型）</td>
+                    <td>340ml*12瓶</td>
+                    <td>180703</td>
+                    <td>10</td>
+                    <td></td>
+                    <td>Y36-27--Y36-30</td>
+                    </tbody>
+                    <tbody>
+                    <td>1</td>
+                    <td>D01-19</td>
+                    <td>野生银花露（含糖型）</td>
+                    <td>340ml*12瓶</td>
+                    <td>180703</td>
+                    <td>10</td>
+                    <td></td>
+                    <td>Y36-27--Y36-30</td>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

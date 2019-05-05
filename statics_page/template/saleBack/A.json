@@ -1,0 +1,29 @@
+﻿[
+  {
+    "manufactoryId": "1990",
+    "manufactoryName": "北京",
+    "code": "A1990"
+  },
+  {
+    "manufactoryId": "2093",
+    "manufactoryName": "上海",
+    "code": "B2093"
+  },
+  {
+    "manufactoryId": "1993",
+    "manufactoryName": "深圳",
+    "code": "C1993"
+  },
+  {
+    "manufactoryId": "1941",
+    "manufactoryName": "香港",
+    "code": "D1941"
+  },
+  {
+    "manufactoryId": "2002",
+    "manufactoryName": "澳门",
+    "code": "E2002"
+  }
+]
+
+

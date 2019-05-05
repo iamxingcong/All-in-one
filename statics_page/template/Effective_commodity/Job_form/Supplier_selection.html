@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>供应商列表</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="overview &amp; stats">
+    <link rel="icon" href="" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/b.tabs.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+</head>
+<style>
+    .autocomplete-suggestions {
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #ffffff;
+        overflow: auto;
+    }
+
+    .autocomplete-suggestion {
+        padding: 6px 12px;
+    }
+
+    .autocomplete-selected {
+        background: #66AFE9;
+        color: #ffffff;
+        cursor: pointer;
+    }
+    html{
+        height: 100%;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .table{
+        height: 100%;
+    }
+    .table .panel-default{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .tableWrap{
+        flex: 1;
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+    }
+    .tableWrap>div{
+        flex: 1;
+        height: 200px;
+        overflow: auto;
+    }
+</style>
+<body>
+<div class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form class="row  col-md-12">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-addon">关键字</div>
+                            <input class="form-control" type="text" id="search_vl" placeholder="供应商编码、供应商名称"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pull-right" role="group">
+                            <button type="button" class="btn btn-info" id="search_list">
+                                查询
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body tableWrap">
+                <div>
+                    <table id="X_Table"></table>
+                </div>
+                <p id="grid-pager"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/module/jquery-autocomplete/jquery.autocomplete.js"></script>
+<script>
+    $(function () {
+        var dialog = parent.dialog.get(window);
+        $('#search_vl').val(dialog.data)
+
+        var gridData = [];
+        var colNames = ['供应商编码', '供应商', '供应商责任人'];
+        var colModels = [
+            {
+                name: 'name1'
+            },
+            {
+                name: 'name2'
+            },
+            {
+                name: 'name3'
+            }
+        ];
+        for (var i = 0; i < 20; i++) {
+            gridData.push({
+                name1: '001',
+                name2: '001',
+                name3: '001',
+                name4: '001',
+                name5: '001',
+                name6: '001',
+                name7: '001',
+                name8: '001',
+                name9: '001',
+                name10: '001',
+                name11: '001',
+                name12: '001',
+                name13: '001',
+                name14: '001',
+                name15: '001',
+                name16: '001',
+                name17: '001',
+                name18: '001',
+                name19: '001',
+                name20: '001',
+                name21: '001'
+            })
+        }
+        $('#X_Table').XGrid({
+            // url: '/finance/purchase/payrequestinfo/findSupplierVoPage',
+            data: gridData,
+            colNames: colNames,
+            colModel: colModels,
+            key: 'name1',
+            rowNum: 20,
+            rownumbers: true,
+            rowList: [20,50,100],
+            altRows: true,
+            ondblClickRow: function (id, dom, obj, index, event) {
+                this.returnValue = obj;
+                dialog.close(obj);
+                return obj;
+            },
+            pager: '#grid-pager'
+        });
+
+        //查询数据，重置data
+        $('#search_list').on('click', function () {
+            $('#X_Table').setGridParam({
+                url: '',
+                postData: {
+                    supplierCode:$("#search_vl").val(),
+                    page:1
+                }
+            }).trigger('reloadGrid');
+        })
+
+
+        //字典查询
+        $('#search_vl').Autocomplete({
+            serviceUrl: 'http://localhost/A.json', //异步请求
+            // paramName: 'query111',//查询参数，默认 query
+            dataType: 'json',
+            //lookup: countries, //监听数据 value显示文本，data为option的值
+            minChars: '0', //触发自动匹配的最小字符数
+            maxHeight: '300', //默认300高度
+            dataReader: {
+                'value': 'manufactoryName',
+                'data': 'manufactoryId',
+                'xxt': "name"
+            },
+            triggerSelectOnValidInput: false, // 必选
+            onSelect: function (result) {
+                //选中回调
+                alert('You selected: ' + result.value + ', ' + result.data + ',' + result.xxt);
+                // console.log('选中回调')
+            },
+            onSearchStart: function (params) {
+                // console.log('检索开始回调', params)
+            },
+            onSearchComplete: function (query, suggestions) {
+                //匹配结果后回调
+                // console.log(query, suggestions);
+            },
+            onSearchError: function (query, jqXHR, textStatus, errorThrown) {
+                //查询失败回调
+                console.log(query, jqXHR, textStatus, errorThrown)
+            },
+            onHide: function (container) {
+                // console.log('container隐藏前回调', container)
+            },
+            onNoneSelect: function (params, suggestions) {
+                console.log(params, suggestions);
+
+            }
+        });
+    })
+</script>
+</body>
+</html>

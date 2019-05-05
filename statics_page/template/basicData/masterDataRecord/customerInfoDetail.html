@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑客户资料</title>
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/t_public.css">
+    <style>
+        .margin-right-15 {
+            margin-right: 15px !important;
+        }
+
+        .height-32 {
+            height: 32px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">基础属性</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">业主名称</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">同步时间</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">客户编码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">客户助记码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">客户名称</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">客户类别</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">法定代表人</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">是否开票</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="hasInvoice" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="hasInvoice" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">营业执照号</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">经营类别</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">企业负责人</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">开户银行</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">发证机关</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">经营方式</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">业务员</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">银行账号</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">注册日期</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">是否三证合一</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="threeEvidenceAll" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="threeEvidenceAll" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">业务员电话</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">开户户名</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">有效期至</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">组织机构代码证号</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">注册地址</span>
+                            <div class="form-control form-inline distpicker">
+                                <div class="row col-md-12 ">
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="text" class="form-control height-32" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">是否停用</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="disableState" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="disableState" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">税务登记证号</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">仓库地址</span>
+                            <div class="form-control form-inline distpicker">
+                                <div class="row col-md-12 ">
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="text" class="form-control height-32" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">发票类型</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="invoiceType" disabled checked> 普通发票
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="invoiceType" disabled> 增值税发票
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">账单地址</span>
+                            <div class="form-control form-inline distpicker">
+                                <div class="row col-md-12 ">
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control height-32" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <input type="text" class="form-control height-32" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">批号要求</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="disableState" disabled checked> 单一批号
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="disableState" disabled> 多批号
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">包装要求</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="disableState" disabled checked> 纸箱
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="disableState" disabled> 周转箱
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">特殊经营</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="1" name="specialAttributes" disabled checked>
+                                        一般纳税人资格证明
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="2" name="specialAttributes" disabled> 可经营抗生素
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="3" name="specialAttributes" disabled> 可经营注射剂
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="4" name="specialAttributes" disabled> 可经营终止妊娠
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes" disabled> 可经营特殊管理药品
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes" disabled> 可经营含兴奋剂
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes" disabled> 可经营抗肿瘤治疗药商品
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes" disabled> 可经营处方药
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">经营范围</span>
+                            <div id="baseDataBuseScope" class="form-control baseDataBuseScope" disabled></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/js/t_utils.js"></script>
+<script src="../../../static/business/basicData/masterDataRecord/customerInfoDetail.js"></script>
+</html>

@@ -1,0 +1,131 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+         
+        <link rel="icon" href="" type="image/x-icon"/>
+        <title> 盘点计划 </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+        <link rel="stylesheet" href="../../static/css/public.css">
+        <link rel="stylesheet" href="../../static/css/stocktaking/stocktaking_result_input.css">
+
+    </head>
+<body>
+<div  class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            <div   class="panel-heading">
+                <h3 class="panel-title">盘点计划详情 </h3>
+ 
+                <div class="pull-right" role="group">
+                    <button type="button" class="btn btn-info" id="go_back">
+                         返回
+                    </button>
+                  
+                    <button type="button" class="btn btn-info" id="save_stocktaking">
+                        保存
+                    </button>
+                    <button type="button" class="btn btn-info" id="do_stocktaking">
+                        执行盘点
+                    </button>
+                </div>
+            </div>
+             
+            <div fold="body" class="panel-body">
+                <div class="col-md-3">
+                    <label class="col-md-4">盘点计划单号:</label>
+                    <span class="col-md-8">GPFBEJ010000</span>
+                    <input type="hidden" value="GPFBEJ010000" id="supplierCode" name="supplierCode" autocomplete="off">
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">制单日期:</label>
+                    <span class="col-md-8">2018-07-31 09:20:15</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">单据状态:</label>
+                    <span class="col-md-8">盘点中</span>
+                </div>
+               
+                <div class="col-md-3">
+                    <label class="col-md-4">机构名称:</label>
+                    <span class="col-md-8">湖北分公司</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">仓库名称:</label>
+                    <span class="col-md-8">武汉东西湖仓库</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">部门:</label>
+                    <span class="col-md-8">储运部</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">制单员:</label>
+                    <span class="col-md-8">张三</span>
+                </div>
+                
+                <div class="col-md-3">
+                    <label class="col-md-4">盘点方式:</label>
+                    <span class="col-md-8">明盘</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">盘点类型:</label>
+                    <span class="col-md-8">静态盘点</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div  class="panel-heading">
+                <h3 class="panel-title">商品明细</h3>
+                
+                <button type="button" class="btn btn-info" id="import_plan">
+                        导入盘点计划表
+                </button>
+            </div>
+            
+            <form id="validates">
+                <div class="panel-body">
+                    <div class="table_wrap">
+                        <table id="X_Table"></table>
+                    </div>
+                    <div id="grid-pager"></div>
+                </div>
+            </form>
+           
+        </div>
+       
+    </div>
+</div>
+
+<div style="display:none;">
+    <div id="integer_inputs">
+        <input type="text"   class="{validate:{ required :true, integer :true,}}"   />
+    </div>
+    <div id="time_inputs">
+        <input type="text"   class="{validate:{ required :true,}}   Wdate form-control grid_date" onfocus="WdatePicker()"  />
+    </div>
+ 
+</div>
+
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+
+<script src="../../static/module/validate/jquery.validate.js"></script>
+<script src="../../static/module/validate/validate-methods.js"></script>
+<script src="../../static/module/validate/jquery.metadata.js"></script>
+<script src="../../static/module/validate/validToop.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script> 
+<script src="../../static/js/stocktaking/stocktaking_result_input.js"></script>
+
+</body>
+</html>

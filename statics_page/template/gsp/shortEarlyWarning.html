@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>近效期预警</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="overview &amp; stats"/>
+    <link rel="icon" href="" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+</head>
+<body>
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">近效期预警</h3>
+            <input type="hidden" id="orgNum"  value="002" >
+            <div class="pull-right" role="group">
+                <button type="button" class="btn btn-info" id="searchBtn">
+                    查询
+                </button>
+                <button type="button" class="btn btn-info">
+                    导出
+                </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <h5>异常颜色示意: <span style="background-color: #FDE5E5; padding: 0 6px;">已过期</span>&nbsp;&nbsp;<span style="padding: 0 6px;background-color: #FFF9DD;">进入预警期</span></h5>
+            <table id="Warning_Table"></table>
+            <div id="grid-pager"></div>
+        </div>
+    </div>
+</div>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/gsp/shortEarlyWarning.js"></script>
+</body>
+</html>

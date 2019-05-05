@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>gridDemo</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+</head>
+
+<body>
+    <style>
+        #dialog_Block {
+            min-width: 600px;
+            display: none;
+        }
+
+        td,
+        th {
+            white-space: nowrap !important;
+        }
+
+
+    </style>
+    <div class="content">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class=" " role="group">
+                    <button href="主数据变更申请.html" id="demo" class="btn btn-info">
+                        打开tab页面
+                    </button>
+
+                </div>
+            </div>
+            <div class="panel-body">
+                <form id="myform">
+                    <div class="row">
+                        <div class=" col-md-12 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">用户名</div>
+                                <input type="text" class="Filter_SpaceAndFiveStrLen_Class form-control">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">用户名</div>
+                                <input type="text" id="a" name="username" class=" Filter_SpaceAndStrLen_Class form-control {validate:{ required :true, isUserName :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">出生日期</div>
+                                <input type="text" id="b" name="date" class="form-control {validate:{ required :true, date :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">身份证号</div>
+                                <input type="text" name="idCard" id="c" class="form-control {validate:{ required :true, isIdCardNo :true,}}">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">邮箱</div>
+                                <input type="email" name="eamil" class="form-control {validate:{ required :true, email :true,}}"
+                                    id="d">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">QQ号</div>
+                                <input type="text" name="qq" class="form-control {validate:{ required :true, isQq :true,}}"
+                                    id="a2">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">手机号</div>
+                                <input type="text" name="tel" class="form-control {validate:{ required :true, isMobile :true,}}"
+                                    id="b2">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">邮政编码</div>
+                                <input type="text" name="youbian" class="form-control {validate:{ required :true, isZipCode :true,}}"
+                                    id="c2">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">IP地址</div>
+                                <input type="text" name="ip" class="form-control {validate:{ required :true, ip :true,}}"
+                                    id="d2">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">中文、英文、数字、下划线</div>
+                                <input type="text" name="inputCode01" class="form-control {validate:{ required :true, stringCheck :true,}}"
+                                    id="a3">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">数值类型，包括浮点数</div>
+                                <input type="text" name="inputCode02" class="form-control {validate:{ required :true, isNumber :true,}}"
+                                    id="b3">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">整数小于或等于0</div>
+                                <input type="text" name="inputCode03" class="form-control {validate:{ required :true, isIntLteZero :true,}}"
+                                    id="c3">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">整数大于或等于0</div>
+                                <input type="text" name="inputCode04" class="form-control {validate:{ required :true, isIntGteZero :true,}}"
+                                    id="d3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">时间</div>
+
+                                <input id="times" type="text" name="inputCode01" class="form-control" onclick="WdatePicker()">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">开始时间</div>
+
+                                <input id="beginDate" type="text" name="inputCode01" class="form-control" onclick="WdatePicker({maxDate:'#F{$dp.$D(\'endDate\')}'})">
+                            </div>
+                        </div>
+                        <div class=" col-md-3 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">结束时间</div>
+                                <input id="endDate" type="text" name="inputCode01" class="form-control" onclick="WdatePicker({minDate:'#F{$dp.$D(\'beginDate\')}'})">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../static/module/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../../static/js/configUtils.js"></script>
+    <script src="../../static/module/XGrid/XGrid.js"></script>
+    <script type="text/javascript" src="../../static/module/validate/jquery.validate.js"></script>
+    <script type="text/javascript" src="../../static/module/validate/validate-methods.js"></script>
+    <script type="text/javascript" src="../../static/module/validate/jquery.metadata.js"></script>
+    <script type="text/javascript" src="../../static/module/validate/validToop.js"></script>
+    <script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+    <script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+
+
+    <script>
+        $(function () {
+
+            $('#demo').bind('click', function () {
+                // 打开新标签
+                utils.openTabs('masterData', '新增页', 'template/originalDemo/a.html', {
+                    reload: false,
+                    close: close
+                });
+
+            });
+
+            function close(data) {
+                console.log("关闭页面传来的值：" + data.toString());
+                $('#a').val(data.returnValue);
+            }
+
+        });
+    </script>
+</body>
+
+</html>

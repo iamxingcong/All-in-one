@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>整件补货确认</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+    <style>
+        .margin-right-20 {
+            margin-right: 20px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info" id="replenishment_search_btn">补货条码查询</button>
+                    <button class="btn btn-info">索取</button>
+                    <button class="btn btn-info">确认</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">标签条码：</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">工号：</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询结果</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">补货任务：</span>
+                            <div class="static-form">
+                                <ul class="list-inline">
+                                    <li class="margin-right-20">01区：XX个</li>
+                                    <li class="margin-right-20">02区：XX个</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="input-group">
+                            <span class="input-group-addon">单据编号：</span>
+                            <div class="static-form">0102xxx</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品名称：</span>
+                            <div class="static-form">0102xxx</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="input-group">
+                            <span class="input-group-addon">业主编号：</span>
+                            <div class="static-form">0102xxx</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">业主名称：</span>
+                            <div class="static-form">0102xxx</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="input-group">
+                            <span class="input-group-addon">显示货位：</span>
+                            <div class="static-form">0102xxx</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">生产厂家：</span>
+                            <div class="static-form">0102xxx</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品规格：</span>
+                            <div class="static-form">0102xxx</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">包装数量：</span>
+                            <div class="static-form">0102xxx</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--查询补货上架,begin-->
+<div id="search_dialog" style="display: none;">
+    <div class="content">
+        <div class="table">
+            <form>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品名称</span>
+                            <input type="text" class="form-control" placeholder="模糊查询">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <input type="button" class="btn btn-info" value="查询">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-box">
+                            <table id="info_table"></table>
+                        </div>
+                        <div id="grid_pager"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--查询补货上架end-->
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/replenishmentOperation/replenishmentConfirmWhole.js"></script>
+</html>

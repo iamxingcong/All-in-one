@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="overview &amp; stats"/>
+    <title>移库单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/z_public.css">
+
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #box {
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        #box .content {
+            position: relative;
+            /*width: 1200px;*/
+            width: 100%;
+            font-size: 12px;
+        }
+
+        #box .content .ui-jqgrid {
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        #box .content .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        #box .content .header .title_num {
+            position: absolute;
+            bottom: -12px;
+            left: 40%;
+            font-size: 12px;
+        }
+
+        #box .content .top {
+            position: relative;
+            height: 80px;
+        }
+
+        #box .content .top .inden_type {
+            position: absolute;
+            right: 0;
+            bottom: 3px;
+            display: block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border: 1px solid grey;
+            border-radius: 1px;
+            font-size: 25px;
+        }
+
+        #box .content .info_list li {
+            clear: both;
+        }
+
+        #box .content .info_list li span {
+            float: left;
+            display: block;
+            height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #box .content .info_list li .col_1 {
+            width: 10%;
+        }
+
+        #box .content .info_list li .col_2 {
+            width: 20%;
+        }
+
+        #box .content .info_list li .col_3 {
+            width: 30%;
+        }
+
+        #box .content .info_list li .col_4 {
+            width: 40%;
+        }
+
+        #box .content .info_list li .col_5 {
+            width: 50%;
+        }
+
+        #box .content .info_list li .col_6 {
+            width: 60%;
+        }
+
+        #box .content .info_list li .col_7 {
+            width: 70%;
+        }
+
+        #box .content .info_list li .col_8 {
+            width: 80%;
+        }
+
+        #box .content .info_list li .col_9 {
+            width: 90%;
+        }
+
+        #box .content .info_list li .col_10 {
+            width: 100%;
+        }
+
+        .ui-th-column,
+        .ui-jqgrid .ui-jqgrid-htable {
+            /* border-left: 1px solid grey;
+            box-sizing: border-box; */
+        }
+
+        .ui-th-column th.ui-th-column,
+        .ui-jqgrid .ui-jqgrid-htable th.ui-th-column {
+            border-width: 1px 1px 1px 0;
+            border-color: inherit;
+            border-style: solid;
+        }
+
+        .ui-th-column th.ui-th-column:first-child,
+        .ui-jqgrid .ui-jqgrid-htable th.ui-th-column:first-child {
+            border-left-width: 1px;
+            padding-left: 0;
+        }
+
+        .ui-jqgrid tr.jqgrow td:first-child,
+        .ui-jqgrid tr.jqgroup td:first-child {
+            border-left-color: inherit;
+            border-left-style: solid;
+            border-left-width: 1px;
+        }
+
+        .table_c tr.jqgrow:nth-child(2) td {
+            border-top-color: inherit;
+            border-top-style: solid;
+            border-top-width: 1px;
+        }
+
+        #box .content .header2 {
+            width: 100%;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        #box .content #table_last_a {
+            margin-bottom: 10px;
+        }
+
+        #box .content #table_last_a th, #box .content #table_last_a td {
+            text-align: center;
+            font-size: 14px;
+            height: 30px;
+        }
+
+        #box .content #table_last_b th, #box .content #table_last_b td {
+            text-align: left;
+            font-size: 14px;
+            height: 30px;
+        }
+
+        .col-md-2 {
+            float: left;
+            width: 16.66666%;
+        }
+
+        .col-md-3 {
+            float: left;
+            width: 25%;
+        }
+
+        .col-md-5 {
+            float: left;
+            width: 41.6666%;
+        }
+
+        .col-md-6 {
+            float: left;
+            width: 50%;
+        }
+
+        .col-md-9 {
+            float: left;
+            width: 75%;
+        }
+
+    </style>
+    <style>
+
+        .textCenterTr, .textCenterTr td {
+            text-align: center !important;
+        }
+    </style>
+</head>
+
+<body>
+<!--打印模板-->
+
+<div id="box" class="box">
+    <div class="content indent2">
+        <table id="table_last_b" border="1">
+            <tr class="textCenterTr">
+                <td colspan="19">移库单</td>
+            </tr>
+            <tr>
+                <td colspan="5">移库单号：4545435</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="2">制单员：455656</td>
+            </tr>
+            <tr>
+                <td colspan="4">移库日期：344545</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td colspan="2">下架员：3432434</td>
+                <td></td>
+                <td colspan="2">上架员：565656</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr class="textCenterTr">
+                <td>商品编码</td>
+                <td>商品名称</td>
+                <td>商品规格</td>
+                <td>生产厂家</td>
+                <td>单位</td>
+                <td>包装数量</td>
+                <td>批号</td>
+                <td>移出库别</td>
+                <td>移出货位</td>
+                <td>移入库别</td>
+                <td>移入货位</td>
+                <td>实际移入货位</td>
+                <td>计划移库件数</td>
+                <td>计划移库零散数</td>
+                <td>计划移库数量</td>
+                <td>实际移库件数</td>
+                <td>实际移库零散数</td>
+                <td>实际移库数量</td>
+                <td>移库原因</td>
+            </tr>
+            <tr class="textCenterTr">
+                <td>534545</td>
+                <td>454656</td>
+                <td>56565</td>
+                <td>324343</td>
+                <td>565656</td>
+                <td>4565656</td>
+                <td>45656</td>
+                <td>456756</td>
+                <td>45454</td>
+                <td>5454</td>
+                <td>544545</td>
+                <td>455656</td>
+                <td>56565</td>
+                <td>56565</td>
+                <td>67676</td>
+                <td>4567676</td>
+                <td>6576767</td>
+                <td>67676</td>
+                <td>676767</td>
+            </tr>
+        </table>
+    </div>
+
+    <!--用于分页-->
+    <!--<div style="page-break-after:always;"></div> -->
+
+</div>
+
+
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="overview &amp; stats" />
+  <title>零货任务索取</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../static/css/b.tabs.css">
+  <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+  <link rel="stylesheet" href="../../../static/module/dataStatistics/dataStatistics.css">
+  <link rel="stylesheet" href="../../../static/css/public.css">
+  <link rel="stylesheet" href="../../../static/css/z_public.css">
+  <link rel="stylesheet" type="text/css" media="screen,print" href="../../../static/css/ui.jqgrid.css">
+  <link rel="stylesheet" type="text/css" media="screen,print" href="../../../static/css/outorder_print.css" />
+  <style type="text/css">
+    .input_checkbox .checkbox{
+      position: absolute;
+      left: 100%;
+      margin-left: 20px;
+      width: 170px;
+    }
+  </style>
+</head>
+
+<body>
+  <!--打印模板-->
+  <div id="box_a" style="width: 0;
+        height: 0;
+        overflow: hidden;">
+    <div id="box" class="box"  >
+      <!--<div class="content indent1">-->
+      <!--<div class="header">-->
+      <!--<div class="title">整件拣货单</div>-->
+      <!--</div>-->
+      <!--<div class="top">-->
+      <!--<ul class="info_list">-->
+      <!--<li>-->
+      <!--<div class="col-md-4">任务包号：<i class="val">${item.num}</i></div>-->
+      <!--</li>-->
+      <!--</ul>-->
+      <!--</div>-->
+      <!--<table id="table_a_${index}"></table>-->
+      <!--<div style="page-break-after:always"></div>-->
+      <!--</div>-->
+    </div>
+  </div>
+  <div class="content" style="position: relative;">
+    <div class="panel panel-default con-top">
+      <div class="panel-heading">
+        <h3 class="panel-title">零货任务索取</h3>
+        <div class="pull-right data-statistics" >
+          <div class="data-content"></div>
+          <button type="button" class="btn btn-info" id="data_statistics">
+            统计
+          </button>
+        </div>
+        <div class="pull-right" role="group">
+          <button type="button" class="btn btn-info" id="searchBtn">
+            刷新
+          </button>
+          <button type="button" class="btn btn-info" id="acquire_ok">
+            索取
+          </button>
+          <button type="button" class="btn btn-info" id="pick_ok">
+            拣货确认
+          </button>
+          <button type="button" class="btn btn-info" id="print">
+            补打拣货单
+          </button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <form id="form_a">
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">请输入工号</span>
+              <!-- 阻止回车默认提交 -->
+              <input class="form-control" id="workId"  onkeydown="if(event.keyCode==13) return false;">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group input_checkbox">
+              <span class="input-group-addon">周转箱数量</span>
+              <select class="form-control" id="turnover_box">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" id="print_bill">
+                  索取后自动打印拣货单
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-11 col-md-offset-1">
+            <label>待领取整件任务：</label>
+            <span>0</span>
+            <label>，条目数：</label>
+            <span></span>
+          </div>
+          <div class="col-md-11 col-md-offset-1">
+            <label>正在拣货整件任务：</label>
+            <span>0</span>
+            <label>，条目数：</label>
+            <span></span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">零货任务列表</h3>
+        <div class="pull-right">
+          <button class="btn btn-info"  onclick="$('#table_a').filterTableHead()">设置显示列</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="table-box">
+          <table id="table_a"></table>
+        </div>
+        <div id="grid_pager_a"></div>
+      </div>
+    </div>
+  </div>
+  <script src="../../../static/js/jquery-2.1.4.min.js"></script>
+  <script src="../../../static/module/bootstrap/js/bootstrap.js"></script>
+  <script src="../../../static/js/configUtils.js"></script>
+  <script src="../../../static/module/XGrid/XGrid.js"></script>
+  <script src="../../../static/js/jquery.jqGrid.min.js"></script>
+  <script src="../../../static/js/jQuery.print.js"></script>
+  <script src="../../../static/module/validate/jquery.validate.js"></script>
+  <script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+  <script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+  <script src="../../../static/module/jquery-autocomplete/jquery.autocomplete.js"></script>
+  <script src="../../../static/module/dataStatistics/dataStatistics.js"></script>
+  <script src="../../../static/js/z_utils.js"></script>
+  <script src="../../../static/business/outputStorageWork/sporadic_task/sporadic_task_acquire.js"></script>
+</body>
+
+</html>

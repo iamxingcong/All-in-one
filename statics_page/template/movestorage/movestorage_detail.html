@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+         
+        <link rel="icon" href="" type="image/x-icon"/>
+        <title> 移库单 </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+        <link rel="stylesheet" href="../../static/css/public.css">
+        <link rel="stylesheet" href="../../static/css/movestorage/movestorage_detail.css">
+
+    </head>
+<body>
+<div  class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            <div   class="panel-heading">
+                <h3 class="panel-title">移库单详情 </h3>
+ 
+                <div class="pull-right" role="group">
+                    <button type="button" class="btn btn-info" id="go_back">
+                         返回
+                    </button>
+                    <button type="button" class="btn btn-info" id="export">
+                        导出
+                    </button>
+                    <button type="button" class="btn btn-info" id="print">
+                        打印
+                    </button>
+                    <button type="button" class="btn btn-info" id="printPreview">
+                        打印预览
+                    </button>
+                    <button type="button" class="btn btn-info" id="cancel_movestorage">
+                        取消移库
+                    </button>
+                    <button type="button" class="btn btn-info" id="operate_movestorage">
+                        移库操作
+                    </button>
+                </div>
+            </div>
+             
+            <div fold="body" class="panel-body">
+                <div class="col-md-3">
+                    <label class="col-md-4">移库单号:</label>
+                    <span class="col-md-8">GPFBEJ010000</span>
+                    <input type="hidden" value="GPFBEJ010000" id="supplierCode" name="supplierCode" autocomplete="off">
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">制单日期:</label>
+                    <span class="col-md-8">2018-07-31 09:20:15</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">单据状态:</label>
+                    <span class="col-md-8">未完成</span>
+                </div>
+             
+                <div class="col-md-3">
+                    <label class="col-md-4">机构名称:</label>
+                    <span class="col-md-8">湖北分公司</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">仓库名称:</label>
+                    <span class="col-md-8">武汉东西湖仓库</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">部门:</label>
+                    <span class="col-md-8">储运部</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">制单员:</label>
+                    <span class="col-md-8">张三</span>
+                </div>
+                
+                <div class="col-md-3">
+                    <label class="col-md-4">下架员:</label>
+                    <span class="col-md-8">啊啊</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">下架时间:</label>
+                    <span class="col-md-8">2018-07-31 09:20:15</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">上架员:</label>
+                    <span class="col-md-8">啊啊</span>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">上架时间:</label>
+                    <span class="col-md-8">2018-07-31 09:20:15</span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div fold="head"  class="panel-heading">
+                <h3 class="panel-title">商品明细</h3>
+                <div fold="sub" class="fold-block panel-title pull-right">
+                    <div class="glyphicon glyphicon-triangle-bottom"></div>
+                </div>
+            </div>
+            <div   fold="body">
+                <div class="panel-body">
+                    <div class="table_wrap">
+                        <table id="X_Table"></table>  
+                    </div>
+                    <div id="grid-pagera"></div>
+                </div>
+              
+            </div>
+        </div>
+       
+    </div>
+</div>
+
+
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/movestorage/movestorage_detail.js"></script>
+</body>
+</html>

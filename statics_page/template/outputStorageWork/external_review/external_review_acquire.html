@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="overview &amp; stats" />
+  <title>外复核任务索取</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../../static/css/b.tabs.css">
+  <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+  <link rel="stylesheet" href="../../../static/module/dataStatistics/dataStatistics.css">
+  <link rel="stylesheet" href="../../../static/css/public.css">
+  <link rel="stylesheet" href="../../../static/css/z_public.css">
+  <style type="text/css">
+
+  </style>
+</head>
+
+<body>
+  <div class="content">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">首页</h3>
+      </div>
+      <div class="panel-body">
+        <div class="col-md-3">
+          <div class="input-group">
+            <span class="input-group-addon">请输入工号</span>
+            <input class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default con-top">
+      <div class="panel-heading">
+        <h3 class="panel-title">外复核任务索取</h3>
+        <div class="pull-right data-statistics" >
+          <div class="data-content"></div>
+          <button type="button" class="btn btn-info" id="data_statistics">
+            统计
+          </button>
+        </div>
+        <div class="pull-right" role="group">
+          <button type="button" class="btn btn-info" id="searchBtn">
+            查询
+          </button>
+          <button type="button" class="btn btn-info" >
+            索取
+          </button>
+          <button type="button" class="btn btn-info">
+            外复核确认
+          </button>
+          <button type="button" class="btn btn-info" id="printReviewSheet">
+            重打外复核单
+          </button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <form id="form_a">
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">开始时间：</span>
+              <input class="form-control Wdate grid_date" readonly onclick="WdatePicker()">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">结束时间：</span>
+              <input class="form-control Wdate grid_date" readonly onclick="WdatePicker()">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">销售单号</span>
+              <input class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">客户编号</span>
+              <input class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">配送类型</span>
+              <select name="" class="form-control">
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+                <option value="3">4</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">暂存区</span>
+              <input class="form-control">
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="input-group">
+              <span class="input-group-addon">客户名称</span>
+              <input class="form-control">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="panel panel-default con-body">
+      <div class="panel-heading">
+        <h3 class="panel-title">待索取订单列表</h3>
+        <div class="pull-right">
+          <button class="btn btn-info"  onclick="$('#table_a').filterTableHead()">设置显示列</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="table-box">
+          <table id="table_a"></table>
+        </div>
+        <div id="grid_pager_a"></div>
+      </div>
+    </div>
+
+    <!-- 打印外复核单 -->
+    <div style="width: 0; height: 0; overflow: hidden;">
+      <div class="panel panel-default" id="printReviewSheetModule" ></div>
+    </div>
+  </div>
+  <script src="../../../static/js/jquery-2.1.4.min.js"></script>
+  <script src="../../../static/module/bootstrap/js/bootstrap.js"></script>
+  <script src="../../../static/js/configUtils.js"></script>
+  <script src="../../../static/module/XGrid/XGrid.js"></script>
+  <script src="../../../static/js/jQuery.print.js"></script>
+  <script src="../../../static/module/validate/jquery.validate.js"></script>
+  <script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+  <script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+  <script src="../../../static/module/jquery-autocomplete/jquery.autocomplete.js"></script>
+  <script src="../../../static/module/dataStatistics/dataStatistics.js"></script>
+  <script src="../../../static/js/z_utils.js"></script>
+  <script src="../../../static/business/outputStorageWork/external_review/external_review_acquire.js"></script>
+</body>
+
+</html>

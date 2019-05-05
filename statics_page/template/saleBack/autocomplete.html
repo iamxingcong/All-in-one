@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="overview &amp; stats"/>
+    <link rel="icon" type="image/x-icon"/>
+    <title>WMS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/ui.jqgrid-bootstrap.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+</head>
+
+<body>
+<div class="content">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">查询条件</h3>
+        </div>
+        <div class="panel-body">
+            <form id="myform">
+
+                <div class="row">
+                    <div class=" col-md-4 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">关键字（单选）</div>
+                            <input type="text" id="a" name="username" class="form-control">
+                            <input type="hidden" id="hide1" name="username" class="form-control">
+                        </div>
+                    </div>
+                    <div class=" col-md-4 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">关键字（多选）</div>
+                            <input type="text" id="b" name="username" class="form-control" onkeyup="this.value = this.value.replace(/[^a-zA-Z0-9_\-\(\)]/g,'')">
+                        </div>
+                    </div>
+                    <div class=" col-md-4 ">
+                        详细参数请参考 <a href="https://www.showdoc.cc/90523918429249">前端组件</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">列表明细</h3>
+            <div class=" pull-right" role="group">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-info " id="addRow">
+                        新增行
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <table id="X_Table">
+            </table>
+            <div id="grid-pager">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="input" style="display: none">
+    <input type="text" class="form-control autocomplete">
+</div>
+
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/jquery-autocomplete/jquery.autocomplete.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../../static/module/validate/jquery.validate.js"></script>
+<script type="text/javascript" src="../../static/module/validate/validate-methods.js"></script>
+<script type="text/javascript" src="../../static/module/validate/jquery.metadata.js"></script>
+<script type="text/javascript" src="../../static/module/validate/validToop.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+
+<script>
+
+    //字典查询(单选)
+    $('#a').Autocomplete({
+        serviceUrl: 'A.json', //异步请求
+        // paramName: 'query111',//查询参数，默认 query
+        dataType: 'json',
+        // lookup: countries, //监听数据 value显示文本，data为option的值
+        minChars: '0', //触发自动匹配的最小字符数
+        maxHeight: '300', //默认300高度
+        triggerSelectOnValidInput: false, // 必选
+        hideInpuId: '#hide1', //隐藏input的id
+        // multi: true, //多选要和delimiter一起使用
+        // querydelimiter: '-', //查询参数分隔符
+        // delimiter: ',', //多选时输入逗号触发匹配操作
+        // showNoSuggestionNotice: true, //显示查无结果的container
+        // noSuggestionNotice: '查询无结果',//查无结果的提示语
+        // tabDisabled: true,
+        onSelect: function (result) {
+            // return false;
+            //选中回调
+            // alert('You selected: ' + result.value + ', ' + result.data + ',' + result.name);
+
+            console.log('选中回调', result);
+
+            // $('#hide').val(result.data).trigger('input')
+
+        },
+        dataReader: {
+            // list: "arr", //结果集，不写返回结果为数组
+            data: 'manufactoryId',
+            value: 'manufactoryName',
+            name: 'name'
+        },
+        // transformResult: function (response) {
+        //     return {
+        //         suggestions: $.map(response, function (dataItem) {
+        //             return {
+        //                 value: dataItem,
+        //                 data: dataItem
+        //             };
+        //         })
+        //     };
+        // },
+        onSearchStart: function (params) {
+            // console.log('检索开始回调', params)
+        },
+        onSearchComplete: function (query, suggestions) {
+            //匹配结果后回调
+            // console.log(query, suggestions);
+            // if (suggestions.length < 1) {
+            //     utils.dialog({
+            //         title: '查询无结果',
+            //         content: '是否新增生产厂家？',
+            //         width: '300',
+            //         okValue: '确认',
+            //         ok: function () {
+            //             this.title('提交中…');
+            //             return false;
+            //         },
+            //         cancelValue: '取消',
+            //         cancel: function () {
+            //             $('input').val('')
+            //         }
+            //     }).show();
+            // }
+
+
+        },
+        onSearchError: function (query, jqXHR, textStatus, errorThrown) {
+            //查询失败回调
+            console.log(query, jqXHR, textStatus, errorThrown)
+        },
+        onHide: function (container) {
+            // console.log('container隐藏前回调', container)
+        },
+        onNoneSelect: function (params, suggestions) {
+            // console.log(params, suggestions);
+            console.log('没选中回调函数');
+            // utils.dialog({
+            //     title: '查询无结果',
+            //     content: '是否新增生产厂家？',
+            //     width: '300',
+            //     okValue: '确认',
+            //     ok: function () {
+            //         this.title('提交中…');
+            //         return false;
+            //     },
+            //     cancelValue: '取消',
+            //     cancel: function () {
+            //         $('input').val('')
+            //     }
+            // }).show();
+        }
+    });
+
+    //字典查询(多选)
+    var complateValue = []; //存储多选值
+
+    // var returnCode = "A1990,B2093,";
+    // var returnValue = "北京,上海,";
+    //
+    // //回显数据
+    //
+    // var codeArr = returnCode.split(',');
+    // codeArr.pop();
+    // var valueArr = returnValue.split(',');
+    // valueArr.pop();
+    //
+    // $.each(codeArr, function (index, item) {
+    //     complateValue.push({
+    //         value: valueArr[index],
+    //         code: item
+    //     })
+    // })
+    //
+    //
+    // $('#b').val(returnValue);
+    // $('#b').data('code', returnCode);
+
+    $('#b').Autocomplete({
+        serviceUrl: 'A.json', //异步请求
+        // paramName: 'query111',//查询参数，默认 query
+        dataType: 'json',
+        // lookup: countries, //监听数据 value显示文本，data为option的值
+        minChars: '0', //触发自动匹配的最小字符数
+        maxHeight: '300', //默认300高度
+        triggerSelectOnValidInput: false, // 必选
+        // hideInpuId: '#hide', //隐藏input的id
+        multi: true, //多选要和delimiter一起使用
+        // querydelimiter: '-', //查询参数分隔符
+        delimiter: ',', //多选时输入逗号触发匹配操作
+        // showNoSuggestionNotice: true, //显示查无结果的container
+        // noSuggestionNotice: '查询无结果',//查无结果的提示语
+        // tabDisabled: true,
+        onSelect: function (result) {
+            // return false;
+            //选中回调
+            // alert('You selected: ' + result.value + ', ' + result.data + ',' + result.name);
+
+            console.log('选中回调', result);
+            var resultValue = [];
+            complateValue.push(result);
+            // $('#hide').val(result.data).trigger('input')
+
+            // 多选取值
+            $.each($('#b').val().split(','), function (index, item) {
+
+                $.each(complateValue, function (index, obj) {
+                    if (item == obj.value) {
+                        resultValue.push(obj);
+                        return false;
+                    }
+                })
+            })
+
+            $('#b').data('code', resultValue);
+
+        },
+        dataReader: {
+            // list: "arr", //结果集，不写返回结果为数组
+            data: 'manufactoryId',
+            value: 'manufactoryName',
+            code: 'code'
+        }
+    });
+
+    //获取多选值
+    function getValue(id) {
+
+        var valueArr = $(id).val().split(',');
+        valueArr.pop();
+
+        var list = $('#b').data('code');
+        var temp = [];
+
+        $.each(list, function (index, item) {
+
+
+            $.each(valueArr, function (i, o) {
+                if(item.value == o){
+                    temp.push(item)
+                }
+            })
+
+        })
+
+        return temp;
+    }
+
+    //table内模糊搜索
+    var grid_data = [{
+        id: "1",
+        payNo: "05",
+        payName: "",
+        payMoney: "-460.00",
+        discount: "60.00",
+        disProp: '13%',
+        endPay: '-400.00'
+    }];
+
+    var colNames = ['序号', '支付方式编号', '支付方式名称', '结算金额', '优惠金额', '优惠比例', '实际结算金额'],
+        colModel = [{
+            name: 'id',
+            index: 'id', //索引。其和后台交互的参数为sidx
+        }, {
+            name: 'payNo',
+
+        }, {
+            name: 'payName',
+            rowtype: '#input'
+        }, {
+            name: 'payMoney',
+        }, {
+            name: 'discount',
+        }, {
+            name: 'disProp'
+        }, {
+            name: 'endPay'
+        }];
+
+    $('#X_Table').XGrid({
+        data: grid_data,
+        // url: 'http://www.baidu.com',
+        colNames: colNames,
+        colModel: colModel,
+        rowNum: 10,
+        altRows: true, //设置为交替行表格,默认为false
+        pager: '#grid-pager',
+    });
+
+    //初始化表格内组件
+    initAUto('autocomplete');
+    //新增行
+    $('#addRow').click(function () {
+        $('#X_Table').XGrid('addRowData', grid_data);
+        initAUto('autocomplete');
+    })
+
+    //字典查询(单选)
+    function initAUto(className) {
+        $('.' + className).Autocomplete({
+            serviceUrl: 'A.json', //异步请求
+            // paramName: 'query111',//查询参数，默认 query
+            dataType: 'json',
+            // lookup: countries, //监听数据 value显示文本，data为option的值
+            minChars: '0', //触发自动匹配的最小字符数
+            maxHeight: '300', //默认300高度
+            triggerSelectOnValidInput: false, // 必选
+            hideInpuId: '#hide', //隐藏input的id
+            // multi: true, //多选要和delimiter一起使用
+            // querydelimiter: '-', //查询参数分隔符
+            // delimiter: ',', //多选时输入逗号触发匹配操作
+            // showNoSuggestionNotice: true, //显示查无结果的container
+            // noSuggestionNotice: '查询无结果',//查无结果的提示语
+            // tabDisabled: true,
+            onSelect: function (result) {
+                // return false;
+                //选中回调
+                // alert('You selected: ' + result.value + ', ' + result.data + ',' + result.name);
+
+                console.log('选中回调', result);
+
+                // $('#hide').val(result.data).trigger('input')
+
+            },
+            dataReader: {
+                // list: "arr", //结果集，不写返回结果为数组
+                data: 'manufactoryId',
+                value: 'manufactoryName',
+                name: 'name'
+            },
+            // transformResult: function (response) {
+            //     return {
+            //         suggestions: $.map(response, function (dataItem) {
+            //             return {
+            //                 value: dataItem,
+            //                 data: dataItem
+            //             };
+            //         })
+            //     };
+            // },
+            onSearchStart: function (params) {
+                // console.log('检索开始回调', params)
+            },
+            onSearchComplete: function (query, suggestions) {
+                //匹配结果后回调
+                // console.log(query, suggestions);
+                // if (suggestions.length < 1) {
+                //     utils.dialog({
+                //         title: '查询无结果',
+                //         content: '是否新增生产厂家？',
+                //         width: '300',
+                //         okValue: '确认',
+                //         ok: function () {
+                //             this.title('提交中…');
+                //             return false;
+                //         },
+                //         cancelValue: '取消',
+                //         cancel: function () {
+                //             $('input').val('')
+                //         }
+                //     }).show();
+                // }
+
+
+            },
+            onSearchError: function (query, jqXHR, textStatus, errorThrown) {
+                //查询失败回调
+                console.log(query, jqXHR, textStatus, errorThrown)
+            },
+            onHide: function (container) {
+                // console.log('container隐藏前回调', container)
+            },
+            onNoneSelect: function (params, suggestions) {
+                // console.log(params, suggestions);
+                console.log('没选中回调函数');
+                // utils.dialog({
+                //     title: '查询无结果',
+                //     content: '是否新增生产厂家？',
+                //     width: '300',
+                //     okValue: '确认',
+                //     ok: function () {
+                //         this.title('提交中…');
+                //         return false;
+                //     },
+                //     cancelValue: '取消',
+                //     cancel: function () {
+                //         $('input').val('')
+                //     }
+                // }).show();
+            }
+        });
+    }
+
+</script>
+</body>
+
+</html>

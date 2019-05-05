@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑商品资料</title>
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/module/tagsinput/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/t_public.css">
+    <style>
+        .margin-left-right-10 {
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .margin-right-15 {
+            margin-right: 15px !important;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">基础属性</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">业主名称</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">同步时间</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品编码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品名</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">通用名</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">批准文号</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">规格</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">包装单位</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">剂型</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">生产厂家</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">通用名助记码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品名助记码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">品牌厂家</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">是否委托生产</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="isEntrustmentProduction" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="isEntrustmentProduction" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">受托厂家</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">小包装条码</span>
+                            <div class="tagsinput form-control tagdiv">
+                                <div class="bootstrap-tagsinput">
+                                    <span class="tag label label-info" title="LS820161212018">LS820161212018</span>
+                                </div>
+                                <div class="bootstrap-tagsinput">
+                                    <span class="tag label label-info" title="LS820161212018">LS820161212018</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">有效期</span>
+                            <div class="form-control">
+                                <input type="text" class="s50fl only-read" value="2" disabled>
+                                <select class="s50fl only-read" disabled>
+                                    <option value="0">年</option>
+                                    <option value="1" selected>月</option>
+                                    <option value="2">日</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">存储分类</span>
+                            <select class="form-control" autocomplete="off">
+                                <option value="0">请选择</option>
+                                <option value="1" selected>整散合一</option>
+                                <option value="2">整散分开</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">件包装条码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">中包装条码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">产地</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">质量标准</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">处方分类</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">一级分类</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">外省可销</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="isOtherProvincesSale" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="isOtherProvincesSale" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">采购员</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品大类</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">二级分类</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">限销状态</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">是否拆零</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="isSellByPiece" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="isSellByPiece" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">所属经营范围</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">三级分类</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">限采状态</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="limitStatus" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="limitStatus" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品ABC分类</span>
+                            <select class="form-control" autocomplete="off">
+                                <option value="">请选择</option>
+                                <option value="0">超A</option>
+                                <option value="1">A</option>
+                                <option value="2">B</option>
+                                <option value="3">C</option>
+                                <option value="4">超C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">GSP养护类型</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="curingType" disabled checked> 重点养护(养护周期30天)
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="curingType" disabled> 非重点养护(养护周期90天)
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">停用状态</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="disableState" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="disableState" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品拆零区ABC分类</span>
+                            <select class="form-control" autocomplete="off">
+                                <option value="">请选择</option>
+                                <option value="0">超A</option>
+                                <option value="1">A</option>
+                                <option value="2">B</option>
+                                <option value="3">C</option>
+                                <option value="4">超C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">特殊属性</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox" style="margin: 0;">
+                                    <label class="margin-right-15 ">
+                                        <input type="checkbox" value="1" name="specialAttributes" autocomplete="off"> 特殊管理药品
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="2" name="specialAttributes" autocomplete="off"> 冷藏冷冻药品
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="3" name="specialAttributes" autocomplete="off"> 抗肿瘤治疗药品
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="4" name="specialAttributes" autocomplete="off"> 含麻黄碱复方制剂
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes" autocomplete="off"> 高值
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes" autocomplete="off"> 赠品
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes" autocomplete="off"> 非药
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes" autocomplete="off"> 已发错
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="table-box">
+                                <table class="table-bordered" id="tableBaseInfo"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">库房属性</h3>
+            </div>
+            <div class="panel-body">
+                <style>
+                    .row-reset {
+                        overflow-x: auto;
+                        margin-bottom: 20px;
+                    }
+
+                    .ul-reset {
+                        margin-bottom: 0;
+                    }
+                    .ul-reset .adapt-width{
+                        padding-left: 0;
+                        padding-right: 0;
+                    }
+                </style>
+                <div class="row row-reset">
+                    <ul class="list-inline ul-reset">
+                        <li class="adapt-width">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="font-size: 14px;font-weight: bold;width: 32% !important;margin-left: 23px;">小包装（最小单位）</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">数量   默认1</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">长</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">宽</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">高</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">体积</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM³</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">重量</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">KG</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="adapt-width">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="font-size: 14px;font-weight: bold;width: 32% !important;margin-left: -40px;">中包装</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="text-require">*</i>含数量（小包）</span>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">长</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">宽</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">高</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">体积</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM³</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">重量</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">KG</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="adapt-width">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="font-size: 14px;font-weight: bold;width: 32% !important;margin-left: -40px;">中包装</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="text-require">*</i>含数量（小包）</span>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">长</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">宽</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">高</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">体积</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM³</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">重量</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">KG</span>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="adapt-width">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="font-size: 14px;font-weight: bold;width: 32% !important;margin-left: -40px;">件包装</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="text-require">*</i>含数量（小包）</span>
+                                    <input type="text" class="form-control" disabled>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">长1</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">宽1</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">高1</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">体积1</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">CM³</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">重量1</span>
+                                    <input type="text" class="form-control">
+                                    <span class="unit-tip">KG</span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="text-require">*&nbsp;</i>是否监管</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="isSupervise" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="isSupervise" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">存放属性</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="1" name="specialAttributes" checked> 异形品
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="2" name="specialAttributes"> 液体
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="3" name="specialAttributes"> 易碎品
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="4" name="specialAttributes"> 贵重
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="checkbox" value="5" name="specialAttributes"> 易串味
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">验收注意点</span>
+                            <input type="text" class="form-control" placeholder="不得超过50个汉字">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">存储条件</span>
+                            <div class="form-control" style="border: none;box-shadow: none;padding-top: 0;height: auto;">
+                                <div class="col-sm-12 paymentSettlement">
+                                    <div class="checkbox">
+                                        <label class="checkbox-inline col-md-2">
+                                            <input type="checkbox" checked autocomplete="off"> 常温
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 paymentSettlement">
+                                    <div class="checkbox">
+                                        <label class="checkbox-inline col-md-2">
+                                            <input type="checkbox" autocomplete="off"> 阴凉
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 paymentSettlement">
+                                    <div class="checkbox">
+                                        <label class="checkbox-inline col-md-2">
+                                            <input type="checkbox" autocomplete="off"> 冷藏
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 paymentSettlement">
+                                    <div class="checkbox">
+                                        <label class="checkbox-inline col-md-2">
+                                            <input type="checkbox" autocomplete="off"> 冷冻
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 paymentSettlement">
+                                    <div class="checkbox">
+                                        <label class="checkbox-inline col-md-2">
+                                            <input type="checkbox" autocomplete="off"> 控温
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">温度范围</span>
+                            <div class="form-control" style="border: none;box-shadow: none;padding-top: 0;height: auto;">
+                                <input type="text" class="form-control" style="width: 140px;margin-right: 15px;">
+                                <input type="text" class="form-control" style="width: 140px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="batch_select_rowtype" style="display: none;">
+    <select class="form-control">
+        <option value="0">请选择</option>
+        <option value="1">请选择</option>
+        <option value="2">请选择</option>
+    </select>
+</div>
+
+
+</body>
+<!--
+<script>
+    var documentWidth = document.body.clientWidth;
+    var eles = document.querySelectorAll(".adapt-width");
+    for (var i = 0, l = eles.length; i < l; i++) {
+        eles[i].style.width = documentWidth / 4 + 'px';
+    }
+</script>
+-->
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script>
+    initAdaptWidth();
+
+    function initAdaptWidth() {
+        //var colWdith = $(document).width() / 4;
+        var colWdith = $('.col-md-3').outerWidth();
+        $(".adapt-width").css({"width": colWdith}).parent("ul").css({"width": (colWdith + 5) * $(".adapt-width").length});
+    }
+</script>
+<script src="../../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/js/t_utils.js"></script>
+<script src="../../../static/business/basicData/masterDataRecord/goodsInfoDetail.js"></script>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>单元格合并</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+
+</head>
+<body>
+
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-box" id="table-box">
+                        <table id="info_table" class="table-bordered"></table>
+                        <div id="grid_pager"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script>
+
+    $(function () {
+
+
+        var mockData = {
+            "total": 3,
+            "offset": 0,
+            "limit": 10,
+            "rows": [{
+                "id": 30,
+                "merchantId": 10773,
+                "merchantName": "湖北益生天济大药房连锁有限公司",
+                "firstUploadTime": 1529126786000,
+                "finalPassTime": 1540519580000,
+                "auditSingleTime": "131天20小时39分54秒",
+                "auditAllTime": null,
+                "status": 2,
+                "exportType": 1,
+                "detailList": [{
+                    "id": 30,
+                    "licenseType": 2,
+                    "code": "ZG20180616132625701",
+                    "bdName": "余浩",
+                    "auditName": "蔡旭",
+                    "auditOpName": "通过",
+                    "holdTime": 1540519573000,
+                    "auditTime": 1540519581000,
+                    "holdTake": "90天23小时16分21秒",
+                    "auditTake": "0天0小时0分8秒",
+                    "statisticId": 30,
+                    "status": 2
+                }]
+            }, {
+                "id": 32,
+                "merchantId": 12502,
+                "merchantName": "宜昌高新区白洋园区人人康大药房",
+                "firstUploadTime": 1531047387000,
+                "finalPassTime": 1540539412000,
+                "auditSingleTime": "109天20小时40分25秒",
+                "auditAllTime": null,
+                "status": 2,
+                "exportType": 1,
+                "detailList": [{
+                    "id": 32,
+                    "licenseType": 2,
+                    "code": "ZG20180708185627164",
+                    "bdName": "杜飞雄",
+                    "auditName": "管理员",
+                    "auditOpName": "通过",
+                    "holdTime": 1540539399000,
+                    "auditTime": 1540539413000,
+                    "holdTake": "0天23小时45分11秒",
+                    "auditTake": "0天0小时0分13秒",
+                    "statisticId": 32,
+                    "status": 2
+                }]
+            }, {
+                "id": 33,
+                "merchantId": 4450,
+                "merchantName": "远安百姓好大药房",
+                "firstUploadTime": 1531104426000,
+                "finalPassTime": null,
+                "auditSingleTime": null,
+                "auditAllTime": null,
+                "status": 1,
+                "exportType": 1,
+                "detailList": [{
+                    "id": 33,
+                    "licenseType": 2,
+                    "code": "ZG20180709104706334",
+                    "bdName": "胡亮",
+                    "auditName": "管理员",
+                    "auditOpName": "通过",
+                    "holdTime": 1540539419000,
+                    "auditTime": 1540539427000,
+                    "holdTake": "91天4小时47分7秒",
+                    "auditTake": "0天0小时0分8秒",
+                    "statisticId": 33,
+                    "status": 2
+                }]
+            }],
+            "pageCount": 1,
+            "currentPage": 1,
+            "requestParameters": null,
+            "requestUrl": null
+        }
+
+        $("#info_table").XGrid({
+            data: mockData.rows,
+            colNames:['客户','初次提交时间','最终通过时间','共耗时','资质类型','一审单号','BD','审核人','审核类型'],
+            colModel: [{
+                name: "merchantName"
+            }, {
+                name: "firstUploadTime"
+            }, {
+                name: "finalPassTime"
+            }, {
+                name: "auditSingleTime"
+            }, {
+                name: "licenseType"
+            }, {
+                name: "code"
+            }, {
+                name: "bdName"
+            }, {
+                name: "auditName"
+            }, {
+                name: "auditOpName"
+            }],
+            // altRows: true,
+            // pager: "#grid_pager"
+        });
+
+
+    });
+
+</script>
+</html>

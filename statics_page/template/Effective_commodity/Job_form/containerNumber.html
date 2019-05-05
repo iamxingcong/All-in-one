@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>容器编号</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="overview &amp; stats">
+    <link rel="icon" href="" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/b.tabs.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+</head>
+<body>
+<div class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <form class="row  col-md-12">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-addon">关键字</div>
+                            <input class="form-control" type="text" id="search_vl" placeholder="容器编号"/>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pull-right" role="group">
+                            <button type="button" class="btn btn-info" id="search_list">查询</button>
+                            <button type="button" class="btn btn-info" id="addrow">新增</button>
+                            <button type="button" class="btn btn-info" id="confirmrow">确认</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                <div>
+                    <table id="X_Table"></table>
+                </div>
+                <p id="grid-pager"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/module/jquery-autocomplete/jquery.autocomplete.js"></script>
+<script>
+    $(function () {
+        var dialog = parent.dialog.get(window);
+        $('#search_vl').val(dialog.data)
+
+        var gridData = [];
+        var colNames = ['容器编号', '创建人'];
+        var colModels = [
+            {
+                name: 'name1',
+                editable: true
+            },
+            {
+                name: 'name2',
+            }
+        ];
+        for (var i = 0; i < 10; i++) {
+            gridData.push({
+                name1: '001',
+                name2: '001',
+                name3: '001',
+                name4: '001',
+                name5: '001',
+                name6: '001',
+                name7: '001',
+                name8: '001',
+                name9: '001',
+                name10: '001',
+                name11: '001',
+                name12: '001',
+                name13: '001',
+                name14: '001',
+                name15: '001',
+                name16: '001',
+                name17: '001',
+                name18: '001',
+                name19: '001',
+                name20: '001',
+                name21: '001'
+            })
+        }
+        var lastsel;
+        $('#X_Table').XGrid({
+            // url: '/finance/purchase/payrequestinfo/findSupplierVoPage',
+            data: gridData,
+            colNames: colNames,
+            colModel: colModels,
+            key: 'name1',
+            rowNum: 20,
+            rownumbers: true,
+            rowList: [20, 50, 100],
+            altRows: true,
+            ondblClickRow: function (id, dom, obj, index, event) {
+                this.returnValue = obj;
+                dialog.close(obj);
+                return obj;
+            },
+            onSelectRow: EditSelectRow,
+            pager: '#grid-pager'
+        });
+
+        //查询数据，重置data
+        $('#search_list').on('click', function () {
+            $('#X_Table').setGridParam({
+                url: '',
+                postData: {
+                    supplierCode: $("#search_vl").val(),
+                    page: 1
+                }
+            }).trigger('reloadGrid');
+        })
+
+        //选中行启用行编辑
+        function EditSelectRow(id) {
+            //原选中行ID
+            var oldSelectRowId = $("#selectRowId").val();
+            if (oldSelectRowId != null && oldSelectRowId != "" && oldSelectRowId.length > 0) {
+                $("#X_Table").XGrid('saveRow', oldSelectRowId);//保存上一行
+            }
+
+            //当前选中行
+            $("#selectRowId").val(id);//临时存储当前选中行
+            //$("#fieldGrid").jqGrid('editRow', id);
+            $("#X_Table").XGrid('editRow', id, {keys: true, focusField: 1});
+        }
+
+        //新增行
+        $('#addrow').bind('click', function () {
+            $('#X_Table').XGrid('addRowData', gridData, gridData.id);
+        })
+
+        //确认
+        $('#confirmrow').bind('click', function () {
+            var td = $('#X_Table').closest('tr').find('td[row-describedby="name1"]');
+            var text = td.text();
+            var txt = $('#X_Table').closest('tr').find('td[row-describedby="name1"] input').val(text);
+            txt.blur(function(){
+                // 失去焦点，保存值。于服务器交互自己再写,最好ajax
+                var newText = $(this).val(),
+                    value=$(this).attr("value"),
+                    input=$(this),
+                    data={value:newText};
+                $.post(url,data,function () {
+                    // 移除文本框,显示新值
+                    input.remove();
+                    td.text(newText);
+                });
+            });
+            td.text("");
+            td.append(txt);
+            // $('#X_Table').closest('tr').find('td[row-describedby="name1"]').html('001')
+
+            var form_data = $('#split_table').XGrid('getRowData'); //拆分行数据
+            var return_data = [];
+            console.log(form_data)
+            $.each(form_data, function (index, item) {
+                obj.txt1 = item.txt1;//获取具体字段
+                return_data.push(obj)  //重新回填
+            })
+            return_data.reverse();
+            $.each(return_data, function (index, item) {//重新排序
+                Xgrid.XGrid('addRowData', item, 'after', obj.id);
+            })
+            Xgrid.XGrid('delRowData', obj.id)
+        })
+
+        //字典查询
+        $('#search_vl').Autocomplete({
+            serviceUrl: 'http://localhost/A.json', //异步请求
+            // paramName: 'query111',//查询参数，默认 query
+            dataType: 'json',
+            //lookup: countries, //监听数据 value显示文本，data为option的值
+            minChars: '0', //触发自动匹配的最小字符数
+            maxHeight: '300', //默认300高度
+            dataReader: {
+                'value': 'manufactoryName',
+                'data': 'manufactoryId',
+                'xxt': "name"
+            },
+            triggerSelectOnValidInput: false, // 必选
+            onSelect: function (result) {
+                //选中回调
+                alert('You selected: ' + result.value + ', ' + result.data + ',' + result.xxt);
+                // console.log('选中回调')
+            },
+            onSearchStart: function (params) {
+                // console.log('检索开始回调', params)
+            },
+            onSearchComplete: function (query, suggestions) {
+                //匹配结果后回调
+                // console.log(query, suggestions);
+            },
+            onSearchError: function (query, jqXHR, textStatus, errorThrown) {
+                //查询失败回调
+                console.log(query, jqXHR, textStatus, errorThrown)
+            },
+            onHide: function (container) {
+                // console.log('container隐藏前回调', container)
+            },
+            onNoneSelect: function (params, suggestions) {
+                console.log(params, suggestions);
+            }
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>gridDemo</title>
+    <link rel="stylesheet" href="../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../static/css/public.css">
+</head>
+
+<body>
+<style>
+    #dialog_Block {
+        min-width: 600px;
+        display: none;
+    }
+
+    td,
+    th {
+        white-space: nowrap !important;
+    }
+</style>
+
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class=" " role="group">
+                <button type="button" id="submitBtn" class="btn btn-info">
+
+                    提交
+                </button>
+                <button href="主数据变更申请.html" id="demo" class="btn btn-info">
+                    打开tab页面
+                </button>
+                <button type="button" id="getRowData" class="btn btn-info">
+
+                    保存
+                </button>
+
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        辅助功能
+                        <span class="caret"></span>
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <li>
+                            <a href="#">单据挂账</a>
+                        </li>
+                        <li>
+                            <a href="#">提取挂账</a>
+                        </li>
+                        <li>
+                            <a href="#">导出Excel</a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+
+            <form id="myform">
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">用户名</div>
+                            <input type="text" id="a" name="username"
+                                   class="form-control {validate:{ required :true, isUserName :true,}}">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">出生日期</div>
+                            <input type="text" id="b" name="date"
+                                   class="form-control {validate:{ required :true, date :true,}}">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">身份证号</div>
+                            <input type="text" name="idCard" id="c"
+                                   class="form-control {validate:{ required :true, isIdCardNo :true,}}">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">邮箱</div>
+                            <input type="email" name="eamil"
+                                   class="form-control {validate:{ required :true, email :true,}}" id="d">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">QQ号</div>
+                            <input type="text" name="qq" class="form-control {validate:{ required :true, isQq :true,}}"
+                                   id="a2">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">手机号</div>
+                            <input type="text" name="tel"
+                                   class="form-control {validate:{ required :true, isMobile :true,}}" id="b2">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">邮政编码</div>
+                            <input type="text" name="youbian"
+                                   class="form-control {validate:{ required :true, isZipCode :true,}}" id="c2">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">IP地址</div>
+                            <input type="text" name="ip" class="form-control {validate:{ required :true, ip :true,}}"
+                                   id="d2">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">中文、英文、数字、下划线</div>
+                            <input type="text" name="inputCode01"
+                                   class="form-control {validate:{ required :true, stringCheck :true,}}" id="a3">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">数值类型，包括浮点数</div>
+                            <input type="text" name="inputCode02"
+                                   class="form-control {validate:{ required :true, isNumber :true,}}" id="b3">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">整数小于或等于0</div>
+                            <input type="text" name="inputCode03"
+                                   class="form-control {validate:{ required :true, isIntLteZero :true,}}" id="c3">
+                        </div>
+                    </div>
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">整数大于或等于0</div>
+                            <input type="text" name="inputCode04"
+                                   class="form-control {validate:{ required :true, isIntGteZero :true,}}" id="d3">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <div class="input-group">
+                            <div class="input-group-addon">时间</div>
+                            <input type="text" name="inputCode01" class="form-control"
+                                   onclick="WdatePicker({readOnly:false})">
+
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="table">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">采购订单</h3>
+                    <div class="" role="group">
+                        <button type="button" class="btn btn-info" id="seachData">
+
+                            查询
+                        </button>
+                        <button type="button" class="btn btn-info" id="addRowData">
+
+                            新增
+                        </button>
+                        <button type="button" class="btn btn-info" id="delRowData">
+
+                            删除
+                        </button>
+                        <button type="button" class="btn btn-info" id="setRowData">
+
+                            修改
+                        </button>
+                        <button type="button" class="btn btn-info" id="editRow" style="display: none;">
+
+                            编辑行
+                        </button>
+                        <button type="button" class="btn btn-info" id="saveRow" style="display: none;">
+
+                            保存行
+                        </button>
+                        <button type="button" class="btn btn-info" id="addOtherGrid">
+
+                            加入其它Grid
+                        </button>
+                        <button type="button" class="btn btn-info" id="filterCol">
+
+                            筛选列
+                        </button>
+                        <div class="btn-group" role="group">
+                            <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"
+                                    aria-haspopup="true" aria-expanded="false">
+                                辅助功能
+                                <span class="caret"></span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <li>
+                                    <a href="#">单据挂账</a>
+                                </li>
+                                <li>
+                                    <a href="#">提取挂账</a>
+                                </li>
+                                <li>
+                                    <a href="#">导出Excel</a>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table id="X_Table">
+                    </table>
+
+                    <div id="grid-pager">
+                    </div>
+
+                    <table id="X_Table1">
+                    </table>
+                    <div id="grid-pager1">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class=" col-md-3 ">
+                    金额合计:
+                    <span>0.00</span>
+                </div>
+                <div class=" col-md-3 ">
+                    含税合计:
+                    <span>0.00</span>
+                </div>
+                <div class=" col-md-3 ">
+                    价税合计:
+                    <span>0.00</span>
+                </div>
+                <div class=" col-md-3 ">
+                    大写合计:
+                    <span>零零零零</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="compluted"></div>
+</div>
+
+<div id="dialog_Block" style="display: none;">
+    <form class="form-horizontal" role="form">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">出库单号</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="ida" id="id" placeholder="请输入出库单号">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">出库类型</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="type" id="type" placeholder="请输入出库类型">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">总金额</label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="pay" id="pay" placeholder="请输入总金额">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">申请人(单位)</label>
+            <div class="col-sm-7">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">备注</label>
+            <div class="col-sm-7">
+                <textarea name="text" id="text"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">性别</label>
+            <div class="col-sm-7">
+                <input type="radio" name="sex" value="1"> 男
+                <input type="radio" name="sex" value="2"> 女
+            </div>
+        </div>
+    </form>
+</div>
+<div id="grid_Block" style="display: none;width: 260px; text-align: left">
+    <form>
+        <div class="col-sm-offset-1 checkbox">
+            <input type="checkbox" name="gb1">停用
+        </div>
+        <div class="col-sm-offset-1 checkbox">
+            <input type="checkbox" name="gb2">取消限采
+        </div>
+        <div class="col-sm-offset-1 radio">
+            <div class="row">
+                <div class="col-sm-3">
+                    <input type="radio" value="danxuan1" name="dx">单选1
+                </div>
+                <div class="col-sm-3">
+                    <input type="radio" value="danxuan2" name="dx">单选2
+                </div>
+
+            </div>
+
+        </div>
+        <div class="col-sm-offset-1 checkbox">
+            <div class="row">
+                <div class="col-sm-3">
+                    <input type="checkbox" name="gb3">限撤
+                </div>
+                <div class="col-sm-4">
+                    <input type="checkbox" name="gb4">批号限制
+                </div>
+                <div class="col-sm-5">
+                    <input type="text" name="gb5">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                </div>
+                <div class="col-sm-9">
+                    <input type="checkbox" name="gb6">通知采购退出
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="grid_select" style="display: none;">
+    <select name="sel1">
+        <option value="">请选择</option>
+        <option value="1">申请人1</option>
+        <option value="2">申请人2</option>
+    </select>
+
+    <select name="sel2">
+        <option value="">请选择</option>
+        <option value="1">申请人1</option>
+        <option value="2">申请人2</option>
+    </select>
+</div>
+<div id="grid_select_one" style="display: none">
+    <a href="javascript:" onclick="alert()">跳转</a>
+    <select name="sele_one">
+        <option value="">请选择</option>
+        <option value="01">剂型1</option>
+        <option value="02">剂型2</option>
+    </select>
+</div>
+<div id="grid_btn_Block" class="grid_btn_Block" style="display: none;">
+    <button class="btn_update">修改</button>
+    <button class="btn_del">删除</button>
+</div>
+<div class="panel-body" style="display: none;">
+    <form id="myform">
+        <div class="row">
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">用户名</div>
+                    <input type="text" id="a1" name="username"
+                           class="form-control {validate:{ required :true, isUserName :true,}}">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">出生日期</div>
+                    <input type="text" id="b1" name="date"
+                           class="form-control {validate:{ required :true, date :true,}}">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">身份证号</div>
+                    <input type="text" name="idCard" id="c1"
+                           class="form-control {validate:{ required :true, isIdCardNo :true,}}">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">邮箱</div>
+                    <input type="email" name="eamil" class="form-control {validate:{ required :true, email :true,}}"
+                           id="d1">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">QQ号</div>
+                    <input type="text" name="qq" class="form-control {validate:{ required :true, isQq :true,}}"
+                           id="a21">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">手机号</div>
+                    <input type="text" name="tel" class="form-control {validate:{ required :true, isMobile :true,}}"
+                           id="b21">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">邮政编码</div>
+                    <input type="text" name="youbian"
+                           class="form-control {validate:{ required :true, isZipCode :true,}}" id="c21">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">IP地址</div>
+                    <input type="text" name="ip" class="form-control {validate:{ required :true, ip :true,}}" id="d21">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">中文、英文、数字、下划线</div>
+                    <input type="text" name="inputCode01"
+                           class="form-control {validate:{ required :true, stringCheck :true,}}" id="a31">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">数值类型，包括浮点数</div>
+                    <input type="text" name="inputCode02"
+                           class="form-control {validate:{ required :true, isNumber :true,}}" id="b31">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">整数小于或等于0</div>
+                    <input type="text" name="inputCode03"
+                           class="form-control {validate:{ required :true, isIntLteZero :true,}}" id="c31">
+                </div>
+            </div>
+            <div class=" col-md-3 ">
+                <div class="input-group">
+                    <div class="input-group-addon">整数大于或等于0</div>
+                    <input type="text" name="inputCode04"
+                           class="form-control {validate:{ required :true, isIntGteZero :true,}}" id="d31">
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<script src="../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../static/js/configUtils.js"></script>
+<!--<script src="../static/module/XGrid/XGrid2.0.js"></script>-->
+<script src="../static/module/XGrid/XGrid2.0.js"></script>
+<script type="text/javascript" src="../static/module/validate/jquery.validate.js"></script>
+<script type="text/javascript" src="../static/module/validate/validate-methods.js"></script>
+<script type="text/javascript" src="../static/module/validate/jquery.metadata.js"></script>
+<script type="text/javascript" src="../static/module/validate/validToop.js"></script>
+<script src="../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../static/module/My97DatePicker/WdatePicker.js"></script>
+
+
+<script>
+    $(function () {
+
+        $('input[type=text],input[type=number]').prop('maxlength', '20');
+        var $XYY_Grid = $('#X_Table');
+        var $XYY_Grid1 = $('#X_Table1');
+
+        //调用validate 初始化 自定义
+        $("#submitBtn").click(function () {
+            // 单独字段校验
+            // $('#a').validDom('myform')
+            //提交前验证
+            // console.log(validform("myform").form());
+
+            var a = utils.dialog({
+                title: '提示',
+                content: '审核意见',
+                width: 300,
+                ok: function () {
+                    a.close().remove();
+                    if (validform("myform").form()) { //验证通过 "myform"为需要验证的form的ID
+                        //utils.dialog({content: '校验通过！', quickClose: true, timeout: 2000}).showModal();
+                        utils.dialog({
+                            content: '恭喜审核通过',
+                            quickClose: true,
+                            timeout: 2000
+                        }).showModal();
+                    } else { //验证不通过
+                        utils.dialog({
+                            content: '校验不通过！',
+                            quickClose: true,
+                            timeout: 2000
+                        }).showModal();
+                        return false;
+                    }
+                    return false;
+                },
+                okValue: 'ok',
+                onclose: function () {
+                    console.log('测试dialog的this ：', this);
+                }
+            }).showModal();
+
+            // if (validform("myform").form()) { //验证通过 "myform"为需要验证的form的ID
+            //     utils.dialog({
+            //         content: '校验通过！',
+            //         quickClose: true,
+            //         timeout: 2000
+            //     }).showModal();
+            // } else { //验证不通过
+            //     utils.dialog({
+            //         content: '校验不通过！',
+            //         quickClose: true,
+            //         timeout: 2000
+            //     }).showModal();
+            //     return false;
+            // }
+        })
+        //查询数据，重置url
+        $('#seachData').on('click', function () {
+            console.log($XYY_Grid);
+            $XYY_Grid.setGridParam({
+                data: [],
+                postData: {
+                    a: new Date().getTime()
+                }
+            }).trigger('reloadGrid');
+        })
+
+        //新增一行
+        $('#addRowData').on('click', function () {
+            var el = document.querySelector('#dialog_Block');
+            utils.dialog({
+                title: '新增行',
+                content: el,
+                okValue: '确定',
+                ok: function () {
+                    var data = $(this.node).find('form').serializeToJSON();
+                    $XYY_Grid.XGrid('addRowData', data, 'last');
+                },
+                cancelValue: '取消',
+                cancel: function () {
+                }
+            }).showModal();
+
+        })
+
+        //修改行
+        $('#setRowData').on('click', function () {
+            var selRow = $('#X_Table').XGrid('getSeleRow');
+            var el = document.querySelector('#dialog_Block');
+
+            if (selRow) {
+
+                $(el).find('form').JSONToform($.extend(selRow[0], {
+                    'danxuan': 1,
+                    'sex': 1,
+                    'tt': 'sssssssssssssss'
+                }));
+
+                utils.dialog({
+                    title: '修改行',
+                    content: el,
+                    okValue: '确定',
+                    ok: function () {
+                        //$XYY_Grid.XGrid('setRowData', selRow[0].id, $(this.node).find('form').serializeToJSON());
+                        $XYY_Grid.XGrid('setRowData', selRow[0].id, {type: $(this.node).find('form').serializeToJSON().type});
+                    },
+                    cancelValue: '取消',
+                    cancel: function () {
+
+                    }
+                }).showModal();
+            } else {
+                utils.dialog({
+                    content: '没有选中任何行！',
+                    quickClose: true,
+                    timeout: 2000
+                }).showModal();
+            }
+        })
+
+        //删除选中行
+        $('#delRowData').on('click', function () {
+            var selRow = $('#X_Table').XGrid('getSeleRow');
+            $.each(selRow, function (i, v) {
+                if (selRow) {
+                    $XYY_Grid.XGrid('delRowData', v.id);
+                } else {
+                    utils.dialog({
+                        content: '没有选中任何行！',
+                        quickClose: true,
+                        timeout: 2000
+                    }).showModal();
+                }
+            })
+        })
+
+        //保存，获取Grid所有数据
+        $('#getRowData').on('click', function () {
+            console.log($XYY_Grid.XGrid('getRowData'));
+        })
+
+        //编辑行
+        $('#editRow').on('click', function () {
+            var selRow = $('#X_Table').XGrid('getSeleRow');
+            if (selRow) {
+                $XYY_Grid.XGrid('editRow', selRow.id);
+            } else {
+                utils.dialog({
+                    content: '没有选中任何行！',
+                    quickClose: true,
+                    timeout: 2000
+                }).showModal();
+            }
+        })
+
+        //保存行
+        $('#saveRow').on('click', function () {
+            var selRow = $('#X_Table').XGrid('getSeleRow');
+            if (selRow) {
+                $XYY_Grid.XGrid('saveRow', selRow.id);
+            } else {
+                utils.dialog({
+                    content: '没有选中任何行！',
+                    quickClose: true,
+                    timeout: 2000
+                }).showModal();
+            }
+        })
+
+        //添加到其它grid
+        $('#addOtherGrid').on('click', function () {
+            var selRow = $XYY_Grid.XGrid('getSeleRow');
+            if (selRow) {
+                $XYY_Grid1.XGrid('addRowData', selRow);
+            } else {
+                utils.dialog({
+                    content: '没有选中任何行！',
+                    quickClose: true,
+                    timeout: 2000
+                }).showModal();
+            }
+        });
+
+        //筛选列
+        $('#filterCol').on('click', function () {
+            $XYY_Grid.XGrid('filterTableHead');
+        });
+
+        //$XYY_Grid 修改按钮事件,另一个grid需再绑事件
+        $XYY_Grid.delegate('.btn_update', 'click', function (e) {
+            var $tr = $(this).closest('tr');
+            if ($tr.length && $tr.prop('id')) {
+
+                var selRow = $XYY_Grid.XGrid('getRowData', $tr.prop('id'));
+                var el = document.querySelector('#dialog_Block');
+                $(el).find('form').JSONToform($.extend(selRow, {
+                    'danxuan': 1,
+                    'sex': 1,
+                    'tt': 'sssssssssssssss'
+                }));
+
+                if (selRow) {
+                    utils.dialog({
+                        title: '修改行',
+                        content: el,
+                        okValue: '确定',
+                        ok: function () {
+                            $XYY_Grid.XGrid('setRowData', selRow.id, $(this.node).find(
+                                'form').serializeToJSON());
+                        },
+                        cancelValue: '取消',
+                        cancel: function () {
+                        }
+                    }).showModal();
+                }
+
+            }
+            e.stopPropagation();
+        })
+
+        //删除按钮事件
+        $XYY_Grid.on('click', '.btn_del', function (e) {
+            var $tr = $(this).closest('tr');
+            if ($tr.length && $tr.prop('id')) {
+                $XYY_Grid.XGrid('delRowData', $tr.prop('id'));
+            }
+            e.stopPropagation();
+        })
+
+
+        var grid_data = [{
+            ida: "<a>ssss</a><scriptscript>",
+            type: '01',
+            pay: "水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水水",
+            name: {
+                sel1: '1',
+                sel2: '1'
+            },
+            text: {
+                gb1: false,
+                gb2: true,
+                gb4: true,
+                dx: "danxuan1",
+                gb5: '啊四大盛大撒大声地'
+            },
+            sex: ''
+        }, {
+            ida: "00002",
+            type: "02",
+            pay: "1000",
+            name: {
+                sel1: '2',
+                sel2: '1'
+            },
+            text: {
+                gb1: true,
+                gb2: true,
+                gb3: true,
+                gb4: true,
+                gb6: true,
+                dx: "danxuan2",
+                gb5: '反反复复付付付付'
+            },
+            sex: 1
+        },
+            {
+                ida: "00003",
+                type: "退货出库",
+                pay: "1040.06",
+                name: {
+                    sel1: '1',
+                    sel2: '1'
+                },
+                text: {
+                    gb6: true,
+                    dx: "danxuan2",
+                    gb5: '呃'
+                },
+                sex: 1
+            },
+            {
+                ida: "00004",
+                type: "02",
+                pay: "1040.06",
+                name: {
+                    sel1: '2',
+                    sel2: '1'
+                },
+                text: {
+                    gb6: true,
+                    dx: "danxuan2",
+                    gb5: '呃'
+                },
+                sex: 2
+            },
+            {
+                ida: "00005",
+                type: "01",
+                pay: "1040.06",
+                name: "abc",
+                text: {
+                    gb6: true,
+                    dx: "danxuan2",
+                    gb5: '呃'
+                },
+                sex: ''
+            },
+            {
+                ida: "00006",
+                type: "01",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd",
+                sex: 1
+            },
+            {
+                ida: "00007",
+                type: "01",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd",
+                sex: 2
+            },
+
+            {
+                ida: "000010",
+                type: "01",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd",
+                sex: 2
+            },
+            {
+                ida: "000011",
+                type: "02",
+                pay: "1040.06",
+                name: "abc",
+                text: "ddd"
+            },
+        ];
+        var noneData = [];
+        var d;
+        $('#X_Table').XGrid({
+            data: grid_data,
+            prmNames: {
+                page: "page",
+                total: 'total',
+                records: 'records',
+                list: 'list'
+            },
+            //url:'http://192.168.4.207:8080/purchase/purchaseOrder/loadPurchaseOrderData',
+            //tbHeadAryMult: ['出库单号1', '出库类型1', '总金额1', '申请人（单位）1', '备注1', '<span>*</span>操作1', '性别1'],
+            colNames: ['出库单号', '出库类型', '总金额', '申请人（单位）', '备注', '<span>*</span>操作', '性别', '其他列', '其他列'],
+            colModel: [
+                {
+                    name: 'ida', //对应数据中 字段名
+                    width: 200,
+                    hidegrid: false,
+                }, {
+                    name: 'type',
+                    rowtype: '#grid_select_one',
+                    formatter: function (a, b, c) {
+                        //console.log(a, b, c);
+                        return a;
+                    }
+                }, {
+                    name: 'pay',
+                    editable: true,
+                    hidden: false,
+                    hidegrid: false,
+                    //editable: true,//是否可启用 编辑模式
+                }, {
+                    name: 'name',
+                    rowtype: '#grid_select', //设置自定义列，参数为HTML模型标识
+                    rowEvent: function (etype) {
+                        //console.log(etype);
+                    }
+                }, {
+                    name: 'text',
+                    rowtype: '#grid_Block',
+                    hidden: true,
+                    disabled: true,
+                    rowEvent: function (etype) {
+                        console.log(etype, 'text改变时触发的事件');
+                    }
+                }, {
+                    name: 'caozuo',
+                    rowtype: '#grid_btn_Block',
+                    formatter: function (e, d, rData) {
+                        if (rData.sex == "1") {
+                            return {
+                                'rowtype': '#grid_select_one',
+                                'rowdata': '01'
+                            };
+                        } else if (rData.sex == "2") {
+                            return {
+                                'rowtype': '#grid_select_one',
+                                'rowdata': '02'
+                            };
+                        } else {
+                            return {
+                                'rowtype': '',
+                            };
+                        }
+                    }
+                }, {
+                    name: 'sex',
+                    hidden: true, //是否隐藏列
+                    hidegrid: false, //是否在筛选列时展示此列
+                    formatter: function (e) {
+                        if (e == '1') {
+                            return '男'
+                        } else if (e == '2') {
+                            return '女'
+                        } else {
+                            return '未知'
+                        }
+                    },
+                    unformat: function (e) {
+                        if (e == '男') {
+                            return '1'
+                        } else if (e == '女') {
+                            return '2'
+                        } else {
+                            return '0'
+                        }
+                    }
+                }, {
+                    name: 'pay',
+                }, {
+                    name: 'pay',
+                }],
+            key: 'ida', //设置唯一列（默认为id字段）
+            /*attachRow: true,//是否增加附加空行*/
+            rowNum: 5, //分页，请求时每页条数
+            rowList: [5, 10, 20, 30], //分页条数下拉选择
+            altRows: true, //设置为隔行变色
+            rownumbers: true, //是否展示序号
+            multiselect: true, //是否多选
+            height: 300,
+            selectandorder: true, //展示序号和复选框
+            disableRow: [1, 2],
+            colModelOnline: false,//隐藏显示列，是否在线(不区分 ID)
+            ondblClickRow: function (id, dom, obj, index, event) {
+                /*console.log('双击获取数据：' + id);
+                console.log(obj);*/
+                //双击事件回调函数
+                //$XYY_Grid.XGrid('editRow', id);
+            },
+            onSelectRow: function (id, dom, obj, index, event) {
+                console.log('单机获取数据：' + id);
+                console.log(obj);
+                //选中事件
+                //回调参数：id：本行id,dom:本行DOM元素,index:下标,event:原事件
+            },
+            allEvent: function (rData) {
+                console.log('整个XGrid触发的控件改变事件')
+            },
+
+            gridComplete: function () {
+                console.log('加载完毕!!!!!');
+            },
+
+            pager: '#grid-pager',
+        });
+
+        $('#X_Table1').XGrid({
+            data: grid_data,
+            colNames: ['出库单号', '出库类型', '总金额', '申请人（单位）', '备注', '操作'],
+            colModel: [{
+                name: 'ida',
+            }, {
+                name: 'type',
+                rowtype: '#grid_select_one'
+            }, {
+                name: 'pay',
+            }, {
+                name: 'name',
+                rowtype: '#grid_select' //设置自定义列，参数为HTML模型标识
+            }, {
+                name: 'text',
+                rowtype: '#grid_Block',
+                hidden: true,
+            }, {
+                rowtype: '#grid_btn_Block',
+                algin: 'center'
+            }],
+            key: 'ida',
+            rowNum: 8,
+            height: 400,
+            rowList: [10, 30], //分页条数下拉选择
+            ondblClickRow: function (id) {
+                $XYY_Grid1.XGrid('editRow', id);
+            },
+            pager: '#grid-pager1',
+        })
+    });
+
+
+</script>
+</body>
+
+</html>

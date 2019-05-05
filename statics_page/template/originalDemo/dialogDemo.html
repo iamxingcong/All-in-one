@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单序列化Demo</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+    <style>
+        .margin-left-15 {
+            margin-left: 15px !important;
+        }
+
+        .padding-top-0 {
+            padding-top: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">使用示例</h3>
+
+            </div>
+            <div class="panel-body">
+                <div class="pull-left">
+                    <button class="btn btn-info" id="demo1">普通对话框</button>
+                    <button class="btn btn-info" id="demo2">模态对话框</button>
+                    <button class="btn btn-info" id="demo3">气泡浮层</button>
+                    <button class="btn btn-info" id="demo4">添加按钮</button>
+                    <button class="btn btn-info" id="demo5">Loading</button>
+                    <button class="btn btn-info" id="showDialogBtn">弹出隐藏元素</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--弹出的dialog,begin-->
+<div id="dialog" style="display: none;">
+    <div class="content">
+        <div class="table">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form id="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">名称</span>
+                                    <input type="text" class="form-control" name="name">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">名称</span>
+                                    <input type="text" class="form-control" name="name">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">性别</span>
+                                    <select class="form-control" name="sex">
+                                        <option value="0">请选择</option>
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">介绍</span>
+                                    <textarea cols="30" rows="3" style="min-height: 34px" class="form-control"
+                                              name="introduce"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">日常</span>
+                                    <div class="form-control form-inline">
+                                        <div class="checkbox margin-left-15 padding-top-0">
+                                            <label>
+                                                <input type="checkbox" name="daily" value="1"> 吃饭
+                                            </label>
+                                        </div>
+                                        <div class="checkbox margin-left-15 padding-top-0">
+                                            <label>
+                                                <input type="checkbox" name="daily" value="2"> 睡觉
+                                            </label>
+                                        </div>
+                                        <div class="checkbox margin-left-15 padding-top-0">
+                                            <label>
+                                                <input type="checkbox" name="daily" value="3"> 打豆豆
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">技能</span>
+                                    <div class="form-control form-inline">
+                                        <div class="checkbox margin-left-15 padding-top-0">
+                                            <label>
+                                                <input type="radio" name="skill" value="1"> java
+                                            </label>
+                                        </div>
+                                        <div class="checkbox margin-left-15 padding-top-0">
+                                            <label>
+                                                <input type="radio" name="skill" value="2"> c
+                                            </label>
+                                        </div>
+                                        <div class="checkbox margin-left-15 padding-top-0">
+                                            <label>
+                                                <input type="radio" name="skill" value="3"> c#
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <span class="input-group-addon">非表单元素</span>
+                                    <div name="statictxt" class="static-form"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--弹出的dialog,end-->
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script>
+    $(function () {
+
+        // 普通对话框
+        $('#demo1').click(function () {
+            utils.dialog({
+                title: '欢迎',
+                content: '欢迎使用 artDialog 对话框组件！'
+            }).show();
+
+        })
+
+        // 模态框
+        $('#demo2').click(function () {
+            utils.dialog({
+                title: 'message',
+                content: '<input autofocus />'
+            }).showModal();
+        })
+
+        // 气泡浮层
+        $('#demo3').click(function () {
+            var d =utils.dialog({
+                content: 'Hello World!',
+                quickClose: true// 点击空白处快速关闭
+            }).showModal();
+
+            d.show(document.getElementById('demo3'));
+        })
+
+        // 气泡浮层
+        $('#demo4').click(function () {
+            var d =utils.dialog({
+                title: '提示',
+                content: '按钮回调函数返回 false 则不许关闭',
+                okValue: '确定',
+                ok: function () {
+                    this.title('提交中…');
+                    return false;
+                },
+                cancelValue: '取消',
+                cancel: function () {}
+            }).showModal();
+
+        })
+
+        // Loading
+        $('#demo5').click(function () {
+            utils.dialog({
+                title: '提交中...',
+                width: 300
+            }).showModal();
+
+        })
+
+        var gotSerializeObj;
+
+        //弹出隐藏元素
+        $("#showDialogBtn").on('click', function () {
+            utils.dialog({
+                title: ' title',
+                width: 600,
+                height: 400,
+                content: $("#dialog"),
+                okValue: '保存',
+                cancelValue: '取消',
+                resetForm: true,
+                onshow: function () {
+                    $(this.node).find('.ui-dialog-content').css({"overflow-y": 'scroll'});
+
+                    /**
+                     *  除表单元素之外，其他元素需要回显值时，需按以下规则处理:
+                     *      1.必须要有name属性;
+                     *      2.多个DOM具有相同name属性时,DOM的类型(nodeName)需一致;
+                     *      3.多个DOM具有相同name属性时,回显json的属性顺序,需与name文档流顺序一致;
+                     */
+                    var obj = {
+                        "statictxt": "非表单元素赋值" + new Date().getTime()
+                    };
+
+                    var serializeJSON = $.extend({}, gotSerializeObj, obj);
+
+                    //json对象回显数据到form表单
+                    $("#form").serializeJSONToForm(serializeJSON);
+                },
+                ok: function () {
+                    //保存按钮回调
+
+                    /**
+                     *  form表单序列化成json
+                     * {
+                     *   name:value,
+                     *   name:[value,value]
+                     * }
+                     */
+                    gotSerializeObj = $("#form").serializeFormToJSON();
+                },
+                cancel: function () {
+                },
+                onclose: function () {
+                },
+            }).showModal();
+        });
+    })
+</script>
+</html>

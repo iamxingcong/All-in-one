@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="overview &amp; stats">
+    <link rel="icon" href="" type="image/x-icon">
+    <title>变更申请</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/module/tagsinput/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../static/css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="../static/module/My97DatePicker/skin/WdatePicker.css">
+    <link rel="stylesheet" href="../static/css/public.css">
+    <link rel="stylesheet" href="../static/css/b.tabs.css">
+    <style>
+        .aaa {
+            background-color: red !important;
+        }
+
+        .s50fl {
+            width: 49%;
+            float: left;
+            border: none;
+        }
+
+        .form-group {
+            margin-bottom: 0;
+        }
+
+        .distpicker.form-inline {
+            padding: 0;
+            position: relative;
+        }
+
+        .distpicker .form-group {
+            vertical-align: 0;
+        }
+
+        .distpicker .form-group.btn-box {
+            vertical-align: top;
+        }
+
+        .distpicker .form-group.btn-box .btn {
+            background: #fff;
+        }
+
+        .distpicker {
+            overflow: hidden;
+        }
+
+        .distpicker .row {
+            margin-left: 0px;
+        }
+
+        .distpicker .col-md-2,
+        .distpicker .col-md-3 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        select.form-control {
+            border: none;
+            height: 30px;
+            border-right: 1px solid #ccc;
+        }
+
+        .text-inp {
+            -width: 100px;
+            height: 30px;
+            border: none;
+            border-right: 1px solid #ccc
+        }
+
+        .distpicker {
+            height: auto;
+        }
+        .content {
+            overflow-y: scroll !important;
+        }
+        .changeApplyTipClose {
+            position: absolute;
+            top: 0px;
+            right: -12px;
+        }
+
+        .changeApplyTipClose:hover {
+            cursor: pointer;
+
+        }
+    </style>
+</head>
+
+<body>
+<div class="content">
+    <div class="table">
+        <!-- 审批流程 -->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">审批流程</h3>
+                <div role="group">
+                    <button type="button" class="btn btn-info">
+                        
+                        提交审核
+                    </button>
+                    <button type="button" class="btn btn-info">
+                        
+                        保存草稿
+                    </button>
+                    <button type="button" class="btn btn-info">
+                        
+                        关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 申请属性 -->
+        <div class="panel panel-default">
+            <div fold="head" class="panel-heading">
+                <h3 class="panel-title">申请属性</h3>
+                <div fold="sub" class="fold-block panel-title pull-right" style="cursor: pointer;">
+                    <div class="glyphicon glyphicon-triangle-bottom"></div>
+                </div>
+            </div>
+            <div fold="body" class="panel-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">申请日期</div>
+                                <input type="text" class="form-control grid_date" value="2018-05-18"
+                                       onfocus="WdatePicker()">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">单据编号</div>
+                                <input type="text" readonly="readonly" class="form-control " value="SSY1809456789">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">申请人</div>
+                                <input type="text" readonly="readonly" class="form-control " value="张三">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">申请机构</div>
+                                <input type="text" readonly="readonly" class="form-control " value="湖北分公司">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 基础属性 -->
+        <div class="panel panel-default">
+            <div fold="head" class="panel-heading">
+                <h3 class="panel-title">基础属性 <a href="javascript:;" id="changeApplyBtn" style="color:red;">资料变更</a></h3>
+                <div fold="sub" class="fold-block panel-title pull-right" style="cursor: pointer;">
+                    <div class="glyphicon glyphicon-triangle-bottom"></div>
+                </div>
+            </div>
+            <div fold="body" class="panel-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">客户编码</div>
+                                <input value="123" name="kehubianma" type="text" class="form-control" changeApplyFlag
+                                       readonly="readonly">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">客户助记码</div>
+                                <input type="text" readonly="readonly" value="000123" class="form-control"
+                                       name="zhujima" changeApplyFlag>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">客户名称</div>
+                                <input type="text" class="form-control " changeApplyFlag>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">客户类别</div>
+                                <input type="text" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="col-md-3 form-inline">
+                            <div class="input-group">
+                                <div class="input-group-addon">是否开票</div>
+                                <div class="text-center form-control ">
+                                    <div class="checkbox">
+                                        <input type="radio" name="sfwt" value="true">
+                                        <label>是</label>
+                                        <input type="radio" name="sfwt" value="false" changeApplyFlag>
+                                        <label class="form-check-label">否</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">法定代表人</div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">营业执照号</div>
+                                <input type="text" class="form-control" changeApplyFlag>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">经营类别</div>
+                                <input type="text" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">企业负责人</div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">开户银行</div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">发证机关</div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">经营方式</div>
+                                <input type="text" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">业务员</div>
+                                <input type="text" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">银行账号</div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">注册日期</div>
+                                <input name="registerTime" type="text" class="form-control" onfocus="WdatePicker()" placeholder="点击此处选择"
+                                       changeApplyFlag/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-inline">
+                            <div class="input-group">
+                                <div class="input-group-addon">是否三证合一</div>
+                                <div class="text-center form-control ">
+                                    <div class="checkbox">
+                                        <input type="radio" name="sfwt" value="true">
+                                        <label>是</label>
+                                        <input type="radio" name="sfwt" value="false" changeApplyFlag>
+                                        <label class="form-check-label">否</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">业务员电话</div>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">开户户名</div>
+                                <input type="number" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">有效期至</div>
+                                <input type="number" class="form-control " onfocus="WdatePicker()" placeholder="点击此处选择">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">组织机构代码证号</div>
+                                <input type="text" class="form-control" data-role="tagsinput">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-addon">税务登记账号</div>
+                                <input type="number" class="form-control ">
+                            </div>
+                        </div>
+                        <div class="col-md-3 form-inline">
+                            <div class="input-group">
+                                <div class="input-group-addon">是否停用</div>
+                                <div class="text-center form-control ">
+                                    <div class="checkbox">
+                                        <input type="radio" name="sfwt" value="true">
+                                        <label>是</label>
+                                        <input type="radio" name="sfwt" value="false">
+                                        <label class="form-check-label">否</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">注册地址</div>
+                                <div data-toggle="distpicker" class="form-control form-inline distpicker">
+                                    <div class="row">
+                                        <!-- container -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control" id="province1"></select>
+                                        </div>
+                                        <!-- 省 -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control" id="city1"></select>
+                                        </div>
+                                        <!-- 市 -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control" id="district1"></select>
+                                        </div>
+                                        <!-- 区 -->
+                                        <div class="form-group col-md-4">
+                                            <input type="text" class="form-control text-inp"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">仓库地址</div>
+                                <div data-toggle="distpicker" class="form-control form-inline distpicker">
+                                    <div class="row">
+                                        <!-- container -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control"></select>
+                                        </div>
+                                        <!-- 省 -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control"></select>
+                                        </div>
+                                        <!-- 市 -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control"></select>
+                                        </div>
+                                        <!-- 区 -->
+                                        <div class="form-group col-md-4">
+                                            <input type="text" class="form-control text-inp"/>
+                                        </div>
+                                        <div class="form-group btn-box col-md-1">
+                                            <button type="button" class="btn" id="addDepot">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 新增仓库地址 -->
+                    <div class="row" id="depotAddress">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="row">
+                                <div class="col-md-12  form-inline">
+                                    <div class="input-group">
+                                        <div class="input-group-addon">特殊属性</div>
+                                        <div class="text-center form-control ">
+                                            <div class="checkbox">
+                                                <input type="checkbox" name="tssx" value="1">
+                                                <label>含兴奋剂</label>
+                                                <input type="checkbox" name="tssx" value="xfj" checked="checked">
+                                                <label class="form-check-label">含麻</label>
+                                                <input type="checkbox" name="tssx" value="hm">
+                                                <label class="form-check-label">终止妊娠</label>
+                                                <input type="checkbox" name="tssx" value="dt">
+                                                <label class="form-check-label">蛋肽</label>
+                                                <input type="checkbox" name="tssx" value="ts">
+                                                <label class="form-check-label">特殊管理药品</label>
+                                                <input type="checkbox" name="tssx" value="jk">
+                                                <label class="form-check-label">进口</label>
+                                                <input type="checkbox" name="tssx" value="kzl">
+                                                <label class="form-check-label">抗肿瘤治疗药</label>
+                                                <input type="checkbox" name="tssx" value="yxp">
+                                                <label class="form-check-label">异形品</label>
+                                                <input type="checkbox" name="tssx" value="yt">
+                                                <label class="form-check-label">液体</label>
+                                                <input type="checkbox" name="tssx" value="ysp" changeApplyFlag>
+                                                <label class="form-check-label">易碎品</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group">
+                                <div class="input-group-addon">经营范围</div>
+                                <form role="form">
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="10" readonly="readonly"></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <div class="input-group">
+                                <div class="input-group-addon">备注</div>
+                                <div class="text-center form-control ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 form-inline">
+                            <div class="input-group">
+                                <div class="input-group-addon">发票类型</div>
+                                <div class="text-center form-control ">
+                                    <div class="checkbox">
+                                        <input type="radio" name="sfwt" value="true">
+                                        <label>普通发票</label>
+                                        <input type="radio" name="sfwt" value="false">
+                                        <label class="form-check-label">增值税发票</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <div class="input-group-addon">账单地址</div>
+                                <div data-toggle="distpicker" class="form-control form-inline distpicker">
+                                    <div class="row">
+                                        <!-- 省 -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control"></select>
+                                        </div>
+                                        <!-- 市 -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control"></select>
+                                        </div>
+                                        <!-- 区 -->
+                                        <div class="form-group col-md-2">
+                                            <select class="form-control"></select>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <input type="text" class="form-control text-inp"/>
+                                        </div>
+                                        <div class="form-group btn-box col-md-1">
+                                            <button type="button" class="btn" id="addbill">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 新增账单地址 -->
+                    <div class="row" id="billAddress">
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-group">
+                            <div class="col-xs-2 col-md-2 col-lg-2">
+                                <label class="control-label pull-left">结算方式：</label>
+                            </div>
+                            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="checkbox">
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" value="option1"> 财务合账
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkbox">
+                                            <label class="checkbox-inline col-md-3">
+                                                <input type="checkbox" value="option2"> 账期
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="col-md-6">结算周期</div>
+                                            <input class="col-md-4" type="number" placeholder="天">天
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="col-md-6">结算日</div>
+                                            <input class="col-md-4" type="number" placeholder="日">日
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="col-md-6">支付日</div>
+                                            <input class="col-md-4" type="number" placeholder="日">日
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- 批准文件 -->
+        <div class="panel panel-default">
+            <div fold="head" class="panel-heading">
+                <h3 class="panel-title">批准文件</h3>
+                <div fold="sub" class="fold-block panel-title pull-right" style="cursor: pointer;">
+                    <div class="glyphicon glyphicon-triangle-bottom"></div>
+                </div>
+            </div>
+            <div fold="body">
+                <div class="panel-body">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <div class="input-group-addon">查询</div>
+                            <input type="text" name="username"
+                                   class="form-control {validate:{ required :true, isUserName :true,}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6 pull-right">
+                        <div class="btn-group  pull-right" role="group">
+                            <div class="pull-right" role="group">
+                                <button type="button" class="btn btn-info">
+                                    
+                                    新增行
+                                </button>
+                                <button type="button" class="btn btn-info">
+                                    <i class="glyphicon glyphicon-minus-sign"></i>
+                                    删除行
+                                </button>
+                                <button type="button" class="btn btn-info">
+                                    <i class="glyphicon glyphicon-minus-sign"></i>
+                                    批量管理附件
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table id="table3"></table>
+                    <p id="table3_page"></p>
+                </div>
+            </div>
+        </div>
+        <!-- 资料存档 -->
+        <div class="panel panel-default">
+            <div fold="head" class="panel-heading">
+                <h3 class="panel-title">资料存档</h3>
+                <div fold="sub" class="fold-block panel-title pull-right" style="cursor: pointer;">
+                    <div class="glyphicon glyphicon-triangle-bottom"></div>
+                </div>
+            </div>
+            <div fold="body" class="panel-body">
+                <form>
+                    <div class="row">
+                        <div fold="body" class="panel-body">
+
+                            <ul class="nav nav-tabs">
+                                <li role="presentation" class="active">
+                                    <a href="javascript:">质量保证协议</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="javascript:">客户委托书</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="javascript:">被委托人身份证</a>
+                                </li>
+                                <li role="presentation" class="">
+                                    <a href="javascript:">客户合同</a>
+                                </li>
+                            </ul>
+                            <div class="nav-content">
+                                <div class="row active">
+                                    <div class="clearfix">
+                                        <div class="col-md-6 pull-right">
+                                            <div class="pull-right" role="group">
+                                                <button type="button" class="btn btn-info">
+                                                    
+                                                    新增行
+                                                </button>
+                                                <button type="button" class="btn btn-info">
+                                                    <i class="glyphicon glyphicon-minus-sign"></i>
+                                                    删除行
+                                                </button>
+                                                <button type="button" class="btn btn-info">
+                                                    <i class="glyphicon glyphicon-minus-sign"></i>
+                                                    批量管理附件
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <table id="table1"></table>
+                                            <p id="table1_page"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display: none;">
+                                    <div class="clearfix">
+                                        <div class="col-md-6 pull-right">
+                                            <div class="pull-right" role="group">
+                                                <button type="button" class="btn btn-info">
+                                                    
+                                                    新增行
+                                                </button>
+                                                <button type="button" class="btn btn-info">
+                                                    <i class="glyphicon glyphicon-minus-sign"></i>
+                                                    删除行
+                                                </button>
+                                                <button type="button" class="btn btn-info">
+                                                    <i class="glyphicon glyphicon-minus-sign"></i>
+                                                    批量管理附件
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <table id="table2"></table>
+                                            <p id="table2_page"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display: none;">
+                                    <div class="clearfix">
+                                        <div class="col-md-6 pull-right">
+                                            <div class="pull-right" role="group">
+                                                <button type="button" class="btn btn-info">
+                                                    
+                                                    新增行
+                                                </button>
+                                                <button type="button" class="btn btn-info">
+                                                    <i class="glyphicon glyphicon-minus-sign"></i>
+                                                    删除行
+                                                </button>
+                                                <button type="button" class="btn btn-info">
+                                                    <i class="glyphicon glyphicon-minus-sign"></i>
+                                                    批量管理附件
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <table id="certTable"></table>
+                                            <p id="certTable_page"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="display: none;">
+                                    <div class="col-md-6 pull-right">
+                                        <div class="pull-right" role="group">
+                                            <button type="button" class="btn btn-info">
+                                                <i class="glyphicon glyphicon-minus-sign"></i>
+                                                查看附件
+                                            </button>
+                                            <button type="button" class="btn btn-info">
+                                                <i class="glyphicon glyphicon-wrench"></i>
+                                                批量管理附件
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <label class="checkbox-inline col-md-3">
+                                                <input type="checkbox" value="option1"> 开户许可证
+                                            </label>
+                                            <label class="checkbox-inline col-md-3">
+                                                <input type="checkbox" value="option1"> 中国商品条码系统成员证书
+                                            </label>
+                                            <label class="checkbox-inline col-md-3">
+                                                <input type="checkbox" value="option1"> 质量管理体系调查表
+                                            </label>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="checkbox-inline col-md-3">
+                                                <input type="checkbox" value="option1"> 开票资料
+                                            </label>
+                                            <label class="checkbox-inline col-md-3">
+                                                <input type="checkbox" value="option1"> 被委托人身份证
+                                            </label>
+                                            <label class="checkbox-inline col-md-3">
+                                                <input type="checkbox" value="option1"> 随货通行单样式
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="display:none;">
+    <!-- 批准文件 -->
+    <select id="pCertType">
+        <option value="药品经营许可证">药品经营许可证</option>
+        <option value="GSP证书">GSP证书</option>
+        <option value="医疗机构执业许可证">医疗机构执业许可证</option>
+        <option value="食品经营许可证 ">食品经营许可证</option>
+        <option value="医疗器械经营许可证 ">医疗器械经营许可证</option>
+        <option value="二类医疗器械备案凭证 ">二类医疗器械备案凭证</option>
+        <option value="母婴保健技术服务许可证 ">母婴保健技术服务许可证</option>
+    </select>
+    <input type="text" class="Wdate grid_date" onfocus="WdatePicker()" id="fcertDate">
+    <input type="text" class="Wdate grid_date" onfocus="WdatePicker()" id="zcertDate">
+    <!-- 批准文件end -->
+
+    <!-- 质量保证协议 -->
+    <input type="text" name="beginTime" class="Wdate grid_date" onfocus="WdatePicker()" id="grid_date">
+    <input type="text" name="effDate" class="Wdate grid_date" onfocus="WdatePicker()" id="effective_date">
+    <input type="text" id="signed_person"/>
+    <!-- 质量保证协议end -->
+    <!-- 客户委托书 -->
+    <div id="commodity">
+        <a href="javascript:;" id="commodity_">选择商品</a>
+    </div>
+    <select id="entrustType">
+        <option value="委托人类型">委托人类型</option>
+        <option value="采购兼提货委托书">采购兼提货委托书</option>
+        <option value="采购委托书">采购委托书</option>
+        <option value="提货委托书">提货委托书</option>
+    </select>
+    <select id="entrustSex">
+        <option value="性别">性别</option>
+        <option value="男">男</option>
+        <option value="女">女</option>
+    </select>
+    <input type="text" placeholder="委托书编号" id="entrustCode"/>
+    <input type="text" placeholder="姓名" id="entrustName"/>
+    <input type="text" placeholder="电话" id="entrustPhone"/>
+    <input type="text" placeholder="证件号码" id="entrustCert"/>
+    <input type="text" placeholder="地址" id="entrustAddr"/>
+    <input type="text" class="Wdate grid_date" onfocus="WdatePicker()" id="certVld" placeholder="点击身份证有效期"/>
+    <input type="text" class="Wdate grid_date" onfocus="WdatePicker()" id="entrustVld" placeholder="点击委托书有效期"/>
+    <input type="text" placeholder="授权区域" id="entrustRegion"/>
+    <input type="text" placeholder="授权范围" id="entrustRange"/>
+    <!-- 客户委托书end -->
+    <!-- 被委托人身份证 -->
+    <input type="text" placeholder="姓名" id="certName"/>
+    <input type="text" placeholder="证件号码" id="certCode"/>
+    <input type="text" class="Wdate grid_date" onfocus="WdatePicker()" id="certIDVld" placeholder="点击身份证有效期"/>
+    <!-- 被委托人身份证end -->
+</div>
+<script src="../static/js/jquery-2.1.4.min.js"></script>
+<script src="../static/module/bootstrap/js/bootstrap.min.js "></script>
+<script src="../static/js/configUtils.js"></script>
+<script src="../static/module/XGrid/XGrid.js"></script>
+<script src="../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../static/js/moment.min.js"></script>
+<script src="../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../static/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../static/js/moment-with-locales.js"></script>
+<script src="../static/js/distpicker.data.js"></script>
+<script src="../static/js/distpicker.js"></script>
+<script src="../static/js/mainData/customer/Customerapply_.js"></script>
+</body>
+
+</html>

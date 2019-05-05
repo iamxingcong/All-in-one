@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>编辑供应商资料</title>
+    <link rel="stylesheet" href="../../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../../static/css/public.css">
+    <link rel="stylesheet" href="../../../static/css/t_public.css">
+    <style>
+        .margin-right-15 {
+            margin-right: 15px !important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">基础属性</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">供应商编码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">供应商名称</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">供应商助记码</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">法定代表人</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3 form-inline">
+                        <div class="input-group">
+                            <span class="input-group-addon">是否三证合一</span>
+                            <div class="text-center form-control">
+                                <div class="checkbox">
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="1" name="threeEvidenceAll" disabled checked> 是
+                                    </label>
+                                    <label class="margin-right-15">
+                                        <input type="radio" value="0" name="threeEvidenceAll" disabled> 否
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">供应商营业执照</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">发证机关</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">组织机构代码证</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">质量负责人</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">注册日期</span>
+                            <input type="text" class="Wdate grid_date form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">供应商类别</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">税务登记证号</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">企业负责人</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">有效期至</span>
+                            <input type="text" class="Wdate grid_date form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">开户银行</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">开户银行1</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">注册地址</span>
+                            <div class="form-control form-inline distpicker">
+                                <div class="row col-md-12 ">
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">银行账号</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">银行账号1</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">仓库地址</span>
+                            <div class="form-control form-inline distpicker">
+                                <div class="row col-md-12 ">
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-2">
+                                        <select class="form-control" disabled>
+                                            <option value="0">请选择</option>
+                                            <option value="1">请选择</option>
+                                            <option value="2">请选择</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" disabled>
+                                    </div>
+                                    <!--
+                                    <div class="form-group btn-box col-md-1">
+                                        <button class="btn">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </div>
+                                    -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">开户户名</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">开户户名1</span>
+                            <input type="text" class="form-control" disabled>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">经营范围或者生产范围</span>
+                            <div id="baseDataBuseScope" class="form-control baseDataBuseScope"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../../static/js/configUtils.js"></script>
+<script src="../../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../../static/js/t_utils.js"></script>
+</html>

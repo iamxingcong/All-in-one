@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格拖拽排序</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background: #ff791d;
+            z-index: 2;
+        }
+
+        #box2 {
+            display: none;
+            width: 100px;
+            height: 100px;
+            background: #13ff67;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box1">drag me box1</div>
+<div id="box2">drag me box2</div>
+
+
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="table-box" id="table-box">
+                        <table id="info_table" class="table-bordered"></table>
+                        <div id="grid_pager"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script>
+
+    $(function () {
+
+
+        var gridData = [];
+        for (var i = 0; i < 13; i++) {
+            gridData.push({
+                rowNum: i,
+                containerType: 'data_' + i,
+                containerLength: 'data_' + i,
+                containerWidth: 'data_' + i,
+                containerHeight: 'data_' + i,
+                containerCubage: 'data_' + i,
+                containerLoadBearing: 'data_' + i
+            })
+        }
+
+        $("#info_table").XGrid({
+            data: gridData,
+            colNames: ["容器类型", "长(cm)", "宽(cm)", "高(cm)", "体积(cm³)", "容器承重(kg)"],
+            colModel: [{
+                name: "containerType"
+            }, {
+                name: "containerLength"
+            }, {
+                name: "containerWidth"
+            }, {
+                name: "containerHeight"
+            }, {
+                name: "containerCubage"
+            }, {
+                name: "containerLoadBearing"
+            },],
+            key: "rowNum",
+            rowNum: 10,
+            selectandorder: false,
+            rowList: [10, 20, 50],
+            altRows: true,
+            pager: "#grid_pager"
+        });
+
+        var el = document.getElementById("box1");
+        el.onmousedown = function (e) {
+            el.style.position = "absolute";
+            var disX = e.pageX - el.offsetLeft;
+            var disY = e.pageY - el.offsetTop;
+            document.onmousemove = function (e) {
+                el.style.left = e.pageX - disX + 'px';
+                el.style.top = e.pageY - disY + 'px';
+            };
+            document.onmouseup = function () {
+                document.onmousemove = document.onmouseup = null;
+            };
+            e.preventDefault();
+        };
+
+
+        var $el2 = $("#box2");
+        var dragContainerId = "dragTableContainer_" + new Date().getTime();
+        $("#table-box .XGridHead th").on("mousedown", function (e) {
+            var $that = $(this);
+            $("<div id='" + dragContainerId + "'></div>").css({
+                "position": "absolute",
+                "top": $that.offset().top,
+                "left": $that.offset().left,
+                "z-index": "3",
+                "border": "1px solid #2DB7F5",
+                "opacity": "0.9"
+            }).html(getPositionTableByIndex($that.index())).appendTo($("body"));
+
+            var disX = e.pageX - $that.offset().left;
+            var disY = e.pageY - $that.offset().top;
+            document.onmousemove = function (e) {
+                $("#" + dragContainerId).css({
+                    top: e.pageY - disY,
+                    left: e.pageX - disX
+                })
+            };
+            document.onmouseup = function () {
+                document.onmousemove = document.onmouseup = null;
+                $("#" + dragContainerId).remove();
+            };
+            e.preventDefault();
+        });
+
+        function getPositionTableByIndex(index) {
+
+            var targetDOM = $("#table-box .tableBlock").clone();
+            targetDOM.children("#grid_pager").remove();//移除分页
+
+            targetDOM.find(".XGridHead tr th").eq(index).siblings().remove();
+            targetDOM.find(".XGridBody tr td").eq(index).siblings().remove();
+
+            return targetDOM.html();
+        }
+
+    });
+
+</script>
+</html>

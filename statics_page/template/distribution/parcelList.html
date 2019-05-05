@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>包裹单列表</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">数据统计</h3>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">待打印的出库单数量：</label>
+                        <div class="col-md-10">
+                            <p class="form-control-static">0</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info">查询</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">订单编号</span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">配送方式</span>
+                                <select class="form-control">
+                                    <option value="0">请选择</option>
+                                    <option value="1">请选择</option>
+                                    <option value="2">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">快递公司</span>
+                                <select class="form-control">
+                                    <option value="0">请选择</option>
+                                    <option value="1">请选择</option>
+                                    <option value="2">请选择</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">运单号</span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">发货日期</span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">截止日期</span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">订单日期</span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">截止日期</span>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">订单列表</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info">刷新</button>
+                    <button class="btn btn-info" id="btn_reassignment">改派</button>
+                    <button class="btn btn-info">打印快递单</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="table-box">
+                    <table id="info_table"></table>
+                </div>
+                <div id="grid_pager"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--改派,begin-->
+<div id="show_reassignment_dialog" style="display: none;">
+    <div class="content">
+        <div class="table">
+
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="table-box">
+                        <table id="info_table_reassignment"></table>
+                    </div>
+                    <div id="grid_pager_reassignment"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--改派,end-->
+
+<!--配送选择下拉框,begin-->
+<div id="dispatchType_select" style="display: none;">
+    <select class="form-control">
+        <option value="0">请选择</option>
+    </select>
+</div>
+<!--配送选择下拉框,end-->
+
+<!--快递公司下拉框,begin-->
+<div id="expressCompany_select" style="display: none;">
+    <select class="form-control">
+        <option value="0">请选择</option>
+    </select>
+</div>
+<!--快递公司下拉框,end-->
+
+<!--输入文本,begin-->
+<div id="dispatchNum_input" style="display: none;">
+    <input type="text" class="form-control">
+</div>
+<!--输入文本,end-->
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/distribution/parcelList.js"></script>
+</html>

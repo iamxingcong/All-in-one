@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>损溢单列表</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+	<link rel="stylesheet" href="../../static/css/profitloss/profitloss_list.css">
+</head>
+
+<body>
+
+
+<div class="content">
+    <div class="table">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">损溢单</h3>
+                <div class="pull-right" role="group">
+                    <button type="button" class="btn btn-info" id="search">
+						查询
+                    </button>
+                    <button type="button" class="btn btn-info" id="add_new">
+                        新增
+                    </button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">关键字</span>
+                            <input class="form-control " placeholder=" 盘点计划单号 ">
+                        </div>
+                    </div>
+					<div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">损溢日期</span>
+                            <input id="begint"  name="beginTime" class="Wdate form-control grid_date "  onfocus="WdatePicker()">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon"></span>
+                            <input id="endt"  name="endTime" class="Wdate form-control grid_date "  onfocus="WdatePicker()">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon"> 单据状态 </span>
+                            <select class="form-control">
+                                <option value="all">全部</option>
+                                <option value="">待盘点</option>
+                                <option value="">盘点中</option>
+                                <option value="">已完成</option>
+                                <option value="">已取消</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">损溢人</span>
+                            <input class="form-control">
+                        </div>
+                    </div>
+					<div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-addon">商品名称</span>
+                            <input class="form-control" placeholder="请输入商品名称">
+                        </div>
+                    </div>
+ 
+					<div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">损溢来源 </span>
+                            <select class="form-control">
+								  <option value="全部">全部</option>
+                                  <option value="盘点">盘点</option>
+                                  <option value="新建损益">新建损益</option>
+								 
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               <h3 class="panel-title">损溢单</h3> 
+               <button type="button" class="btn btn-info" id="row_set">
+                        设置显示列
+                </button>	
+            </div>
+           
+            <div class="panel-body">
+            	<div class="table_wrap">
+                	<table id="X_Tablea"></table>
+            	</div>
+                <div id="grid-pagera"></div>
+            </div>
+                 
+            </div>
+        </div>
+    </div>
+</div>
+ 
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/profitloss/profitloss_list.js"></script>
+</html>

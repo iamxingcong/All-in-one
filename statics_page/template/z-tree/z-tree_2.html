@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>z-tree基本结构</title>
+    <link rel="stylesheet" href="../../static/module/ztree/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.exedit.js"></script>
+
+</head>
+
+<body>
+
+
+    <div id="tree" class="ztree"></div>
+
+</body>
+
+<script type="text/javascript">
+    var zTreeObj;
+    var zTreeNodes = [{
+        id: 0,
+        name: "全国",
+        // open: true,//展开
+        children: [{
+                id: 1,
+                name: "湖北",
+                children: [{
+                        id: 11,
+                        name: "武汉"
+                    },
+                    {
+                        id: 12,
+                        name: "宜昌"
+                    },
+                    {
+                        id: 13,
+                        name: "荆州"
+                    },
+                    {
+                        id: 14,
+                        name: "孝感"
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "湖南",
+                // checked:true  //默认选中
+            },
+            {
+                id: 3,
+                name: "河南"
+            }
+        ]
+    }];
+    var setting = {
+        check: {
+            enable: true, //显示勾选框  默认不显示
+        },
+    };
+    $(document).ready(function () {
+        zTreeObj = $.fn.zTree.init($("#tree"), setting, zTreeNodes);
+    });
+</script>
+
+
+
+</html>

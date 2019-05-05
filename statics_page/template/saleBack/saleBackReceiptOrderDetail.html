@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>销售退回收货单详情</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+    <style>
+        /*.input-group-addon {*/
+            /*width: 130px !important;*/
+        /*}*/
+        /*.static-form {*/
+            /*width: calc(100% - 130px) !important;*/
+        /*}*/
+
+        /*.input-group>.form-control{*/
+            /*width: calc(100% - 130px) !important;*/
+        /*}*/
+    </style>
+</head>
+
+<body>
+
+
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">销售退回收货单详情</h3>
+            <div class="pull-right" role="group">
+                <button type="button" class="btn btn-info" id="returnBtn">
+                    返回
+                </button>
+                <button type="button" class="btn btn-info" id="exportBtn">
+                    导出
+                </button>
+                <button type="button" class="btn btn-info" id="printBtn">
+                    打印
+                </button>
+                <button type="button" class="btn btn-info" id="previewBtn">
+                    打印预览
+                </button>
+
+                <!--单据状态为“待收货”时，展示【录入收货结果】按钮-->
+                <button type="button" class="btn btn-info" id="entryBtn">
+                    录入收货结果
+                </button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="myForm">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">销售退回收货单号：</span>
+                            <div class="static-form">XSTH180731000001</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">单据日期：</span>
+                            <div class="static-form">2018-07-31 09:20:15</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">退货单位：</span>
+                            <div class="static-form">九州通药店</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">销售退回开票单号：</span>
+                            <div class="static-form">XTKP180805000001</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">机构名称：</span>
+                            <div class="static-form">湖北分公司</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">仓库名称：</span>
+                            <div class="static-form">武汉东西湖仓库</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">部门：</span>
+                            <div class="static-form">储运部</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">申请人：</span>
+                            <div class="static-form">张三</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">收货员：</span>
+                            <select class="form-control ">
+                                <option>全部</option>
+                                <option>入库</option>
+                                <option>出库</option>
+                                <option>移库</option>
+                                <option>货位调整</option>
+                                <option>损益</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">收货日期：</span>
+                            <input id="begint" name="beginTime" class="Wdate form-control grid_date "
+                                   onfocus="WdatePicker()" placeholder="默认当前日期，可修改">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">单据状态：</span>
+                            <div class="static-form">待收货</div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">商品明细</h3>
+        </div>
+
+        <div class="panel-body">
+                <table id="X_Table"></table>
+            <div id="grid-pager"></div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/saleBack/saleBackReceiptOrderDetail.js"></script>
+</html>

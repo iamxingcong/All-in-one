@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>masterData</title>
+
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+
+</head>
+<style>
+</style>
+
+<body>
+<div class="content">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="btn-group" role="group">
+                <button type="button" id="closeTabs" class="btn btn-info">
+
+                    关闭本页面
+                </button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script src="../../static/module/jquery/3.3.1/jquery.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script>
+    $(function () {
+
+        $('#closeTabs').bind('click', function () {
+            //关闭当前标签,回到前一个标签
+            utils.closeTab({returnValue: '哈哈你找到我了', else: '其他值'});
+
+        });
+
+
+
+    })
+</script>
+</body>
+
+</html>

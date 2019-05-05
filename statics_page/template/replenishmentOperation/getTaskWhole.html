@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>整件任务索取</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info">索取</button>
+                    <button class="btn btn-info">确认</button>
+                    <button class="btn btn-info" id="print">确认存盘</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">工号：</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">任务类型：</span>
+                            <select class="form-control">
+                                <option value="0">请选择</option>
+                                <option value="1">请选择</option>
+                                <option value="2">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">正在拣货：</span>
+                                <div class="static-form">XXXX</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">正在补货：</span>
+                                <div class="static-form">XXXX</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">整件拣货：</span>
+                                <div class="static-form">xxx</div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">紧急补货：</span>
+                                <div class="static-form">
+                                    <ul class="list-inline">
+                                        <li>01区：XX个</li>
+                                        <li>02区：XX个</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">被动补货：</span>
+                                <div class="static-form">
+                                    <ul class="list-inline">
+                                        <li>01区：XX个</li>
+                                        <li>02区：XX个</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="input-group">
+                                <span class="input-group-addon">主动补货：</span>
+                                <div class="static-form">
+                                    <ul class="list-inline">
+                                        <li>01区：XX个</li>
+                                        <li>02区：XX个</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询结果</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="javascript:">任务索取</a>
+                    </li>
+                    <li>
+                        <a href="javascript:">任务确认</a>
+                    </li>
+                </ul>
+                <div class="nav-content">
+                    <div class="row active">
+                        <div class="table-box">
+                            <table id="info_table_1"></table>
+                        </div>
+                        <div id="grid_pager_1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="table-box">
+                            <table id="info_table_2"></table>
+                        </div>
+                        <div id="grid_pager_2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<div id="printTagModule" style="width: 800px;"></div>
+<!--打印模板,begin-->
+<!--
+<div class="panel panel-default">
+    <div class="panel-body">
+        <style>
+            .width100 {
+                width: 100%;
+            }
+
+            .weightFont700 {
+                font-weight: 700;
+            }
+
+            .fontSize18 {
+                font-size: 18px;
+            }
+
+            .fontSize16 {
+                font-size: 16px;
+            }
+
+            .textCenter {
+                text-align: center;
+            }
+        </style>
+        <table class="width100">
+            <tr>
+                <td></td>
+                <td class="textCenter">
+                    <span>XX补货</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="weightFont700 fontSize18">
+                    <span>【整件货位】</span><span>D01-19</span>
+                </td>
+                <td rowspan="4" class="weightFont700 textCenter">
+                    <img id="barcode" style="width: 165px; height: 100px;"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>【商品名称】</span><span>野生银花露（含糖型）</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="weightFont700 fontSize16">【数量】</span><span class="weightFont700 fontSize16">1件</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>【规格】</span><span>340ml*12瓶</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="weightFont700 fontSize16">
+                    <span>【批号】</span><span>180703</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <span>【生产厂家】</span><span>湖北食为天药业有限公司</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>【拣货人】</span><span>马超</span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <span>【打印时间】</span><span>2018-08-01 14:05:21</span>
+                </td>
+                <td class="weightFont700 fontSize16 textCenter">
+                    <span>【上架货位】</span><span>A01-010101</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+-->
+<!--打印模板,end-->
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/jQuery.print.js"></script>
+<script src="../../static/js/JsBarcode.all.min.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/replenishmentOperation/getTaskWhole.js"></script>
+</html>

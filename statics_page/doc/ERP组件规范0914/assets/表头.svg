@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="364px" height="33px" viewBox="0 0 364 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51 (57462) - http://www.bohemiancoding.com/sketch -->
+    <title>表头</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M0,5.99241177 C0,2.68289414 2.68181945,0 5.99558771,0 L107.004412,0 C110.315684,0 113,2.6781762 113,5.99241177 L113,32.0588235 L0,32.0588235 L0,5.99241177 Z" id="path-1"></path>
+        <text id="text-3" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" line-spacing="21">
+            <tspan x="15" y="22.0128676"></tspan>
+            <tspan x="15" y="43.0128676"></tspan>
+            <tspan x="15" y="64.0128676">销售订单列表</tspan>
+        </text>
+    </defs>
+    <g id="ERP规范和组件" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="界面规范" transform="translate(-294.000000, -406.000000)">
+            <g id="销售订单列表1" transform="translate(43.000000, 102.000000)">
+                <g id="下面列表" transform="translate(237.000000, 51.000000)">
+                    <g id="内容">
+                        <g id="表头" transform="translate(14.000000, 253.025735)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <path stroke="#E9E9E9" d="M0.5,31.5588235 L112.5,31.5588235 L112.5,5.99241177 C112.5,2.95606828 110.041293,0.5 107.004412,0.5 L5.99558771,0.5 C2.95879698,0.5 0.5,2.95820158 0.5,5.99241177 L0.5,31.5588235 Z"></path>
+                            <g id="销售订单列表">
+                                <use fill="#2DB7F5" fill-rule="evenodd" xlink:href="#text-3"></use>
+                                <use fill-opacity="0.05" fill="#000000" fill-rule="evenodd" xlink:href="#text-3"></use>
+                                <use fill="#2DB7F5" fill-opacity="1" xlink:href="#text-3"></use>
+                            </g>
+                            <text id="销售订单商品明细" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" line-spacing="21" fill="#666666">
+                                <tspan x="134" y="22.0128676">销售订单商品明细</tspan>
+                            </text>
+                            <path d="M110.5,31.5579044 L266.528843,31.5579044" id="Path-638" stroke="#E9E9E9"></path>
+                            <text id="单据核对" font-family="PingFangSC-Regular, PingFang SC" font-size="14" font-weight="normal" line-spacing="21" fill="#666666">
+                                <tspan x="286" y="22.0128676">单据核对</tspan>
+                            </text>
+                            <path d="M266.5,31.5579044 L363.5,31.5579044" id="Path-638-Copy" stroke="#E9E9E9"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>整件拣货单</title>
+    <style>
+        * {
+            font-family: SumSim;
+        }
+
+        body,html{
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        #box {
+            color: #000 !important;
+            box-sizing: border-box;
+        }
+
+        #box .content {
+            position: relative;
+            font-size: 14px;
+            padding: 25px;
+        }
+
+        #box .content .info_list {
+            padding-left: 0;
+        }
+
+        #box .content .info_list li i.val {
+            font-style: normal;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        #box .content .header {
+            width: 100%;
+            text-align: center;
+            font-size: 25px;
+        }
+
+        #box .content .top {
+            position: relative;
+        }
+
+        #box table {
+            border: 1px solid #000;
+            font-size: 12px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #box table thead tr th,
+        #box table tbody tr td{
+            border: 1px solid #000;
+            text-align: center;
+            padding: 4px 0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box" class="box" style="width: 1100px;">
+    <div class="content indent1">
+        <div class="header">
+            <div class="title">整件拣货单</div>
+        </div>
+        <div class="top">
+            <ul class="info_list">
+                <li style="text-align: center;" class="clearfix">
+                    <div style="display:inline-block; float: left;">批检任务号：<i class="val">RKDCGD1809067056</i></div>
+                    <div style="display:inline-block;">拣货员：<i class="val">采购区域经理01</i></div>
+                    <div style="display:inline-block; float: right;">打印时间：<i class="val">2018-09-26</i></div>
+                </li>
+            </ul>
+        </div>
+        <table>
+            <thead>
+            <th>显示货位</th>
+            <th>商品编号</th>
+            <th>配送方向</th>
+            <th>商品名称</th>
+            <th>规格</th>
+            <th>件包装数量</th>
+            <th>批号</th>
+            <th>数量</th>
+            </thead>
+            <tbody>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            <td>123</td>
+            </tbody>
+        </table>
+        <div style="page-break-after:always"></div>
+    </div>
+</div>
+
+</body>
+</html>

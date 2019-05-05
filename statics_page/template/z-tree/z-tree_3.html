@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>z-tree</title>
+    <link rel="stylesheet" href="../../static/module/ztree/css/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="../../static/module/ztree/js/jquery.ztree.exedit.js"></script>
+
+</head>
+<style>
+    /*新增按钮样式*/
+
+    .ztree li span.button.add {
+        margin-left: 2px;
+        margin-right: -1px;
+        background-position: -144px 0;
+        vertical-align: top;
+    }
+</style>
+
+<body>
+
+
+    <div id="tree" class="ztree"></div>
+    <button id="btn1">获取节点</button>
+    <button id="btn2">保存</button>
+
+</body>
+
+<script type="text/javascript">
+    var zTreeObj;
+    var zTreeNodes = [{
+        id: 0,
+        name: "全国",
+        open: true, //展开
+        // checked:true , //默认选中
+        // chkDisabled:true,//禁用
+        children: [{
+                id: 1,
+                name: "湖北",
+                children: [{
+                        id: 11,
+                        name: "武汉"
+                    },
+                    {
+                        id: 12,
+                        name: "宜昌"
+                    },
+                    {
+                        id: 13,
+                        name: "荆州"
+                    },
+                    {
+                        id: 14,
+                        name: "孝感"
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: "湖南",
+            },
+            {
+                id: 3,
+                name: "河南"
+            }
+        ]
+    }];
+    var setting = {
+        check: {
+            enable: true, //显示勾选框  默认不显示
+        },
+        callback: {
+            onClick: zTreeOnClick, //选中事件
+            beforeRemove: beforeRemove, //删除事件
+            beforeRename: beforeRename, //修改事件
+        },
+        view: {
+            // addDiyDom: addDiyDom  //设置按钮
+            expandSpeed: "",
+            addHoverDom: addHoverDom, //新增
+            removeHoverDom: removeHoverDom,
+            selectedMulti: false
+        },
+        data: {
+            simpleData: {
+                enable: true
+            }
+        },
+        edit: {
+            enable: true, //是否可编辑
+            drag: {
+                isCopy: false, //拖拽复制
+                isMove: false, //拖拽移动
+            },
+            showRenameBtn: true, //编辑按钮
+            showRemoveBtn: true, //删除按钮
+            removeTitle: "删除改节点", //删除按钮上的提示信息
+        }
+    };
+    $(document).ready(function () {
+        zTreeObj = $.fn.zTree.init($("#tree"), setting, zTreeNodes);
+    });
+
+    $('#btn1').click(function () {
+        //获取选中节点
+        var data1 = zTreeObj.getCheckedNodes(true);
+        console.log(data1);
+        //获取所有节点
+        var data = zTreeObj.getNodes();
+        console.log(data);
+    })
+
+
+    function beforeRemove(treeId, treeNode) {
+        var zTree = $.fn.zTree.getZTreeObj("tree");
+        zTree.selectNode(treeNode);
+        return confirm("确认删除 节点 -- " + treeNode.name + " 吗？");
+    }
+
+    function beforeRename(treeId, treeNode, newName) {
+        if (newName.length == 0) {
+            alert("节点名称不能为空!");
+            return false;
+        }
+        return true;
+    }
+
+
+    //选中事件
+    function zTreeOnClick(event, treeId, treeNode) {
+        console.log(event, treeId, treeNode);
+    };
+
+
+
+    //保存
+    $('#btn2').click(function (param) {
+        //获取全部节点
+        var data = zTreeObj.getNodes();
+        console.log(data);
+        if (data) {
+            /* $.ajax({
+                type: "method",
+                url: "url",
+                data: "data",
+                dataType: "dataType",
+                success: function (response) {
+                }
+            }); */
+        }
+    });
+
+
+
+    //编辑事件
+    function zTreeBeforeRename(treeId, treeNode, newName, isCancel) {
+        console.log(treeId, treeNode);
+        return newName.length > 0;
+    }
+
+
+
+    //设置按钮
+    //     function addDiyDom(treeId, treeNode) {
+    //         var aObj = $("#" + treeNode.tId + "_a");
+    //         if ($("#diyBtn_"+treeNode.id).length>0) return;
+    //         var editStr = "<span id='diyBtn_space_" +treeNode.id+ "' > </span>"
+    //             + "<button type='button' class='diyBtn1' id='diyBtn_" + treeNode.id
+    //             + "' title='"+treeNode.name+"' onfocus='this.blur();'>设置按钮</button>";
+    //         aObj.append(editStr);
+    //         var btn = $("#diyBtn_"+treeNode.id);
+    //         if (btn) btn.bind("click", function(){alert("diy Button for " + treeNode.name);});
+    //     };
+
+
+
+    //新增节点
+    var newCount = 1;
+
+    function addHoverDom(treeId, treeNode) {
+        var sObj = $("#" + treeNode.tId + "_span");
+        if (treeNode.editNameFlag || $("#addBtn_" + treeNode.tId).length > 0) return;
+        var addStr = "<span class='button add' id='addBtn_" + treeNode.tId +
+            "' title='add node' onfocus='this.blur();'></span>";
+        sObj.after(addStr);
+        var btn = $("#addBtn_" + treeNode.tId);
+        if (btn) btn.bind("click", function () {
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            zTree.addNodes(treeNode, {
+                id: (treeNode.id + newCount),
+                parentid: treeNode.id,
+                name: "new node" + (newCount++)
+            });
+            return false;
+        });
+    };
+
+    function removeHoverDom(treeId, treeNode) {
+        $("#addBtn_" + treeNode.tId).unbind().remove();
+    };
+</script>
+
+
+
+</html>

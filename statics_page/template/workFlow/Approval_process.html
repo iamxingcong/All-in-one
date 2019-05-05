@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="overview &amp; stats" />
+    <link rel="icon" type="image/x-icon" />
+    <title>审批流程</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/module/Process/css/process.css">
+</head>
+
+<body>
+    <div class="content content-ovf">
+        <div class="panel panel-default content-ovf">
+            <div class="panel-heading">
+                <h3 class="panel-title">审批流程</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="flow" style="max-width:1086px;height: 141px;position: relative">
+                        <!-- 流程图 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../static/module/Process/js/process-jquery.js"></script>
+<script src="../../static/js/moment.min.js"></script>
+<script>
+    $(function () {
+        // $.ajax(url, {
+        //     type: 'get',
+        //     dataType: 'json',
+        //     data: {
+        //         keywords: 'keyvalue'
+        //     }, //发送的数据
+        //     success: function (res) {
+        //         $('.flow').process(res);//res是用来渲染获取的数据
+        //     }
+        // })
+
+        //测试
+        $('.flow').process({
+            "node4": {
+                "Taskstatus": 1,
+                "linecount": 2,
+                "records": [{
+                        "handler": "武汉质管部长",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532601319000,
+                        "company": "",
+                        "detail": "",
+                        "userId": 12,
+                        "taskId": 341005,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管部长",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532609462000,
+                        "company": "",
+                        "detail": "OK",
+                        "userId": 12,
+                        "taskId": 341548,
+                        "status": 1
+                    }
+                ],
+                "name": "【分公司质管部长】审核",
+                "id": "productFirst4",
+                "iscompany": ""
+            },
+            "node5": {
+                "Taskstatus": 2,
+                "linecount": 1,
+                "records": [{
+                        "handler": null,
+                        "rejectTo": null,
+                        "handTime": null,
+                        "company": "",
+                        "detail": null,
+                        "userId": null,
+                        "taskId": 355008,
+                        "status": 2
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532603866000,
+                        "company": "",
+                        "detail": "",
+                        "userId": 19,
+                        "taskId": 341008,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst4",
+                        "handTime": 1532609408000,
+                        "company": "",
+                        "detail": "不通过",
+                        "userId": 19,
+                        "taskId": 341383,
+                        "status": 0
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532610078000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 341551,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532610765000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 352504,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532611488000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 341572,
+                        "status": 1
+                    }
+                ],
+                "name": "【分公司质管副总】审核",
+                "id": "productFirst5",
+                "iscompany": ""
+            },
+            "node2": {
+                "Taskstatus": 1,
+                "linecount": 3,
+                "records": [{
+                    "handler": "武汉商务助理",
+                    "rejectTo": "productFirst3",
+                    "handTime": 1532600983000,
+                    "company": "",
+                    "detail": "同意同意同意同意同意同意同意同意同意同意同意同意同意",
+                    "userId": 4,
+                    "taskId": 340694,
+                    "status": 1
+                }],
+                "name": "【采购总监】审核",
+                "id": "productFirst2",
+                "iscompany": ""
+            },
+            "node3": {
+                "Taskstatus": 1,
+                "linecount": 0,
+                "records": [{
+                    "handler": "武汉质管员_1",
+                    "rejectTo": "productFirst4",
+                    "handTime": 1532601115000,
+                    "company": "",
+                    "detail": "",
+                    "userId": 10,
+                    "taskId": 340988,
+                    "status": 1
+                }],
+                "name": "【分公司质管员】审核",
+                "id": "productFirst3",
+                "iscompany": ""
+            },
+            "node6": {
+                "Taskstatus": 4,
+                "linecount": 4,
+                "records": [{
+                        "handler": "总部资料员_1",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532604400000,
+                        "company": "",
+                        "detail": "不通过",
+                        "userId": 13,
+                        "taskId": 347504,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532610415000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 350003,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532610898000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 352507,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532611537000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 355003,
+                        "status": 0
+                    }
+                ],
+                "name": "【总部数据资料员】审核",
+                "id": "productFirst6",
+                "iscompany": ""
+            },
+            "node7": {
+                "Taskstatus": 3,
+                "linecount": 0,
+                "records": [{}],
+                "name": "【总部商品中心】审批",
+                "id": "productFirst7",
+                "iscompany": ""
+            },
+            "node1": {
+                "Taskstatus": 1,
+                "linecount": 0,
+                "records": [{
+                    "handler": "武汉采购员",
+                    "rejectTo": "productFirst2",
+                    "handTime": 1532592858000,
+                    "company": "",
+                    "detail": "提交审核",
+                    "userId": 9,
+                    "taskId": 340691,
+                    "status": 2
+                }],
+                "name": "【分公司采购员】提交",
+                "id": "productFirst1",
+                "iscompany": ""
+            },
+            "node8": {
+                "Taskstatus": 1,
+                "linecount": 2,
+                "records": [{
+                        "handler": "武汉质管部长",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532601319000,
+                        "company": "",
+                        "detail": "",
+                        "userId": 12,
+                        "taskId": 341005,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管部长",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532609462000,
+                        "company": "",
+                        "detail": "OK",
+                        "userId": 12,
+                        "taskId": 341548,
+                        "status": 1
+                    }
+                ],
+                "name": "【分公司质管部长】审核",
+                "id": "productFirst4",
+                "iscompany": ""
+            },
+            "node10": {
+                "Taskstatus": 2,
+                "linecount": 1,
+                "records": [{
+                        "handler": null,
+                        "rejectTo": null,
+                        "handTime": null,
+                        "company": "",
+                        "detail": null,
+                        "userId": null,
+                        "taskId": 355008,
+                        "status": 2
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532603866000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 341008,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst4",
+                        "handTime": 1532609408000,
+                        "company": "",
+                        "detail": "不通过",
+                        "userId": 19,
+                        "taskId": 341383,
+                        "status": 0
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532610078000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 341551,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532610765000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 352504,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532611488000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 341572,
+                        "status": 1
+                    }
+                ],
+                "name": "【分公司质管副总】审核",
+                "id": "productFirst5",
+                "iscompany": ""
+            },
+            "node12": {
+                "Taskstatus": 1,
+                "linecount": 3,
+                "records": [{
+                    "handler": "武汉商务助理",
+                    "rejectTo": "productFirst3",
+                    "handTime": 1532600983000,
+                    "company": "",
+                    "detail": "同意",
+                    "userId": 4,
+                    "taskId": 340694,
+                    "status": 1
+                }],
+                "name": "【采购总监】审核",
+                "id": "productFirst2",
+                "iscompany": ""
+            },
+            "node13": {
+                "Taskstatus": 1,
+                "linecount": 0,
+                "records": [{
+                    "handler": "武汉质管员_1",
+                    "rejectTo": "productFirst4",
+                    "handTime": 1532601115000,
+                    "company": "",
+                    "detail": "审核中",
+                    "userId": 10,
+                    "taskId": 340988,
+                    "status": 1
+                }],
+                "name": "【分公司质管员】审核",
+                "id": "productFirst3",
+                "iscompany": ""
+            },
+            "node11": {
+                "Taskstatus": 4,
+                "linecount": 4,
+                "records": [{
+                        "handler": "总部资料员_1",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532604400000,
+                        "company": "",
+                        "detail": "不通过",
+                        "userId": 13,
+                        "taskId": 347504,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532610415000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 350003,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532610898000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 352507,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532611537000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 355003,
+                        "status": 0
+                    }
+                ],
+                "name": "【总部数据资料员】审核",
+                "id": "productFirst6",
+                "iscompany": ""
+            },
+            "node9": {
+                "Taskstatus": 3,
+                "linecount": 0,
+                "records": [{}],
+                "name": "【总部商品中心】审批",
+                "id": "productFirst7",
+                "iscompany": ""
+            },
+            "node14": {
+                "Taskstatus": 1,
+                "linecount": 0,
+                "records": [{
+                    "handler": "武汉采购员",
+                    "rejectTo": "productFirst2",
+                    "handTime": 1532592858000,
+                    "company": "",
+                    "detail": "提交审核",
+                    "userId": 9,
+                    "taskId": 340691,
+                    "status": 2
+                }],
+                "name": "【分公司采购员】提交",
+                "id": "productFirst1",
+                "iscompany": ""
+            },
+            "node16": {
+                "Taskstatus": 1,
+                "linecount": 2,
+                "records": [{
+                        "handler": "武汉质管部长",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532601319000,
+                        "company": "",
+                        "detail": "",
+                        "userId": 12,
+                        "taskId": 341005,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管部长",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532609462000,
+                        "company": "",
+                        "detail": "OK",
+                        "userId": 12,
+                        "taskId": 341548,
+                        "status": 1
+                    }
+                ],
+                "name": "【分公司质管部长】审核",
+                "id": "productFirst4",
+                "iscompany": ""
+            },
+            "node15": {
+                "Taskstatus": 2,
+                "linecount": 1,
+                "records": [{
+                        "handler": null,
+                        "rejectTo": null,
+                        "handTime": null,
+                        "company": "",
+                        "detail": null,
+                        "userId": null,
+                        "taskId": 355008,
+                        "status": 2
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532603866000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 341008,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst4",
+                        "handTime": 1532609408000,
+                        "company": "",
+                        "detail": "不通过",
+                        "userId": 19,
+                        "taskId": 341383,
+                        "status": 0
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532610078000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 341551,
+                        "status": 1
+                    },
+                    {
+                        "handler": null,
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532610765000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 352504,
+                        "status": 1
+                    },
+                    {
+                        "handler": "武汉质管副总-张三",
+                        "rejectTo": "productFirst6",
+                        "handTime": 1532611488000,
+                        "company": "",
+                        "detail": "同意",
+                        "userId": 19,
+                        "taskId": 341572,
+                        "status": 1
+                    }
+                ],
+                "name": "【分公司质管副总】审核",
+                "id": "productFirst5",
+                "iscompany": ""
+            },
+            "node20": {
+                "Taskstatus": 1,
+                "linecount": 3,
+                "records": [{
+                    "handler": "武汉商务助理",
+                    "rejectTo": "productFirst3",
+                    "handTime": 1532600983000,
+                    "company": "",
+                    "detail": "同意",
+                    "userId": 4,
+                    "taskId": 340694,
+                    "status": 1
+                }],
+                "name": "【采购总监】审核",
+                "id": "productFirst2",
+                "iscompany": ""
+            },
+            "node17": {
+                "Taskstatus": 1,
+                "linecount": 0,
+                "records": [{
+                    "handler": "武汉质管员_1",
+                    "rejectTo": "productFirst4",
+                    "handTime": 1532601115000,
+                    "company": "",
+                    "detail": "审核中",
+                    "userId": 10,
+                    "taskId": 340988,
+                    "status": 1
+                }],
+                "name": "【分公司质管员】审核",
+                "id": "productFirst3",
+                "iscompany": ""
+            },
+            "node19": {
+                "Taskstatus": 4,
+                "linecount": 4,
+                "records": [{
+                        "handler": "总部资料员_1",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532604400000,
+                        "company": "",
+                        "detail": "不通过",
+                        "userId": 13,
+                        "taskId": 347504,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532610415000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 350003,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532610898000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 352507,
+                        "status": 0
+                    },
+                    {
+                        "handler": "管理员",
+                        "rejectTo": "productFirst5",
+                        "handTime": 1532611537000,
+                        "company": "",
+                        "detail": "信息不合法",
+                        "userId": 1,
+                        "taskId": 355003,
+                        "status": 0
+                    }
+                ],
+                "name": "【总部数据资料员】审核",
+                "id": "productFirst6",
+                "iscompany": ""
+            },
+            "node18": {
+                "Taskstatus": 3,
+                "linecount": 0,
+                "records": [{}],
+                "name": "【总部商品中心】审批",
+                "id": "productFirst7",
+                "iscompany": ""
+            },
+            "node21": {
+                "Taskstatus": 1,
+                "linecount": 0,
+                "records": [{
+                    "handler": "武汉采购员",
+                    "rejectTo": "productFirst2",
+                    "handTime": 1532592858000,
+                    "company": "",
+                    "detail": "提交审核",
+                    "userId": 9,
+                    "taskId": 340691,
+                    "status": 2
+                }],
+                "name": "【分公司采购员】提交",
+                "id": "productFirst1",
+                "iscompany": ""
+            }
+        })
+    })
+</script>
+
+</html>

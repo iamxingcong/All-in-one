@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>订单池补货和批次补货</title>
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <link rel="stylesheet" href="../../static/css/t_public.css">
+</head>
+<body>
+
+<div class="content">
+    <div class="table">
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询条件</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info">查询</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">单据编号</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">配送方向</span>
+                            <select class="form-control">
+                                <option value="0">请选择</option>
+                                <option value="1">请选择</option>
+                                <option value="2">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">业主名称</span>
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">订单类型</span>
+                            <select class="form-control">
+                                <option value="0">请选择</option>
+                                <option value="1">请选择</option>
+                                <option value="2">请选择</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">补货单数量</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">异常单据</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">指定批号货位</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">库存不足挂起</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">零货库未上架</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">整件未上架</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">单据数</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">品规数</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">折合件数</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">件数</span>
+                            <div class="static-form">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">查询结果</h3>
+                <div class="pull-right">
+                    <button class="btn btn-info" id="replenishment_btn">订单池补货</button>
+                </div>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="javascript:">正常出库</a>
+                    </li>
+                    <li>
+                        <a href="javascript:">其他业务</a>
+                    </li>
+                    <li>
+                        <a href="javascript:">波次下发</a>
+                    </li>
+                    <li>
+                        <a href="javascript:">提升优先级</a>
+                    </li>
+                </ul>
+                <div class="nav-content">
+                    <div class="row active">
+                        <div class="table-box">
+                            <table id="info_table_0"></table>
+                        </div>
+                        <div id="grid_pager_0"></div>
+                    </div>
+                    <div class="row">
+                        <div class="table-box">
+                            <table id="info_table_1">1</table>
+                        </div>
+                        <div id="grid_pager_1"></div>
+                    </div>
+                    <div class="row">
+                        <div class="table-box">
+                            <table id="info_table_2"></table>
+                        </div>
+                        <div id="grid_pager_2"></div>
+                    </div>
+                    <div class="row">
+                        <div class="table-box">
+                            <table id="info_table_3">3</table>
+                        </div>
+                        <div id="grid_pager_3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!--单据信息,begin-->
+<div id="info_tabe_2_dialog" style="display: none;">
+    <div class="content">
+        <div class="table">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="table-box">
+                            <table id="info_table_2_detail"></table>
+                        </div>
+                        <div id="grid_pager_2_detail"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--单据信息,end-->
+
+<!--补货商品查询,begin-->
+<div id="replenishment_data_dialog" style="display: none;">
+    <div class="content">
+        <div class="table">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">查询条件</h3>
+                    <div class="pull-right">
+                        <input type="button" class="btn btn-info" value="查询">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">库房编号：</span>
+                                    <select class="form-control">
+                                        <option value="0">请选择</option>
+                                        <option value="1">请选择</option>
+                                        <option value="2">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">区域编号：</span>
+                                    <select class="form-control">
+                                        <option value="0">请选择</option>
+                                        <option value="1">请选择</option>
+                                        <option value="2">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">ABC分类：</span>
+                                    <select class="form-control">
+                                        <option value="0">请选择</option>
+                                        <option value="1">请选择</option>
+                                        <option value="2">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">商品明细</h3>
+                    <div class="pull-right">
+                        <button class="btn btn-info" id="create_notice_btn">生成补货通知单</button>
+                        <button class="btn btn-info">导出</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-box">
+                        <table id="info_table_4"></table>
+                    </div>
+                    <div id="grid_pager_4"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--补货商品查询,end-->
+
+<!--补货通知单,begin-->
+<div id="notice_dialog" style="display: none;">
+    <div class="content">
+        <div class="table">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">查询条件</h3>
+                    <div class="pull-right">
+                        <input type="button" class="btn btn-info" value="查询">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">日期：</span>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="input-group">
+                                    <span class="input-group-addon">业主名称：</span>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">商品明细</h3>
+                    <div class="pull-right">
+                        <button class="btn btn-info">保存</button>
+                        <button class="btn btn-info">新增</button>
+                        <button class="btn btn-info">删除</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="table-box">
+                        <table id="info_table_5"></table>
+                    </div>
+                    <div id="grid_pager_5"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!--补货通知单,end-->
+
+
+</body>
+<script src="../../static/js/jquery-2.1.4.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+<script src="../../static/js/t_utils.js"></script>
+<script src="../../static/business/replenishmentOperation/replenishmentOrderBatch.js"></script>
+</html>

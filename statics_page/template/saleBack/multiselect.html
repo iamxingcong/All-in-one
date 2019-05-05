@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>多选插件demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../static/module/bootstrap/css/ui.jqgrid-bootstrap.css">
+    <link rel="stylesheet" href="../../static/module/artDialog/css/ui-dialog.css">
+    <link rel="stylesheet" href="../../static/module/bootstrap-select/css/bootstrap-select.css">
+    <link rel="stylesheet" href="../../static/css/public.css">
+    <style>
+        /*.bootstrap-select.form-control:not([class*="col-"]) {*/
+        /*max-width: 338px !important;*/
+        /*}*/
+        /*多选插件样式*/
+        /*.select-wrapper {*/
+            /*width: calc(100% - 125px) !important;*/
+            /*float: right;*/
+            /*display: block;*/
+        /*}*/
+    </style>
+</head>
+
+<body>
+
+<div class="content">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">查询条件</h3>
+            <div class="pull-right" role="group">
+                <button id="searchBtn" type="button" class="btn btn-info">查询</button>
+            </div>
+        </div>
+        <div class="panel-body">
+            <form id="myform">
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <div class="input-group-addon">移动类型</div>
+                            <div class="select-wrapper">
+                                <select type="text" name="" class="" value="101" id="selectpicker" multiple title="请选择">
+                                    <option value="101">采购入库</option>
+                                    <option value="103" selected>采购入库退货</option>
+                                    <option value="105" selected>采购退补价入库</option>
+                                    <option value="107">采购退补价出库</option>
+                                    <option value="101">采购入库</option>
+                                    <option value="103" selected>采购入库退货</option>
+                                    <option value="105" selected>采购退补价入库</option>
+                                    <option value="107">采购退补价出库</option>
+                                    <option value="101">采购入库</option>
+                                    <option value="103" selected>采购入库退货</option>
+                                    <option value="105" selected>采购退补价入库</option>
+                                    <option value="107">采购退补价出库</option>
+                                    <option value="101">采购入库</option>
+                                    <option value="103" selected>采购入库退货</option>
+                                    <option value="105" selected>采购退补价入库</option>
+                                    <option value="107">采购退补价出库</option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class=" col-md-4 ">
+                        详细参数请参考 <a href="https://developer.snapappointments.com/bootstrap-select/">bootstrap-select</a>
+                    </div>
+
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">列表</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-box">
+                <table id="X_Table">
+                </table>
+            </div>
+            <div id="grid-pager">
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<script src="../../static/module/jquery/3.3.1/jquery.min.js"></script>
+<script src="../../static/module/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../static/module/jquery-autocomplete/jquery.autocomplete.min.js"></script>
+<script src="../../static/module/My97DatePicker/WdatePicker.js"></script>
+<script src="../../static/module/bootstrap-select/js/bootstrap-select.min.js"></script>
+<script src="../../static/js/configUtils.js"></script>
+<script src="../../static/module/XGrid/XGrid2.0.js"></script>
+<script type="text/javascript" src="../../static/module/validate/jquery.validate.js"></script>
+<script type="text/javascript" src="../../static/module/validate/validate-methods.js"></script>
+<script type="text/javascript" src="../../static/module/validate/jquery.metadata.js"></script>
+<script type="text/javascript" src="../../static/module/validate/validToop.js"></script>
+<script src="../../static/module/artDialog/dist/dialog-plus-min.js"></script>
+
+<script>
+    $(function () {
+
+
+        // 使用多选插件要引入的文件
+        //bootstrap-select.css和bootstrap-select.min.js
+        //注意： bootstrap-select.min.js必须在bootstrap.min.js之后引入
+
+        //多选初始化
+        $('#selectpicker').selectpicker({
+            actionsBox: true,
+            selectAllText: '选择全部',
+            deselectAllText: '取消全选',
+            width: $('.select-wrapper').css('width')
+        })
+
+        //多选自适应
+        window.onresize = function () {
+            $('.bootstrap-select').css('width', $('.select-wrapper').css('width'));
+        }
+
+        //多选取值 var resultArray =  $('#selectpicker').val();
+
+        //回显
+        //首先赋值 $('#selectpicker').val(data);
+        //然后初始化插件 $('#selectpicker').selectpicker(options);
+
+        // 采购入库单列表
+        $('#X_Table').XGrid({
+            data: [{
+                id: "00004",
+                No: "P00002",
+                name: "武汉易佳欣大药房",
+                payNo: "XXSK20154512",
+                type: "预收",
+                state: '已审核',
+                date: '2018-05-21',
+                pay: "1000.00",
+                balance: '1000.00',
+                theBalance: '1000.00'
+            }, {
+                id: "00005",
+                No: "P00002",
+                name: "武汉易佳欣大药房",
+                payNo: "XXSK20154512",
+                type: "预收",
+                state: '已审核',
+                date: '2018-05-21',
+                pay: "1000.00",
+                balance: '1000.00',
+                theBalance: '1000.00'
+            }, {
+                id: "00006",
+                No: "P00002",
+                name: "武汉易佳欣大药房",
+                payNo: "XXSK20154512",
+                type: "预收",
+                state: '已审核',
+                date: '2018-05-21',
+                pay: "1000.00",
+                balance: '1000.00',
+                theBalance: '1000.00'
+            }],
+            // url: 'http://www.baidu.com',
+            colNames: ['入库单号', '采购订单号', '供应商', '移动类型', '制单人', '入库日期', '金额合计', '税额合计', '税率', '价税合计'],
+            colModel: [{
+                name: 'id'
+            }, {
+                name: 'No'
+            }, {
+                name: 'name'
+            }, {
+                name: 'payNo'
+            }, {
+                name: 'type'
+            }, {
+                name: 'state'
+            }, {
+                name: 'date'
+            }, {
+                name: 'pay'
+            }, {
+                name: 'balance'
+            }, {
+                name: 'theBalance'
+            }],
+
+            // rowNum: 10,
+            rownumbers: true, //是否展示序号
+            altRows: true, //设置为交替行表格,默认为false
+            // key: 'id',
+            multiselect: true,
+            ondblClickRow: function (e, c, a, b) {
+                console.log('双击行事件', e, c, a.id, b);
+                initTableDialog(a.id);
+                utils.dialog({
+                    title: '选择入库单明细行',
+                    content: $('#modal1'),
+                    okValue: '确定',
+                    ok: function () {
+
+                        var json = $('#X_Table1').XGrid('getSeleRow');
+                        console.log('json', json)
+                        $('#X_Table3').XGrid('addRowData', json);
+
+                    },
+                    cancelValue: '取消',
+                    cancel: function () {
+                    }
+                }).showModal();
+            },
+            onSelectRow: function (e, c, a, b) {
+                console.log('单机行事件', e, c, a, b);
+            },
+            // pager: '#grid-pager',
+        });
+
+
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+/* 首页开始 */
+body{
+    overflow-x: hidden;
+}
+p {
+    margin: 0;
+}
+
+.panel {
+    border: 0;
+    margin-bottom: 0;
+}
+.panel-body{
+    padding: 0 !important;
+}
+.row {
+    display: flex;
+    margin-left: 0;
+}
+
+.row div:nth-of-type(1) {
+    margin-right: 7px;
+}
+
+.agency,
+.abnormal,
+.entrance,
+.record {
+    min-width: 507.5px;
+    background: #fff;
+    border-radius: 4px;
+    float: left;
+    font-weight: bolder;
+    padding: 11px 14px;
+    overflow: hidden;
+    height: 100%;
+}
+
+h1 {
+    height: 21px;
+    line-height: 21px;
+    font-size: 14px;
+    color: #000;
+    font-weight: bolder;
+    margin: 0;
+}
+
+h1:before {
+    background: url(../images/bq.png) 0 0 no-repeat;
+    content: "";
+    display: block;
+    float: left;
+    width: 3px;
+    height: 13px;
+    background-size: 100%;
+    margin-right: 7px;
+    margin-top: 4px;
+    border-radius: 3px;
+}
+
+.agency small {
+    font-size: 12px;
+    color: #666666;
+    float: right;
+    margin-top: 8px;
+    cursor: pointer;
+}
+
+.agency small:after {
+    background: url(../images/jt.png) 0 0 no-repeat;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 9px;
+    float: right;
+    margin-top: 1px;
+    margin-left: 6px;
+}
+.row-content {
+    height: 195px;
+    overflow-y: auto;
+}
+.approved {
+    height: 74px;
+    background: #EEFAFF;
+    border-radius: 4px;
+    margin-right: 7px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.consulted {
+    height: 74px;
+    border-radius: 4px;
+    background: rgba(251, 155, 31, 0.10);
+    margin-left: 7px;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.order {
+    padding: 0;
+}
+
+.order ol {
+    padding-left: 15px;
+}
+.order ol li {
+    line-height: 26px;
+    font-size: 12px;
+    color: #333333;
+    font-weight: normal;
+}
+.order ol li a{
+    line-height: 26px;
+    font-size: 12px;
+    color: #333333;
+    font-weight: normal;
+    cursor: pointer;
+    text-decoration: none;
+}
+.abnormal .order ol li a{
+    color: #333333;
+    text-decoration: none;
+}
+.abnormal .order ol li a.active{
+    color: #3f3f3f;
+}
+
+.masterList,
+.orderList {
+    height: 170px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.07);
+    border-radius: 4px;
+    padding-left: 5px;
+}
+
+.purchaseList,
+.financeList {
+    height: 170px;
+    background: #FFFFFF;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.07);
+    border-radius: 4px;
+    padding-left: 5px;
+}
+.masterList ol li,
+.orderList ol li,
+.purchaseList ol li,
+.financeList ol li{
+	cursor:pointer;
+}
+.row .master,
+.row .order-list,
+.row .purchase,
+.row .finance {
+    height: 51px;
+    margin-bottom: 7px;
+    margin-right: 0;
+}
+
+.master>img,
+.master>p,
+.order-list>img,
+.order-list>p,
+.purchase>img,
+.purchase>p,
+.finance>img,
+.finance>p {
+    float: left;
+    line-height: 51px;
+    font-size: 14px;
+    color: #333333;
+}
+
+.master>p,
+.order-list>p,
+.purchase>p,
+.finance>p {
+    padding-left: 10px;
+}
+
+h2 {
+    font-size: 12px;
+    font-weight: 600;
+    color: #000;
+    line-height: 20px;
+    margin: 0;
+}
+
+h2:before {
+    content: "";
+    display: block;
+    float: left;
+    width: 8px;
+    height: 8px;
+    background: #2DB7F5;
+    border-radius: 50%;
+    margin: 5px 7px 0 -20px;
+}
+
+.record>.row {
+    padding-left: 17px;
+}
+
+.row-content1 {
+    height: 365px;
+    padding-left: 20px;
+    overflow-y: auto;
+}
+
+.row-content1 .recordList ol {
+    border-left: 1px solid #E3E3E3;
+    margin-left: -17px;
+    margin-bottom: 0;
+    padding-left: 28px;
+}
+
+.row-content1 .recordList ol li {
+    color: #2A2A2A;
+    line-height: 20px;
+}
+
+::-webkit-scrollbar {
+    /*滚动条整体样式*/
+    width: 8px;
+    /*高宽分别对应横竖滚动条的尺寸*/
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    background: #535353;
+}
+
+::-webkit-scrollbar-track {
+    /*滚动条里面轨道*/
+    -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #EDEDED;
+}
+
+/* 首页结束 */
