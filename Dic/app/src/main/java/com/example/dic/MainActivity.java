@@ -32,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
     private  String url ="https://shop.miido.com.cn/schoolDetaile/getAllSchoolInfo.action";
     private  JSONArray row;
     private  TextView word;
-    private String msg;
+    private  String msg;
+
 
 
     @Override
@@ -41,13 +42,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tips =   findViewById(R.id.tips);
         word = findViewById(R.id.word);
+        rdgp =  findViewById(R.id.radioGp);
         voll();
     }
 
-    public void iradio(){
-         rdgp =  findViewById(R.id.radioGp);
-         addview();
-    }
 
     public void voll(){
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -58,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
                         try{
                             JSONObject uobj = new JSONObject(response);
                             row = uobj.getJSONArray("datainfo");
-                            String msg = uobj.getString("message");
+                             msg = uobj.getString("message");
                             word.setText(msg);
-                            iradio();
+                            addV();
 
                             Toast.makeText(MainActivity.this,"okay",Toast.LENGTH_SHORT).show();
 
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //动态添加视图
-    public void addview(){
+    public void addV(){
         String title[] = new String[row.length()];
         for(int i = 0; i < row.length(); i++ ){
             try{
