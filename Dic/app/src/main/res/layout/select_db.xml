@@ -5,27 +5,17 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:padding="15dp"
     tools:context=".SelectDb">
-    <Button
-        android:id="@+id/query_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Query data" />
 
-    <TextView
-        android:id="@+id/aword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/homes"
-        android:paddingBottom="15dp"
-        android:textAlignment="center"
-        android:textSize="36sp" />
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="30dp"
         android:textAlignment="center"
-        android:text="select db" />
+        android:text="list" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -50,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="28dp"
-        android:textAlignment="center"
-        android:text="@string/tips" />
+        android:text="" />
+
+
 </LinearLayout>

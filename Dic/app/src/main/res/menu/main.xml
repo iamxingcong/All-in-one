@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="create_db"
+    <item android:title="@string/createdb"
         android:id="@+id/create_db"/>
-    <item android:title="insert_db"
+    <item android:title="@string/addate"
         android:id="@+id/insert_db"/>
-    <item android:title="select_db"
+    <item android:title="@string/select"
         android:id="@+id/select_db"/>
-    <item android:title="delete_db"
-        android:id="@+id/delete_db"/>
+    <item
+        android:id="@+id/delete_db"
+        android:title="@string/delete" />
 
 </menu>

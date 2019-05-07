@@ -3,24 +3,84 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".DeleteDb">
+
     <Button
         android:id="@+id/delete_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Delete data" />
-    <Button
-        android:id="@+id/check"
+        android:text="@string/delete"
+        android:layout_marginBottom="30dp" />
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="check data" />
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp" />
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="20dp"/>
+        <TextView
+            android:id="@+id/ras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/reminder"
+        android:textSize="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center"
-        android:text="delete DBS" />
+        android:textAlignment="center" />
+    <TextView
+        android:id="@+id/word"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center" />
+    <RadioGroup
+        android:id="@+id/radioGp"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal">
+
+            <RadioButton
+                android:id="@+id/awa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30px"/>
+
+            <RadioButton
+                android:id="@+id/awb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30px"/>
+
+            <RadioButton
+                android:id="@+id/awc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30px"/>
+            <RadioButton
+                android:id="@+id/awd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30px"/>
+
+
+
+    </RadioGroup>
+
+
+
+
 
 </LinearLayout>

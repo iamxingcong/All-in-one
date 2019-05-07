@@ -1,22 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".InsertDb">
-
+    android:padding="15dp"
+    android:orientation="vertical">
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/titleA"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="insert dbs" />
-
+        android:textSize="30dp"
+        android:text="建词库" />
     <Button
         android:id="@+id/add_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add data" />
+        android:background="@color/colorPrimary"
+        android:textColor="@color/white"
+        android:layout_marginBottom="18dp"
+        android:text="提交" />
+    <EditText
+        android:id="@+id/word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="单词" />
+    <EditText
+        android:id="@+id/awa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="A。解释" />
+    <EditText
+        android:id="@+id/awb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="B。解释" />
+    <EditText
+        android:id="@+id/awc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="C。解释" />
+    <EditText
+        android:id="@+id/awd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="D。解释" />
+
+    <RadioGroup
+        android:id="@+id/rDgp"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content">
+
+
+        <RadioButton
+            android:id="@+id/as"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="28dp"
+            android:text="A" />
+
+        <RadioButton
+            android:id="@+id/bs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="B" />
+
+        <RadioButton
+            android:id="@+id/cs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="28dp"
+            android:text="C" />
+
+        <RadioButton
+            android:id="@+id/ds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D" />
+    </RadioGroup>
+
 </LinearLayout>

@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         try{
                             JSONObject uobj = new JSONObject(response);
                             row = uobj.getJSONArray("datainfo");
-                             msg = uobj.getString("message");
+                            msg = uobj.getString("message");
                             word.setText(msg);
                             addV();
 

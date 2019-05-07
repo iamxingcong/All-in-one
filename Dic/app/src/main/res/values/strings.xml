@@ -5,4 +5,8 @@
     <string name="title_activity_main2">Main2Activity</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
+    <string name="createdb">建表</string>
+    <string name="addate">添加数据</string>
+    <string name="select">显示</string>
+    <string name="delete">删除</string>
 </resources>
