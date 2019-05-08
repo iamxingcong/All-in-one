@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".CreateDb">
 
     <TextView
@@ -12,20 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
-        android:text="create_db" />
+        android:layout_marginBottom="20dp"
+        android:text="创建数据库" />
 
     <Button
         android:id="@+id/create_database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Create database" />
-
-
-
-
-
-
-
+        android:textColor="@color/white"
+        android:background="@color/colorPrimary"
+        android:layout_marginBottom="20dp"
+        android:text="新建表" />
 
 
 </LinearLayout>

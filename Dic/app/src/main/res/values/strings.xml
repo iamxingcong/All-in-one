@@ -2,11 +2,13 @@
     <string name="app_name">Dic</string>
     <string name="homes">homes</string>
     <string name="tips">tips</string>
-    <string name="title_activity_main2">Main2Activity</string>
+
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="createdb">建表</string>
     <string name="addate">添加数据</string>
     <string name="select">显示</string>
     <string name="delete">删除</string>
+    <string name="test">测试</string>
+    <string name="review">复习</string>
 </resources>

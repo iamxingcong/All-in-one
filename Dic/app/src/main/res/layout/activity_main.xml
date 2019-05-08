@@ -1,49 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="15dp"
+    app:layout_scrollFlags="scroll"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/word"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/homes"
-        android:paddingBottom="15dp"
-        android:textAlignment="center"
-        android:textSize="36sp" />
+        android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:isScrollContainer="true"
-        android:scrollbarAlwaysDrawHorizontalTrack="true"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarStyle="outsideInset"
-        android:fadeScrollbars="false"
-        android:scrollbars="vertical">
-
-        <RadioGroup
-            android:id="@+id/radioGp"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal">
 
-        </RadioGroup>
-    </ScrollView>
+            <TextView
+                android:id="@+id/word"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/homes"
+                android:textAlignment="center" />
 
-    <TextView
-        android:id="@+id/tips"
+            <TextView
+                android:id="@+id/tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="@string/tips"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="28dp"
-        android:text="@string/tips" />
+        android:gravity="center_horizontal">
+
+    </RadioGroup>
 
 
 
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>
+
+

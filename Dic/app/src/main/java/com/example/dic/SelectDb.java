@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -19,7 +20,9 @@ public class SelectDb extends AppCompatActivity {
     private  RadioGroup rdgp;
     private  TextView tips;
     private ArrayList<String> title ;
-
+    private  ArrayList<String> pid ;
+    private  Integer deleteId;
+    private  Button deleteButton;
 
 
     @Override
@@ -30,27 +33,46 @@ public class SelectDb extends AppCompatActivity {
         rdgp = findViewById(R.id.aradioGp);
         dbHelper = new MyDatabaseHelper(this, "BookStore.db", null, 2);
 
+        sqt();
 
-        remo();
+        deleteButton = findViewById(R.id.delete_data);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if(deleteId != null){
 
 
+                String idx = Integer.toString(deleteId);
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                db.delete("WORD", "id  = ?", new String[]{idx});
+                tips.setText("");
+                remo();
+                }
+                deleteId = null;
+            }
+
+
+        });
 
     }
 
 
     public void remo(){
-        for (int i = 0; i < rdgp.getChildCount(); i++) {
-            RadioButton tv = (RadioButton) rdgp.getChildAt(i);
-            rdgp.removeView(tv);
+        if(rdgp.getChildCount() > 0 ){
+
+
+            for (int i = 0; i < rdgp.getChildCount(); i++) {
+                RadioButton tv = (RadioButton) rdgp.getChildAt(i);
+                rdgp.removeView(tv);
+            }
+
+            sqt();
         }
-
-
-        sqt();
     }
 
     public void sqt(){
 
         title = new ArrayList<> () ;
+        pid = new ArrayList<> () ;
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         // 查询Book表中所有的数据
         String lim ="190";
@@ -61,20 +83,21 @@ public class SelectDb extends AppCompatActivity {
 
                 // 遍历Cursor对象，取出数据并打印
                 String name = cursor.getString(cursor.getColumnIndex("word"));
-                String author = cursor.getString(cursor.getColumnIndex("awa"));
-                int pages = cursor.getInt(cursor.getColumnIndex("status"));
 
-                Log.d("MainActivity", "book name is " + name);
-                Log.d("MainActivity", "book author is " + author);
-                Log.d("MainActivity", "book pages is " + pages);
+                int pages = cursor.getInt(cursor.getColumnIndex("id"));
+                String ids = Integer.toString(pages);
 
                   title.add(name);
+                  pid.add(ids);
 
                 Log.d("MainActivity", "title " + title.size());
 
             } while (cursor.moveToNext());
 
             addview();
+        }else{
+            tips.setText("数据空");
+            deleteButton.setVisibility(View.GONE);
         }
 
         cursor.close();
@@ -93,7 +116,10 @@ public class SelectDb extends AppCompatActivity {
             RadioButton btn = new RadioButton(this);
             btn.setPadding(30, 38, 20, 38);
             btn.setButtonDrawable(new StateListDrawable());
-             btn.setText(title.get(i));
+
+            btn.setText(title.get(i)+"--"+Integer.parseInt(pid.get(i)));
+
+            btn.setId(Integer.parseInt(pid.get(i)));
             RadioGroup.LayoutParams layoutP = new RadioGroup.LayoutParams(
                     RadioGroup.LayoutParams.MATCH_PARENT, RadioGroup.LayoutParams.MATCH_PARENT);
             btn.setLayoutParams(layoutP);
@@ -104,16 +130,18 @@ public class SelectDb extends AppCompatActivity {
                 public void onClick(View v) {
                     RadioButton ts = (RadioButton) v;
                     String vs = ts.getText().toString();
+                    Integer ix = ts.getId();
+                    deleteId = ix;
+                    tips.setText(vs+ix);
 
-                    tips.setText("this is radioButton " + vs);
+
+
 
                     for (int i = 0; i < rdgp.getChildCount(); i++) {
                         RadioButton tv = (RadioButton) rdgp.getChildAt(i);
                         if (v == tv) {
                             tv.setTextColor(Color.WHITE);
                             tv.setBackgroundColor(Color.parseColor("#008577"));
-
-
                         } else {
                             tv.setTextColor(Color.BLACK);
                             tv.setBackgroundColor(Color.parseColor("#FFFFFF"));
@@ -126,4 +154,6 @@ public class SelectDb extends AppCompatActivity {
 
         }
     }
+
+
 }

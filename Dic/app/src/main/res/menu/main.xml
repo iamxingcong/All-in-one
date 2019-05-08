@@ -9,6 +9,8 @@
         android:id="@+id/select_db"/>
     <item
         android:id="@+id/delete_db"
-        android:title="@string/delete" />
-
+        android:title="@string/test" />
+    <item
+        android:id="@+id/review_db"
+        android:title="@string/review" />
 </menu>

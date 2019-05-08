@@ -41,14 +41,14 @@ public class InsertDb extends AppCompatActivity {
         Button addData =  findViewById(R.id.add_data);
         addData.setOnClickListener(new View.OnClickListener() {
 
-
+            int a = 1;
             public void onClick(View v) {
-
+                a++;
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 ContentValues values = new ContentValues();
 
 
-                values.put("word", word.getText().toString());
+                values.put("word", word.getText().toString()+a);
                 values.put("awa", awa.getText().toString());
                 values.put("awb", awb.getText().toString());
                 values.put("awc", awc.getText().toString());
@@ -73,12 +73,12 @@ public class InsertDb extends AppCompatActivity {
                 values.put("ras", rs);
 
                 db.insert("WORD", null, values);
-                values.clear();
-                word.setText("");
-                awa.setText("");
-                awb.setText("");
-                awc.setText("");
-                awd.setText("");
+//                values.clear();
+//                word.setText("");
+//                awa.setText("");
+//                awb.setText("");
+//                awc.setText("");
+//                awd.setText("");
 
 
             }

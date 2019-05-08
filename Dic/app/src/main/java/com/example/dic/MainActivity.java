@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                         RadioButton ts = (RadioButton)  v;
                         String vs = ts.getText().toString();
 
-                        tips.setText("this is radioButton " + vs);
+                        tips.setText(vs);
 
                         for (int i = 0; i < rdgp.getChildCount(); i++) {
                             RadioButton tv = (RadioButton) rdgp.getChildAt(i);
@@ -150,6 +150,11 @@ public class MainActivity extends AppCompatActivity {
                 Intent il = new Intent("android.intent.action.DELETEDB");
                 startActivity(il);
                 break;
+            case R.id.review_db:
+                Intent ir = new Intent("android.intent.action.REVIEWDB");
+                startActivity(ir);
+                break;
+
             default:
         }
         return true;

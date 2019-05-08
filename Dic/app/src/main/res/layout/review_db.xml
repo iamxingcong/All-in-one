@@ -3,44 +3,46 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="20dp"
-    tools:context=".DeleteDb">
-
+    tools:context=".ReviewDb">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+
         <TextView
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp" />
+
         <TextView
             android:id="@+id/ras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp" />
+
         <TextView
             android:id="@+id/reminder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"  />
+            android:layout_marginLeft="30dp" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/word"
-        android:textSize="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="30dp" />
+
     <RadioGroup
         android:id="@+id/radioGp"
 
@@ -48,35 +50,32 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal">
 
-            <RadioButton
-                android:id="@+id/awa"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30px"/>
+        <RadioButton
+            android:id="@+id/awa"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30px" />
 
-            <RadioButton
-                android:id="@+id/awb"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30px"/>
+        <RadioButton
+            android:id="@+id/awb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30px" />
 
-            <RadioButton
-                android:id="@+id/awc"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30px"/>
-            <RadioButton
-                android:id="@+id/awd"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="30px"/>
+        <RadioButton
+            android:id="@+id/awc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30px" />
 
+        <RadioButton
+            android:id="@+id/awd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30px" />
 
 
     </RadioGroup>
-
-
-
 
 
 </LinearLayout>

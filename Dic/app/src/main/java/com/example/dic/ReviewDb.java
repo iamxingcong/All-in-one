@@ -10,7 +10,9 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-public class DeleteDb extends AppCompatActivity {
+public class ReviewDb extends AppCompatActivity {
+
+
     private MyDatabaseHelper dbHelper;
     private RadioButton awa;
     private RadioButton awb;
@@ -23,13 +25,14 @@ public class DeleteDb extends AppCompatActivity {
     private RadioGroup radioGp;
     private String rightAs;
     private Integer primaryId;
-
     private TextView reminder;
     private String  aw;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.delete_db);
+        setContentView(R.layout.review_db);
         awa = findViewById(R.id.awa);
         awc = findViewById(R.id.awc);
         awb = findViewById(R.id.awb);
@@ -46,7 +49,6 @@ public class DeleteDb extends AppCompatActivity {
         answers();
 
 
-
         radioGp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
 
             @Override
@@ -57,7 +59,7 @@ public class DeleteDb extends AppCompatActivity {
 
                 switch (ie) {
                     case 0:
-                       aw = "A";
+                        aw = "A";
                         break;
                     case 1:
                         aw = "B";
@@ -85,7 +87,7 @@ public class DeleteDb extends AppCompatActivity {
     public void update(){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("status", 1);
+        values.put("status", -1);
         String opis = primaryId.toString();
         db.update("WORD", values, "id = ?", new String[] { opis});
         answers();
@@ -93,7 +95,7 @@ public class DeleteDb extends AppCompatActivity {
     public void pdate(){
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("status", -1);
+        values.put("status", -2);
         String opi = primaryId.toString();
         db.update("WORD", values, "id = ?",new String[] { opi});
         answers();
@@ -105,7 +107,7 @@ public class DeleteDb extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         // 查询Book表中所有的数据
         Integer a = 0;
-        Cursor cursor = db.query("WORD", null, "status <= ?", new String[]{a.toString()} , null, null,  null,"1");
+        Cursor cursor = db.query("WORD", null, "status >  ?", new String[]{a.toString()} , null, null,  null,"1");
         if (cursor.moveToFirst()) {
             do {
                 // 遍历Cursor对象，取出数据并打印
@@ -140,6 +142,12 @@ public class DeleteDb extends AppCompatActivity {
         cursor.close();
         rightAs = ras.getText().toString();
     }
+
+
+
+
+
+
 
 
 

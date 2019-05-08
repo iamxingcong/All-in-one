@@ -11,27 +11,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ReviewDb">
+            <intent-filter>
+                <action android:name="android.intent.action.REVIEWDB" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".DeleteDb">
             <intent-filter>
                 <action android:name="android.intent.action.DELETEDB" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".SelectDb">
             <intent-filter>
                 <action android:name="android.intent.action.SELECTDB" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".InsertDb">
             <intent-filter>
                 <action android:name="android.intent.action.INSERTDB" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity android:name=".CreateDb">
             <intent-filter>
                 <action android:name="android.intent.action.CREATEDB" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
