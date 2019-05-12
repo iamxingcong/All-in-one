@@ -1,20 +1,14 @@
 ﻿
 <?php
 
-$con = mysql_connect("localhost","root","");
-if (!$con) {
-  die('Could not connect: ' . mysql_error());
- }
-
- mysql_set_charset("utf8mb4");
+require_once 'conn.php';
 // if (mysql_query("CREATE DATABASE zheermao",$con))  {
 //   	echo "Database created";
 //   } else {
 //   	echo "Error creating database: " . mysql_error();
 //   }
 
-mysql_select_db("zheermao", $con);
-
+ 
 $sql = "CREATE TABLE client
 (
 	clientID int NOT NULL AUTO_INCREMENT, 
@@ -26,15 +20,16 @@ $sql = "CREATE TABLE client
 	price decimal(8,2),
 	quantity int(9),
 	cost decimal(8,2),
-	coupon text,
+	coupon int,
+	couponStatus boolean,
 	dealDate timestamp,
 	dealTime timestamp
 )
 default charset=utf8mb4";
 
-mysql_query($sql,$con);
+mysqli_query($con,$sql);
  
-mysql_close($con);
+mysqli_close($con);
 
 
 ?>

@@ -1,11 +1,8 @@
 
 <?php
-error_reporting(E_ALL);
+require_once 'conn.php';
 
-$link = mysqli_connect("localhost","root","","zheermao");
-mysqli_query($link,'SET NAMES utf8mb4');
-
-if (!$link) {
+if (!$con) {
     die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
 }
 
@@ -13,7 +10,7 @@ if (!$link) {
  
 $arr = array();
 
-$query = mysqli_query($link," select *  from  client");
+$query = mysqli_query($con," select *  from  client");
 while( $row =  mysqli_fetch_array($query,MYSQLI_ASSOC)){
 	 
  	array_push( $arr, $row);
@@ -21,6 +18,6 @@ while( $row =  mysqli_fetch_array($query,MYSQLI_ASSOC)){
 };
 
 echo json_encode($arr, JSON_UNESCAPED_UNICODE);
-mysqli_close($link);
+mysqli_close($con);
 
 ?>

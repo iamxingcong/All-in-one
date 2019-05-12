@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ALL);
 
-$con = mysqli_connect("localhost","root","","zheermao");
+require_once 'conn.php';
 mysqli_query($con,'SET NAMES utf8mb4');
 
 
@@ -23,8 +23,8 @@ $sql = "INSERT INTO client (numbers,company,field,product,price,quantity,cost,co
 if(!mysqli_query($con,$sql)){
 	  die('Error: ' . mysql_error());
 };
-echo 'success';
 
+ echo 'success';
 
 mysqli_close($con);
 
