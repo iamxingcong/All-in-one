@@ -13,4 +13,6 @@ function generate_password(){
 	
 } 
  
-echo  generate_password();
+
+ $str = "Shanghai";
+echo md5($str);

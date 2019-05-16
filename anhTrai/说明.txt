@@ -1,0 +1,52 @@
+anTrai 文件夹，请上传到php 环境的目录下。：
+
+interface 为接口文件。目录最好保持不变。
+
+interface/conn.php 为数据库连接文件。
+
+zheermao.sql 为数据库文件，请导入到数据库。
+
+
+
+登录文件为 index.php
+用户名:  
+xingcong，xingrui，wanghaitao
+密码分别为 xc123456, xr123456,wht123456;
+
+
+添加用户页面为： http://localhost/anhTrai/add_users.php；
+
+
+
+
+
+易通行请求客户接口
+请求方法详见：
+http://localhost/anhTrai/yiTongXingClient.html
+
+http://localhost/anhTrai/interface/yiTongXingClient.php；
+
+ data:{'username':"xingcong",'password':"5937ffad5ecd5f6dd9a83b83895e480f","res":res }
+
+请求参数：
+
+username: xingcong
+password: 5937ffad5ecd5f6dd9a83b83895e480f
+res: 1d97483fbcf69c14e6ca94f2b8352552
+timestamp: 1558027516000
+
+
+username, 用户名
+password: md5 加密
+res: （ username + password进行md5加密） md5加密
+
+易通行请求券码接口  http://localhost/anhTrai/interface/yiTongXingCoupon.php；
+
+请求方法详见：http://localhost/anhTrai/yiTongXingCoupon.html
+
+请求参数
+username: xingcong
+password: 5937ffad5ecd5f6dd9a83b83895e480f
+res: a240e7d4149e29e8c1d632708ab905e8
+timestamp: 1558029031000
+clientId: 1

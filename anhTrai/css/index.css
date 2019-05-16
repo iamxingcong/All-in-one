@@ -138,3 +138,9 @@ container, #show, .single{
     color: #3385ff;
     font-weight: 900;
 }
+#show .namelist{
+    display: block; 
+    float: left;
+    margin-right: 35px;
+    line-height: 35px;
+}
